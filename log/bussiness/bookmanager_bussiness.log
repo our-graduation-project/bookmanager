@@ -1,0 +1,14 @@
+2019-12-10 09:19:55.969 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 09:22:56.185 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 09:32:32.588 - INFO  [nio-8080-exec-4] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 10:16:43.778 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 10:21:56.150 - INFO  [nio-8080-exec-2] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 10:33:31.416 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 10:41:43.301 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 11:10:58.112 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 11:12:17.835 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 11:13:10.800 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 11:17:28.151 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 11:19:26.807 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 11:21:06.265 - INFO  [nio-8080-exec-2] c.h.b.c.TestControl            : getBussinessLogger===日志测试
+2019-12-10 11:21:45.612 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getBussinessLogger===日志测试

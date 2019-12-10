@@ -1,0 +1,586 @@
+2019-12-10 00:00:17.590 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 15960 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 00:00:17.647 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 00:00:17.697 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 00:00:17.698 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 00:00:19.013 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 00:00:19.406 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 00:00:19.417 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 00:00:19.418 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 00:00:19.419 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 00:00:19.562 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 00:00:19.563 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1865 ms
+2019-12-10 00:00:19.985 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 00:00:20.159 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 00:00:21.162 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 00:00:21.279 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 00:00:21.437 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 00:00:22.211 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 00:00:22.222 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 00:00:22.512 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 00:00:22.567 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 00:00:22.572 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 5.77 seconds (JVM running for 11.16)
+2019-12-10 00:00:22.883 - INFO  [nio-8080-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 00:00:22.884 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 00:00:22.893 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 9 ms
+2019-12-10 00:06:27.816 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 18156 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 00:06:27.824 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 00:06:27.866 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 00:06:27.867 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 00:06:29.041 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 00:06:29.421 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 00:06:29.434 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 00:06:29.436 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 00:06:29.437 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 00:06:29.582 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 00:06:29.583 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1715 ms
+2019-12-10 00:06:29.818 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 00:06:29.965 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 00:06:30.765 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 00:06:30.842 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 00:06:30.916 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 00:06:31.145 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 00:06:31.150 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 00:06:31.221 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 00:06:31.260 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 00:06:31.264 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 3.864 seconds (JVM running for 7.273)
+2019-12-10 00:06:33.083 - INFO  [3)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 00:06:33.083 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 00:06:33.092 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 9 ms
+2019-12-10 09:06:43.640 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 12132 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 09:06:43.650 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 09:06:43.758 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 09:06:43.759 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 09:06:45.968 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 09:06:47.377 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 09:06:47.679 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:06:47.697 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 09:06:47.698 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 09:06:48.240 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 09:06:48.240 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4481 ms
+2019-12-10 09:06:48.720 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 09:06:49.083 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 09:06:55.931 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 09:06:56.846 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 09:06:57.630 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 09:07:00.975 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 09:07:00.995 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 09:07:01.153 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:07:01.360 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 09:07:01.371 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 19.248 seconds (JVM running for 27.431)
+2019-12-10 09:07:03.075 - INFO  [5)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 09:07:03.075 - INFO  [5)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 09:07:03.088 - INFO  [5)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 12 ms
+2019-12-10 09:12:28.528 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 12564 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 09:12:28.540 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 09:12:28.605 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 09:12:28.606 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 09:12:30.311 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 09:12:30.661 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 09:12:30.671 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:12:30.672 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 09:12:30.673 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 09:12:30.796 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 09:12:30.796 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2189 ms
+2019-12-10 09:12:31.070 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 09:12:31.229 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 09:12:32.669 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 09:12:32.922 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 09:12:33.072 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 09:12:33.457 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 09:12:33.469 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 09:12:33.591 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:12:33.623 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 09:12:33.626 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 5.795 seconds (JVM running for 12.088)
+2019-12-10 09:12:34.517 - INFO  [5)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 09:12:34.518 - INFO  [5)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 09:12:34.528 - INFO  [5)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 10 ms
+2019-12-10 09:15:57.223 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 6704 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 09:15:57.237 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 09:15:57.312 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 09:15:57.313 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 09:15:58.793 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 09:15:59.102 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 09:15:59.111 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:15:59.113 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 09:15:59.113 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 09:15:59.228 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 09:15:59.229 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1916 ms
+2019-12-10 09:15:59.521 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 09:15:59.719 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 09:16:00.429 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 09:16:00.519 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 09:16:00.597 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 09:16:00.798 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 09:16:00.804 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 09:16:00.882 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:16:00.910 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 09:16:00.914 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 5.091 seconds (JVM running for 9.302)
+2019-12-10 09:16:01.733 - INFO  [3)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 09:16:01.734 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 09:16:01.743 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 9 ms
+2019-12-10 09:19:40.965 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 2124 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 09:19:40.973 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 09:19:41.009 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 09:19:41.010 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 09:19:42.062 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 09:19:42.362 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 09:19:42.370 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:19:42.371 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 09:19:42.372 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 09:19:42.481 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 09:19:42.481 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1471 ms
+2019-12-10 09:19:42.705 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 09:19:42.845 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 09:19:43.511 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 09:19:43.570 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 09:19:43.626 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 09:19:43.824 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 09:19:43.831 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 09:19:43.876 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:19:43.896 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 09:19:43.899 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 3.368 seconds (JVM running for 6.639)
+2019-12-10 09:19:45.072 - INFO  [2)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 09:19:45.073 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 09:19:45.095 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 21 ms
+2019-12-10 09:22:43.050 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 2164 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 09:22:43.058 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 09:22:43.097 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 09:22:43.097 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 09:22:44.246 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 09:22:44.555 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 09:22:44.563 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:22:44.564 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 09:22:44.565 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 09:22:44.674 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 09:22:44.674 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1576 ms
+2019-12-10 09:22:44.888 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 09:22:45.037 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 09:22:45.619 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 09:22:45.676 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 09:22:45.728 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 09:22:45.937 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 09:22:45.943 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 09:22:46.000 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:22:46.038 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 09:22:46.041 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 3.378 seconds (JVM running for 6.688)
+2019-12-10 09:22:47.799 - INFO  [2)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 09:22:47.799 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 09:22:47.810 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 11 ms
+2019-12-10 09:54:46.226 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 11520 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 09:54:46.236 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 09:54:46.276 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 09:54:46.276 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 09:54:47.564 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 09:54:48.279 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 09:54:48.287 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:54:48.288 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 09:54:48.288 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 09:54:48.399 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 09:54:48.400 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2124 ms
+2019-12-10 09:54:48.587 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 09:54:48.799 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 09:54:50.017 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 09:54:50.093 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 09:54:50.188 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 09:54:50.537 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 09:54:50.542 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 09:54:50.594 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 09:54:50.625 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 09:54:50.628 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.799 seconds (JVM running for 8.072)
+2019-12-10 09:54:51.961 - INFO  [2)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 09:54:51.962 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 09:54:51.972 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 10 ms
+2019-12-10 09:55:08.350 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 10:00:58.531 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 11052 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 10:00:58.539 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 10:00:58.574 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 10:00:58.575 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 10:00:59.633 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 10:01:00.170 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 10:01:00.179 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:01:00.182 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 10:01:00.184 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 10:01:00.323 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 10:01:00.323 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1748 ms
+2019-12-10 10:01:00.537 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 10:01:00.760 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 10:01:01.733 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 10:01:01.806 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 10:01:01.874 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 10:01:02.195 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 10:01:02.201 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 10:01:02.259 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:01:02.279 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 10:01:02.283 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.127 seconds (JVM running for 7.81)
+2019-12-10 10:01:04.057 - INFO  [3)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 10:01:04.057 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 10:01:04.067 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 10 ms
+2019-12-10 10:01:10.755 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 10:03:54.238 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 8676 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 10:03:54.246 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 10:03:54.285 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 10:03:54.285 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 10:03:55.355 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 10:03:55.902 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 10:03:55.911 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:03:55.912 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 10:03:55.912 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 10:03:56.020 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 10:03:56.020 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1735 ms
+2019-12-10 10:03:56.202 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 10:03:56.409 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 10:03:57.182 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 10:03:57.254 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 10:03:57.318 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 10:03:57.626 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 10:03:57.632 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 10:03:57.683 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:03:57.702 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 10:03:57.705 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 3.874 seconds (JVM running for 7.788)
+2019-12-10 10:03:58.948 - INFO  [3)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 10:03:58.948 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 10:03:58.976 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 28 ms
+2019-12-10 10:04:14.946 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 10:10:26.464 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 10268 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 10:10:26.472 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 10:10:26.509 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 10:10:26.509 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 10:10:27.807 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 10:10:28.438 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 10:10:28.494 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:10:28.495 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 10:10:28.498 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 10:10:28.660 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 10:10:28.660 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2151 ms
+2019-12-10 10:10:28.841 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 10:10:29.052 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 10:10:29.864 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 10:10:29.938 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 10:10:30.034 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 10:10:30.352 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 10:10:30.357 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 10:10:30.409 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:10:30.428 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 10:10:30.431 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.349 seconds (JVM running for 7.761)
+2019-12-10 10:10:32.059 - INFO  [2)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 10:10:32.059 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 10:10:32.101 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 42 ms
+2019-12-10 10:10:39.335 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 10:11:15.861 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 12576 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 10:11:15.871 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 10:11:15.910 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 10:11:15.910 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 10:11:16.954 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 10:11:17.507 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 10:11:17.515 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:11:17.516 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 10:11:17.516 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 10:11:17.624 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 10:11:17.625 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1715 ms
+2019-12-10 10:11:17.807 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 10:11:18.016 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 10:11:18.805 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 10:11:18.878 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 10:11:18.945 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 10:11:19.262 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 10:11:19.267 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 10:11:19.321 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:11:19.340 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 10:11:19.342 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 3.917 seconds (JVM running for 7.352)
+2019-12-10 10:11:21.088 - INFO  [2)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 10:11:21.089 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 10:11:21.112 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 23 ms
+2019-12-10 10:15:27.954 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 7856 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 10:15:27.963 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 10:15:27.998 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 10:15:27.999 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 10:15:29.161 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 10:15:29.700 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 10:15:29.709 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:15:29.710 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 10:15:29.710 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 10:15:29.817 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 10:15:29.817 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1818 ms
+2019-12-10 10:15:30.025 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 10:15:30.232 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 10:15:31.064 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 10:15:31.139 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 10:15:31.208 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 10:15:31.526 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 10:15:31.532 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 10:15:31.581 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:15:31.601 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 10:15:31.603 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.049 seconds (JVM running for 7.386)
+2019-12-10 10:15:33.379 - INFO  [3)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 10:15:33.380 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 10:15:33.392 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 12 ms
+2019-12-10 10:15:46.314 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 10:16:35.739 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 3812 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 10:16:35.746 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 10:16:35.781 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 10:16:35.782 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 10:16:36.844 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 10:16:37.408 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 10:16:37.416 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:16:37.417 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 10:16:37.418 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 10:16:37.526 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 10:16:37.526 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1744 ms
+2019-12-10 10:16:37.710 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 10:16:37.919 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 10:16:38.828 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 10:16:38.899 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 10:16:38.964 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 10:16:39.288 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 10:16:39.295 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 10:16:39.367 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:16:39.394 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 10:16:39.396 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.086 seconds (JVM running for 7.405)
+2019-12-10 10:16:40.349 - INFO  [2)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 10:16:40.350 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 10:16:40.369 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 17 ms
+2019-12-10 10:16:43.782 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 10:21:39.047 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 3536 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 10:21:39.055 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 10:21:39.093 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 10:21:39.093 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 10:21:40.286 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 10:21:40.832 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 10:21:40.840 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:21:40.841 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 10:21:40.841 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 10:21:40.957 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 10:21:40.957 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1864 ms
+2019-12-10 10:21:41.146 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 10:21:41.397 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 10:21:42.247 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 10:21:42.327 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 10:21:42.398 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 10:21:42.754 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 10:21:42.761 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 10:21:42.817 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:21:42.837 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 10:21:42.839 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.182 seconds (JVM running for 7.692)
+2019-12-10 10:21:44.107 - INFO  [3)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 10:21:44.107 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 10:21:44.119 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 12 ms
+2019-12-10 10:21:56.150 - INFO  [nio-8080-exec-2] c.h.b.c.TestControl            : getControllerLogger===日志测试
+2019-12-10 10:21:56.153 - INFO  [nio-8080-exec-2] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 10:33:11.748 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 17924 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 10:33:11.756 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 10:33:11.794 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 10:33:11.795 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 10:33:13.199 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 10:33:13.835 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 10:33:13.846 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:33:13.847 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 10:33:13.847 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 10:33:13.954 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 10:33:13.955 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2160 ms
+2019-12-10 10:33:14.147 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 10:33:14.395 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 10:33:15.374 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 10:33:15.460 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 10:33:15.531 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 10:33:15.891 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 10:33:15.898 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 10:33:15.964 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:33:15.987 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 10:33:15.991 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.783 seconds (JVM running for 10.681)
+2019-12-10 10:33:17.094 - INFO  [2)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 10:33:17.094 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 10:33:17.105 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 11 ms
+2019-12-10 10:33:31.417 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getControllerLogger===日志测试
+2019-12-10 10:33:31.419 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 10:41:33.892 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 924 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 10:41:33.903 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 10:41:33.960 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 10:41:33.961 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 10:41:35.181 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 10:41:35.719 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 10:41:35.729 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:41:35.730 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 10:41:35.730 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 10:41:35.835 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 10:41:35.836 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1875 ms
+2019-12-10 10:41:36.041 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 10:41:36.331 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 10:41:37.209 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 10:41:37.300 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 10:41:37.388 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 10:41:37.763 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 10:41:37.769 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 10:41:37.829 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 10:41:37.852 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 10:41:37.855 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.391 seconds (JVM running for 9.211)
+2019-12-10 10:41:39.599 - INFO  [2)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 10:41:39.600 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 10:41:39.622 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 22 ms
+2019-12-10 11:10:48.672 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 9312 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 11:10:48.680 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 11:10:48.715 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 11:10:48.715 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 11:10:49.828 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 11:10:50.362 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 11:10:50.373 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:10:50.374 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 11:10:50.374 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 11:10:50.482 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 11:10:50.482 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1766 ms
+2019-12-10 11:10:50.696 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 11:10:50.989 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 11:10:51.824 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 11:10:51.906 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 11:10:51.976 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 11:10:52.419 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 11:10:52.427 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 11:10:52.493 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:10:52.516 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 11:10:52.518 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.238 seconds (JVM running for 7.783)
+2019-12-10 11:10:53.729 - INFO  [1)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 11:10:53.729 - INFO  [1)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 11:10:53.747 - INFO  [1)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 16 ms
+2019-12-10 11:12:05.974 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 20428 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 11:12:05.981 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 11:12:06.018 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 11:12:06.018 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 11:12:07.192 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 11:12:07.625 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 11:12:07.634 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:12:07.635 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 11:12:07.635 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 11:12:07.815 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 11:12:07.815 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1797 ms
+2019-12-10 11:12:08.009 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 11:12:08.247 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 11:12:09.090 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 11:12:09.178 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 11:12:09.253 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 11:12:09.679 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 11:12:09.686 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 11:12:09.742 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:12:09.763 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 11:12:09.766 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.178 seconds (JVM running for 7.479)
+2019-12-10 11:12:11.106 - INFO  [3)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 11:12:11.107 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 11:12:11.125 - INFO  [3)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 16 ms
+2019-12-10 11:13:01.643 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 5004 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 11:13:01.651 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 11:13:01.688 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 11:13:01.689 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 11:13:02.736 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 11:13:03.237 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 11:13:03.247 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:13:03.247 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 11:13:03.248 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 11:13:03.359 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 11:13:03.359 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1670 ms
+2019-12-10 11:13:03.549 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 11:13:03.800 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 11:13:04.641 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 11:13:04.717 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 11:13:04.786 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 11:13:05.184 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 11:13:05.191 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 11:13:05.247 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:13:05.267 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 11:13:05.270 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.055 seconds (JVM running for 7.973)
+2019-12-10 11:13:06.211 - INFO  [1)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 11:13:06.212 - INFO  [1)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 11:13:06.227 - INFO  [1)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 15 ms
+2019-12-10 11:17:08.367 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 13968 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 11:17:08.375 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 11:17:08.414 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 11:17:08.414 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 11:17:09.635 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 11:17:10.210 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 11:17:10.220 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:17:10.220 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 11:17:10.221 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 11:17:10.332 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 11:17:10.332 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1917 ms
+2019-12-10 11:17:10.528 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 11:17:10.840 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 11:17:11.848 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 11:17:11.926 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 11:17:12.006 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 11:17:12.438 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 11:17:12.445 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 11:17:12.500 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:17:12.521 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 11:17:12.523 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.548 seconds (JVM running for 8.062)
+2019-12-10 11:17:13.878 - INFO  [1)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 11:17:13.879 - INFO  [1)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 11:17:13.895 - INFO  [1)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 16 ms
+2019-12-10 11:19:19.465 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 12404 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 11:19:19.478 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 11:19:19.523 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 11:19:19.523 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 11:19:20.642 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 11:19:21.224 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 11:19:21.233 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:19:21.234 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 11:19:21.234 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 11:19:21.345 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 11:19:21.345 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1821 ms
+2019-12-10 11:19:21.548 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 11:19:21.824 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 11:19:22.688 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 11:19:22.765 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 11:19:22.837 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 11:19:23.234 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 11:19:23.239 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 11:19:23.295 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:19:23.315 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 11:19:23.318 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.255 seconds (JVM running for 7.947)
+2019-12-10 11:19:23.599 - INFO  [1)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 11:19:23.599 - INFO  [1)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 11:19:23.618 - INFO  [1)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 17 ms
+2019-12-10 11:20:51.758 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 14432 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 11:20:51.766 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 11:20:51.815 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 11:20:51.815 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 11:20:53.092 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 11:20:53.630 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 11:20:53.638 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:20:53.639 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 11:20:53.640 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 11:20:53.757 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 11:20:53.757 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1941 ms
+2019-12-10 11:20:54.055 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 11:20:54.316 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 11:20:55.877 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 11:20:55.957 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 11:20:56.035 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 11:20:56.533 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 11:20:56.538 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 11:20:56.593 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:20:56.614 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 11:20:56.617 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 5.252 seconds (JVM running for 9.408)
+2019-12-10 11:20:57.889 - INFO  [1)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 11:20:57.890 - INFO  [1)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 11:20:57.909 - INFO  [1)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 18 ms
+2019-12-10 11:21:34.266 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Starting BookManagerApplication on computer with PID 1480 (started by lenovo in F:\ideaworkSpace\毕业设计\book-manager)
+2019-12-10 11:21:34.275 - INFO  [  restartedMain] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2019-12-10 11:21:34.311 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-10 11:21:34.311 - INFO  [  restartedMain] o.s.b.l.DeferredLog            : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-10 11:21:35.385 - INFO  [  restartedMain] egate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-10 11:21:35.950 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2019-12-10 11:21:35.958 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:21:35.959 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2019-12-10 11:21:35.960 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-10 11:21:36.064 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2019-12-10 11:21:36.064 - INFO  [  restartedMain] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1752 ms
+2019-12-10 11:21:36.258 - INFO  [  restartedMain] a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-10 11:21:36.502 - INFO  [  restartedMain] c.a.d.p.DruidDataSource        : {dataSource-1} inited
+2019-12-10 11:21:37.328 - INFO  [  restartedMain] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-10 11:21:37.412 - INFO  [  restartedMain] .w.s.WelcomePageHandlerMapping : Adding welcome page template: index
+2019-12-10 11:21:37.492 - WARN  [  restartedMain] o.t.t.TemplateMode             : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-12-10 11:21:37.919 - INFO  [  restartedMain] b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729
+2019-12-10 11:21:37.926 - INFO  [  restartedMain] .b.a.e.w.EndpointLinksResolver : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-12-10 11:21:37.982 - INFO  [  restartedMain] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2019-12-10 11:21:38.002 - INFO  [  restartedMain] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path '/bookmanager'
+2019-12-10 11:21:38.004 - INFO  [  restartedMain] o.s.b.StartupInfoLogger        : Started BookManagerApplication in 4.126 seconds (JVM running for 7.508)
+2019-12-10 11:21:39.504 - INFO  [2)-192.168.44.1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-10 11:21:39.504 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
+2019-12-10 11:21:39.518 - INFO  [2)-192.168.44.1] o.s.w.s.FrameworkServlet       : Completed initialization in 12 ms

@@ -1,0 +1,16 @@
+2019-12-10 10:41:43.302 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getControllerLogger===日志测试
+2019-12-10 10:41:43.304 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 11:10:58.113 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getControllerLogger===日志测试
+2019-12-10 11:10:58.115 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 11:12:17.836 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getControllerLogger===日志测试
+2019-12-10 11:12:17.839 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 11:13:10.801 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getControllerLogger===日志测试
+2019-12-10 11:13:10.803 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 11:17:28.152 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getControllerLogger===日志测试
+2019-12-10 11:17:28.155 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 11:19:26.808 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getControllerLogger===日志测试
+2019-12-10 11:19:26.809 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 11:21:06.266 - INFO  [nio-8080-exec-2] c.h.b.c.TestControl            : getControllerLogger===日志测试
+2019-12-10 11:21:06.268 - INFO  [nio-8080-exec-2] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()
+2019-12-10 11:21:45.613 - INFO  [nio-8080-exec-1] c.h.b.c.TestControl            : getControllerLogger===日志测试
+2019-12-10 11:21:45.614 - INFO  [nio-8080-exec-1] c.h.b.c.WebLogAspect           : 请求方法:cn.hnist.bookmanager.controller.TestControl.helloWorld()

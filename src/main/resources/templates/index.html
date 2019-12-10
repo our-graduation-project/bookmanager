@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+<body>
+    <h1>
+        欢迎来到此页面
+    </h1>
+    作者：<p th:text="${book.getAuthor()}"></p>
+    书名：<p th:text="${book.getBookName()}"></p>
+</body>
+</html>
