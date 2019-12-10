@@ -43,6 +43,7 @@ CREATE TABLE `book`  (
   `book_name` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '图书名称',
   `book_isbn` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '书号',
   `book_type` int(11) NOT NULL COMMENT '图书类型，参考图书类型表',
+  `book_picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图片',
   `author` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '作者',
   `introduce` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图书简介',
   `price` double(10, 2) NOT NULL COMMENT '价格',
