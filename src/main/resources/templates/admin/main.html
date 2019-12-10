@@ -1,16 +1,85 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
+  <style>
+    img:hover{
+      filter: alpha(opacity=60);
+      -moz-opacity: 0.8;
+      opacity: 0.8;
+      -webkit-box-shadow:0px 3px 6px #c8c8c8;
+      -moz-box-shadow:0px 3px 6px #c8c8c8;
+      box-shadow: 0px 3px 6px #c8c8c8;
+    }
+  </style>
 </head>
-<frameset rows="88,*" cols="*" frameborder="no" border="0" framespacing="0">
-  <frame src="/admin/top.html" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
-  <frameset cols="187,*" frameborder="no" border="0" framespacing="0">
-    <frame src="admin/left.html" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
-    <frame src="admin/index.html" name="rightFrame" id="rightFrame" title="rightFrame" />
-  </frameset>
-</frameset>
-<noframes><body>
-</body></noframes>
+<body>
+<!--<head th:include="common/top::nav"></head>-->
+<div>
+
+  <div style="width: 100%; display: table" >
+    <th:block th:include="common/top::nav"/>
+  </div>
+  <div style="float: left; ">
+    <th:block th:include="common/left::nav"/>
+  </div>
+  <div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+      <li><a href="#">首页</a></li>
+    </ul>
+  </div>
+
+  <div class="mainindex">
+
+
+    <div class="welinfo">
+      <span><img src="../../static/mydist/images/sun.png" alt="天气" /></span>
+      <b>Admin早上好，欢迎使用信息管理系统</b>
+      <a href="#">修改账号信息</a>
+    </div>
+
+    <div class="welinfo">
+      <span><img src="../../static/mydist/images/time.png" alt="时间" /></span>
+      <i>您上次登录的时间：2013-10-09 15:22</i> （不是您登录的？<a href="#">请点这里</a>）
+    </div>
+
+    <div class="xline"></div>
+
+    <ul class="iconlist">
+
+      <li><a href="borrow.html"><img width="150" height="150" src="../../static/mydist/images/ico01.jpg" /></a><p><a href="#">借书</a></p></li>
+      <li><a href="returnbook.html"><img width="150" height="150" src="../../static/mydist/images/ico02.jpg" /></a><p><a href="#">还书</a></p></li>
+      <li><a href="renewalbook.html"><img width="150" height="150" src="../../static/mydist/images/ico03.jpeg" /></a><p><a href="#">续借</a></p></li>
+      <li><a href="lose.html"><img width="150" height="150" src="../../static/mydist/images/ico04.jpg" /></a><p><a href="#">丢失</a></p></li>
+      <li><a href="noticeedit.html"><img width="150" height="150" src="../../static/mydist/images/ico05.png" /></a><p><a href="#">发布公告</a></p></li>
+
+    </ul>
+
+    <div class="ibox"><a class="ibtn"><img src="../../static/mydist/images/iadd.png" />添加新的快捷功能</a></div>
+
+    <div class="xline"></div>
+    <div class="box"></div>
+
+    <div class="welinfo">
+      <span><img src="../../static/mydist/images/dp.png" alt="提醒" /></span>
+      <b>信息管理系统使用指南</b>
+    </div>
+
+    <ul class="infolist">
+      <li><span>您可以快速进行图书借还操作</span>
+      <li><span>您可以进行信息管理</span>
+      <li><span>您可以发布系统公告</span>
+    </ul>
+
+    <div class="xline"></div>
+
+  </div>
+</body>
+</div>
+
+<!--<th:block th:include="index::nav"/>-->
+<!--<th:block th:include="common/left::nav"/>-->
+</body>
 </html>
