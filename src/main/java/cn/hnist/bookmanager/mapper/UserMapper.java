@@ -2,10 +2,12 @@ package cn.hnist.bookmanager.mapper;
 
 import cn.hnist.bookmanager.model.User;
 import cn.hnist.bookmanager.model.UserExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface UserMapper {
     long countByExample(UserExample example);
 

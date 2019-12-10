@@ -2,10 +2,12 @@ package cn.hnist.bookmanager.mapper;
 
 import cn.hnist.bookmanager.model.LabelRelation;
 import cn.hnist.bookmanager.model.LabelRelationExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface LabelRelationMapper {
     long countByExample(LabelRelationExample example);
 

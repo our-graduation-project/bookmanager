@@ -2,10 +2,12 @@ package cn.hnist.bookmanager.mapper;
 
 import cn.hnist.bookmanager.model.Lose;
 import cn.hnist.bookmanager.model.LoseExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface LoseMapper {
     long countByExample(LoseExample example);
 

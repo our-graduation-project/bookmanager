@@ -2,10 +2,12 @@ package cn.hnist.bookmanager.mapper;
 
 import cn.hnist.bookmanager.model.Bookshelf;
 import cn.hnist.bookmanager.model.BookshelfExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface BookshelfMapper {
     long countByExample(BookshelfExample example);
 

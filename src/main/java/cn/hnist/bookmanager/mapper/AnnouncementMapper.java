@@ -2,10 +2,12 @@ package cn.hnist.bookmanager.mapper;
 
 import cn.hnist.bookmanager.model.Announcement;
 import cn.hnist.bookmanager.model.AnnouncementExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface AnnouncementMapper {
     long countByExample(AnnouncementExample example);
 
