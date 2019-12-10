@@ -5,6 +5,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class Label implements Serializable {
+
+    public Label(Integer labelId, String labelName) {
+        this.labelId = labelId;
+        this.labelName = labelName;
+    }
+
+    public Label(String labelName) {
+        this.labelName = labelName;
+    }
+
     @ApiModelProperty(value = "标签ID")
     private Integer labelId;
 
