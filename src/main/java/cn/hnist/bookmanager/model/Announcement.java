@@ -1,11 +1,12 @@
 package cn.hnist.bookmanager.model;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
 
 import java.io.Serializable;
 import java.util.Date;
 
-
+@Getter
 public class Announcement implements Serializable {
     @ApiModelProperty(value = "主键")
     private Integer announcementId;

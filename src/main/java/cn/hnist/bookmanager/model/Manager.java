@@ -1,9 +1,11 @@
 package cn.hnist.bookmanager.model;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
 
 import java.io.Serializable;
 
+@Getter
 public class Manager implements Serializable {
     @ApiModelProperty(value = "主键")
     private Integer managerId;

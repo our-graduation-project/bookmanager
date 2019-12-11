@@ -1,9 +1,11 @@
 package cn.hnist.bookmanager.model;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
 
 import java.io.Serializable;
 
+@Getter
 public class User implements Serializable {
 
     public User(Integer userId, String userName, String mailbox, String userPwd, String phone, Integer sex, Integer age) {

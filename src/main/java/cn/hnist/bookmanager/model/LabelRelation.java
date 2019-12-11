@@ -1,7 +1,10 @@
 package cn.hnist.bookmanager.model;
 
+import lombok.Getter;
+
 import java.io.Serializable;
 
+@Getter
 public class LabelRelation implements Serializable {
     private Integer labelRelationId;
 

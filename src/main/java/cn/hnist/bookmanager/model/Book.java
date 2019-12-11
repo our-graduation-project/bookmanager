@@ -1,9 +1,11 @@
 package cn.hnist.bookmanager.model;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
 
 import java.io.Serializable;
 
+@Getter
 public class Book implements Serializable {
     @ApiModelProperty(value = "ID编号")
     private Integer bookId;

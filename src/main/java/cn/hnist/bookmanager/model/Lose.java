@@ -1,10 +1,12 @@
 package cn.hnist.bookmanager.model;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
 
 import java.io.Serializable;
 import java.util.Date;
 
+@Getter
 public class Lose implements Serializable {
     @ApiModelProperty(value = "主键")
     private Integer loseId;

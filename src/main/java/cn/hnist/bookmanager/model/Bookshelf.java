@@ -1,9 +1,10 @@
 package cn.hnist.bookmanager.model;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
 
 import java.io.Serializable;
-
+@Getter
 public class Bookshelf implements Serializable {
 
     public Bookshelf(Integer bookshelfId, String bookshelfName, String bookshelfPosition) {
