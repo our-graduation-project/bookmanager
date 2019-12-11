@@ -20,7 +20,7 @@ class UserServiceImplTest {
     private UserService userService;
     @Test
     void loginUser() {
-        System.out.println(userService.loginUser("lisi","qwe123"));
+//        System.out.println(userService.loginUser(new User("lisi","qwe123")));
     }
 
     @Test

@@ -355,4 +355,18 @@
       bookshelf = #{bookshelf,jdbcType=INTEGER}
     where book_id = #{bookId,jdbcType=INTEGER}
   </update>
+
+
+  <select id="selectByLabelName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from book
+    where book_id in (
+      select book_id from
+      label l left join label_relation r
+      on l.label_id=r.label_id where label_name=#{labelName}
+    )
+  </select>
 </mapper>

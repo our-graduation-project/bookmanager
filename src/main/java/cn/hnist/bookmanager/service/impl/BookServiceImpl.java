@@ -168,7 +168,7 @@ public class BookServiceImpl implements BookService {
      */
     @Override
     public List<Book> selectBookByLabelName(String labelName) {
-        List<Book> books = bookMapper.selctByLabelName(labelName);
+        List<Book> books = bookMapper.selectByLabelName(labelName);
         if(books != null){
             return books;
         }
