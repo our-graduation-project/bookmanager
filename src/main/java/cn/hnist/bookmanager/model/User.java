@@ -5,6 +5,27 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class User implements Serializable {
+
+    public User(Integer userId, String userName, String mailbox, String userPwd, String phone, Integer sex, Integer age) {
+        this.userId = userId;
+        this.userName = userName;
+        this.mailbox = mailbox;
+        this.userPwd = userPwd;
+        this.phone = phone;
+        this.sex = sex;
+        this.age = age;
+    }
+
+
+    public User(Integer userId, String userName, String mailbox, String userPwd, String phone, Integer sex) {
+        this.userId = userId;
+        this.userName = userName;
+        this.mailbox = mailbox;
+        this.userPwd = userPwd;
+        this.phone = phone;
+        this.sex = sex;
+    }
+
     @ApiModelProperty(value = "主键")
     private Integer userId;
 
@@ -20,7 +41,7 @@ public class User implements Serializable {
     @ApiModelProperty(value = "电话")
     private String phone;
 
-    @ApiModelProperty(value = "性别")
+    @ApiModelProperty(value = "性别(0:男 1:女)")
     private Integer sex;
 
     @ApiModelProperty(value = "年龄")

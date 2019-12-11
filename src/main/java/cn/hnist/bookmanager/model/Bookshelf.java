@@ -5,6 +5,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class Bookshelf implements Serializable {
+
+    public Bookshelf(Integer bookshelfId, String bookshelfName, String bookshelfPosition) {
+        this.bookshelfId = bookshelfId;
+        this.bookshelfName = bookshelfName;
+        this.bookshelfPosition = bookshelfPosition;
+    }
+
     @ApiModelProperty(value = "主键")
     private Integer bookshelfId;
 
