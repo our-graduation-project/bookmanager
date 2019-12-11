@@ -118,11 +118,16 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
-		<!-- pageHelper -->
+<!--		&lt;!&ndash; pageHelper &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>com.github.pagehelper</groupId>-->
+<!--			<artifactId>pagehelper</artifactId>-->
+<!--			<version>4.1.6</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper</artifactId>
-			<version>4.1.6</version>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.3</version>
 		</dependency>
 
 		<!--集成druid连接池-->
@@ -139,11 +144,11 @@
 			<version >1.5.4 </version >
 		</dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.logging.log4j</groupId>-->
-<!--            <artifactId>log4j-core</artifactId>-->
-<!--            <version>2.7</version>-->
-<!--        </dependency>-->
+		<!--        <dependency>-->
+		<!--            <groupId>org.apache.logging.log4j</groupId>-->
+		<!--            <artifactId>log4j-core</artifactId>-->
+		<!--            <version>2.7</version>-->
+		<!--        </dependency>-->
 		<!-- 加上这个才能辨认到log4j2.yml文件 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -155,11 +160,11 @@
 			<artifactId>jackson-dataformat-yaml</artifactId>
 		</dependency>
 
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.1.37</version>
-        </dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.1.37</version>
+		</dependency>
 		<!--Swagger-UI API文档生产工具-->
 		<dependency>
 			<groupId>io.springfox</groupId>
