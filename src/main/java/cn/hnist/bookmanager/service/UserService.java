@@ -10,11 +10,9 @@ import java.util.List;
 public interface UserService {
     /**
      * 登录
-     * @param userName
-     * @param userPwd
      * @return
      */
-    List<User> loginUser(String userName,String userPwd);
+    boolean loginUser(User user);
 
     /**
      * 用户增加
