@@ -3,6 +3,7 @@ package cn.hnist.bookmanager.service.impl;
 import cn.hnist.bookmanager.BookManagerApplication;
 import cn.hnist.bookmanager.model.Bookshelf;
 import cn.hnist.bookmanager.service.BookshelfService;
+import com.github.pagehelper.PageInfo;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,16 +45,13 @@ class BookshelfServiceImplTest {
 
     @Test
     void searchBookshelfByName() {
-        System.out.println(bookshelfService.searchBookshelfByName("科技"));
+        PageInfo pageInfo=bookshelfService.searchBookshelfByName(1,1,"语文");
+        System.out.println(pageInfo.toString());
     }
 
     @Test
     void searchBookshelf() {
-        System.out.println(bookshelfService.searchBookshelf());
-    }
 
-    @Test
-    void queryBookshelfByPage() {
-        System.out.println(bookshelfService.queryBookshelfByPage(1,2));
+        System.out.println(bookshelfService.searchBookshelf(1,1));
     }
 }

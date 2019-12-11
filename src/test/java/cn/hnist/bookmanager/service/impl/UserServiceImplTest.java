@@ -3,6 +3,7 @@ package cn.hnist.bookmanager.service.impl;
 import cn.hnist.bookmanager.BookManagerApplication;
 import cn.hnist.bookmanager.model.User;
 import cn.hnist.bookmanager.service.UserService;
+import com.github.pagehelper.PageInfo;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,9 @@ class UserServiceImplTest {
 
     @Test
     void searchUserByName() {
-        System.out.println(userService.searchUserByName("lisi"));
+        PageInfo pageInfo=userService.searchUserByName
+                (1,1,"lisi");
+        System.out.println(pageInfo.toString());
     }
 
     @Test
@@ -61,11 +64,8 @@ class UserServiceImplTest {
 
     @Test
     void searchUsers() {
-        System.out.println(userService.searchUsers());
+        PageInfo pageInfo=userService.searchUsers(1,1);
+        System.out.println(pageInfo.toString());
     }
 
-    @Test
-    void queryUserByPage() {
-        System.out.println(userService.queryUserByPage(2,2));
-    }
 }

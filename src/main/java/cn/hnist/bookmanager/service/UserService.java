@@ -4,6 +4,7 @@ import cn.hnist.bookmanager.model.User;
 import cn.hnist.bookmanager.model.UserExample;
 import com.github.pagehelper.PageInfo;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 public interface UserService {
@@ -40,26 +41,19 @@ public interface UserService {
      * @param userName
      * @return
      */
-    public List<User> searchUserByName(String userName);
+    PageInfo<User> searchUserByName(int page, int pageSize,String userName);
 
     /**
      * 根据用户ID查询用户
      * @param userId
      * @return
      */
-    public List<User> searchUserById(Integer userId);
+    User searchUserById(Integer userId);
 
     /**
      * 查询所有用户
      * @return
      */
-    public List<User> searchUsers();
+    PageInfo<User> searchUsers(int page, int pageSize);
 
-    /**
-     * 通过page 查询用户
-     * @param page 页码
-     * @param pageSize 每页数量
-     * @return
-     */
-    PageInfo queryUserByPage(int page, int pageSize);
 }

@@ -68,20 +68,21 @@ public class UserServiceImpl implements UserService {
         return i>0?true:false;
     }
 
+
+
     /**
      * 根据用户名查询用户
      * @param userName
      * @return
      */
     @Override
-    public List<User> searchUserByName(String userName) {
-        UserExample userExample = new UserExample();
+    public PageInfo<User> searchUserByName(int page, int pageSize,String userName) {
+        UserExample userExample=new UserExample();
         userExample.or().andUserNameEqualTo(userName);
-        List<User> users = mapper.selectByExample(userExample);
-        if (users != null && !users.isEmpty()) {
-            return users;
-        }
-        return null;
+        PageHelper.startPage(page,pageSize);
+        List<User> users=mapper.selectByExample(userExample);
+        PageInfo pageInfo=new PageInfo(users,1);
+        return pageInfo;
     }
 
     /**
@@ -90,14 +91,9 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public List<User> searchUserById(Integer userId) {
-        UserExample userExample = new UserExample();
-        userExample.or().andUserIdEqualTo(userId);
-        List<User> users = mapper.selectByExample(userExample);
-        if (users != null && !users.isEmpty()) {
-            return users;
-        }
-        return null;
+    public User searchUserById(Integer userId) {
+        User user=mapper.selectByPrimaryKey(userId);
+        return user;
     }
 
     /**
@@ -105,27 +101,12 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public List<User> searchUsers() {
+    public PageInfo<User> searchUsers(int page, int pageSize) {
         UserExample userExample = new UserExample();
         userExample.or();
-        List<User> users = mapper.selectByExample(userExample);
-        return users;
-    }
-
-    /**
-     * 通过page分页查询用户
-     *
-     * @param page     页码
-     * @param pageSize 每页数量
-     * @return
-     */
-    @Override
-    public PageInfo queryUserByPage(int page, int pageSize) {
-        UserExample userExample=new UserExample();
-        userExample.or();
         PageHelper.startPage(page,pageSize);
-        List<User> users=mapper.selectByExample(userExample);
-        PageInfo pageInfo=new PageInfo(users,2);
+        List<User> users = mapper.selectByExample(userExample);
+        PageInfo pageInfo=new PageInfo(users,1);
         return pageInfo;
     }
 

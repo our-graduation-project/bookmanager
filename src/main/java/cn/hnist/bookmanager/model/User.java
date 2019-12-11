@@ -18,16 +18,6 @@ public class User implements Serializable {
         this.age = age;
     }
 
-
-    public User(Integer userId, String userName, String mailbox, String userPwd, String phone, Integer sex) {
-        this.userId = userId;
-        this.userName = userName;
-        this.mailbox = mailbox;
-        this.userPwd = userPwd;
-        this.phone = phone;
-        this.sex = sex;
-    }
-
     @ApiModelProperty(value = "主键")
     private Integer userId;
 

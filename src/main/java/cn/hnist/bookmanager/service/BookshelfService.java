@@ -34,19 +34,12 @@ public interface BookshelfService {
      * @param bookshelfName
      * @return
      */
-    public List<Bookshelf> searchBookshelfByName(String bookshelfName);
+    PageInfo<Bookshelf> searchBookshelfByName(int page, int pageSize,String bookshelfName);
 
     /**
      * 查询所有书架
      * @return
      */
-    public List<Bookshelf> searchBookshelf();
+    PageInfo<Bookshelf> searchBookshelf(int page, int pageSize);
 
-    /**
-     * 通过page 查询书架
-     * @param page 页码
-     * @param pageSize 每页数量
-     * @return
-     */
-    PageInfo queryBookshelfByPage(int page, int pageSize);
 }

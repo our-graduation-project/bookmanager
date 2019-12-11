@@ -58,14 +58,13 @@ public class BookshelfServiceImpl implements BookshelfService {
      * @return
      */
     @Override
-    public List<Bookshelf> searchBookshelfByName(String bookshelfName) {
+    public PageInfo<Bookshelf> searchBookshelfByName(int page, int pageSize,String bookshelfName) {
         BookshelfExample example=new BookshelfExample();
         example.or().andBookshelfNameEqualTo(bookshelfName);
-        List<Bookshelf> bookshelf=mapper.selectByExample(example);
-        if (bookshelf!=null&&!bookshelf.isEmpty()){
-            return bookshelf;
-        }
-        return null;
+        PageHelper.startPage(page,pageSize);
+        List<Bookshelf> bookshelfList=mapper.selectByExample(example);
+        PageInfo pageInfo=new PageInfo(bookshelfList,1);
+        return pageInfo;
     }
 
     /**
@@ -73,27 +72,12 @@ public class BookshelfServiceImpl implements BookshelfService {
      * @return
      */
     @Override
-    public List<Bookshelf> searchBookshelf() {
+    public PageInfo<Bookshelf> searchBookshelf(int page, int pageSize) {
         BookshelfExample example=new BookshelfExample();
         example.or();
         List<Bookshelf> bookshelf=mapper.selectByExample(example);
-        return bookshelf;
-    }
-
-    /**
-     * 通过page分页查询用户
-     *
-     * @param page     页码
-     * @param pageSize 每页数量
-     * @return
-     */
-    @Override
-    public PageInfo queryBookshelfByPage(int page, int pageSize) {
-        PageHelper.startPage(page,pageSize);
-        BookshelfExample bookshelfExample=new BookshelfExample();
-        bookshelfExample.or();
-        List<Bookshelf> bookshelf=mapper.selectByExample(bookshelfExample);
-        PageInfo pageInfo=new PageInfo(bookshelf,2);
+        PageInfo pageInfo=new PageInfo(bookshelf,1);
         return pageInfo;
     }
+
 }
