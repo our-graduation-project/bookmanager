@@ -61,6 +61,6 @@ class LabelServiceImplTest {
 
     @Test
     void queryLabelByPage() {
-        System.out.println(labelService.queryLabelByPage(1, 5));
+        System.out.println(labelService.queryLabelByPage(1, 5).getList().size());
     }
 }
