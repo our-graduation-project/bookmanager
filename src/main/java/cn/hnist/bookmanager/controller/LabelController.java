@@ -90,7 +90,7 @@ public class LabelController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return ;
+
     }
 
     @RequestMapping("/admin/addLabel")

@@ -30,7 +30,7 @@ class AnnouncementServiceImplTest {
 
     @Test
     void addAnnouncement() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 40; i++) {
             Announcement announcement = new Announcement();
             announcement.setAnnouncementName("新公告"+i);
             announcement.setAnnouncementContent("今天的作业写不完了啊"+i);

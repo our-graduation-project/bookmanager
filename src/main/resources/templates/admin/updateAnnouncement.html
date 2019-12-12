@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../../static/mydist/css/style.css" th:href="@{/mydist/css/style.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div style="width: 100%; display: table" >
+    <th:block th:include="common/top::nav"/>
+</div>
+<div style="float: left; ">
+    <th:block th:include="common/left::nav"/>
+</div>
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">用户添加</a></li>
+    </ul>
+    </div>
+
+<div class="mainindex">
+    <div class="formbody">
+    
+    <div class="formtitle"><span>修改公告</span></div>
+    
+<!--	<form th:action="@{/updateAnnouncement(state ='OK')}" method="post">-->
+		<ul class="forminfo">
+           <li><label>公告标题</label><input  th:value="${announcement.announcementName}" id="announcementName" type="text" class="dfinput" /></li>
+		   <li><label>公告</label><textarea  th:text="${announcement.announcementContent}" id="announcementContent" cols="56" rows="8" style="border:solid 1px">请填写公告</textarea></li>
+
+			<li><input type="hidden" th:value="${announcement.publishDate}"  id="publishDate"/></li>
+			<li><input type="hidden" th:value="${announcement.isDelete}" id="isDelete"/></li>
+
+			<li><input type="hidden" th:value="${announcement.announcementId}" id="announcementId"/></li>
+		   <li><input name="" type="submit" onclick="update()" class="btn" value="提交"/>
+            <li><label id="error" style="display: none">错误信息</label></li>
+
+        </ul>	
+		
+<!--	</form>-->
+    
+    </div>
+</div>
+<script type="text/javascript">
+    function update() {
+        var announcementName = $("#announcementName").val();
+        var announcementContent = $("#announcementContent").val();
+        // var publishDate = $("#publishDate").val();
+        var isDelete = $("#isDelete").val();
+        var announcementId = $("#announcementId").val();
+      if(announcementName == null|| announcementName == undefined || announcementName.trim()==""||
+          announcementContent == null|| announcementContent == undefined || announcementContent.trim()==""){
+          $("#error").css("display","block");
+          $("#error").html("公告名和信息不能为空");
+          return false;
+      }
+
+        var data = {"announcementId": announcementId,"announcementName":announcementName,
+            "announcementContent":announcementContent,"isDelete":isDelete};
+        $.ajax({
+            //请求方式
+            type : "POST",
+            //请求的媒体类型
+            contentType: "application/json;charset=UTF-8",
+            //请求地址
+            url : "update",
+            //数据，json字符串
+            data : JSON.stringify(data),
+            success: function (result) {
+                console.log(result.message+"--"+result.result);
+                if (result.result) {
+                    alert("修改成功");
+
+                }
+                else {
+
+                    alert("修改失败");
+                }
+            },
+            error: function () {
+                alert("操作失败");
+            }
+
+
+        })
+        location.href="/bookmanager/AnnouncementList";
+
+    }
+</script>
+</body>
+</html>
