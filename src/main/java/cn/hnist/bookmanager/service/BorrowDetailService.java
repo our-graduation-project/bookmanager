@@ -4,6 +4,7 @@ import cn.hnist.bookmanager.model.BorrowDetail;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 借书单Service,里面包含了多借书单的所有操作
@@ -68,7 +69,7 @@ public interface BorrowDetailService {
      * @param pageSize 页码大小
      * @return 返回所有借书单,为空则返回空
      */
-   PageInfo<BorrowDetail> searchBorrowDetail(int page, int pageSize);
+   PageInfo<Map> searchBorrowDetail(int page, int pageSize);
 
     /**
      *查询单个用户的所有借书单
@@ -77,7 +78,7 @@ public interface BorrowDetailService {
      * @param userId 用户ID
      * @return 返回查询到的所有借书单,为空则返回空
      */
-    PageInfo<BorrowDetail> searchBorrowDetailByUser(int page, int pageSize,int userId);
+    PageInfo<Map> searchBorrowDetailByUser(int page, int pageSize, int userId);
 
     /**
      * 通过Id查询单个的借书单

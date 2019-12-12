@@ -18,10 +18,7 @@ class UserServiceImplTest {
 
     @Autowired
     private UserService userService;
-    @Test
-    void loginUser() {
-//        System.out.println(userService.loginUser(new User("lisi","qwe123")));
-    }
+
 
     @Test
     void addUser() {

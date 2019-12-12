@@ -3,18 +3,14 @@ package cn.hnist.bookmanager.service.impl;
 import cn.hnist.bookmanager.mapper.BorrowDetailMapper;
 import cn.hnist.bookmanager.model.BorrowDetail;
 import cn.hnist.bookmanager.model.BorrowDetailExample;
-import cn.hnist.bookmanager.model.LabelExample;
 import cn.hnist.bookmanager.service.BorrowDetailService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import io.swagger.annotations.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author 向清润
@@ -166,12 +162,22 @@ public class BorrowDetailServiceImpl implements BorrowDetailService {
      * @return 返回所有借书单, 为空则返回空
      */
     @Override
-    public PageInfo<BorrowDetail> searchBorrowDetail(int page, int pageSize) {
+    public PageInfo<Map> searchBorrowDetail(int page, int pageSize) {
         BorrowDetailExample borrowDetailExample = new BorrowDetailExample();
         borrowDetailExample.or();
         PageHelper.startPage(page,pageSize);
 
-        List<BorrowDetail> borrowDetails = borrowDetailMapper.selectByExample(borrowDetailExample);
+        List<Map> borrowDetails = borrowDetailMapper.selectBorrowDetal();
+        for ( Map m:
+             borrowDetails) {
+            if(m.get("realReturnDate") == null){
+                m.put("realReturnDate","未归还");
+            }
+            if(m.get("fine") == null){
+                m.put("fine",0.0);
+            }
+        }
+
         PageInfo pageInfo = new PageInfo(borrowDetails,5);
         return pageInfo;
     }
@@ -185,12 +191,13 @@ public class BorrowDetailServiceImpl implements BorrowDetailService {
      * @return 返回查询到的所有借书单, 为空则返回空
      */
     @Override
-    public PageInfo<BorrowDetail> searchBorrowDetailByUser(int page, int pageSize, int userId) {
-        BorrowDetailExample borrowDetailExample = new BorrowDetailExample();
-        borrowDetailExample.or().andUserIdEqualTo(userId);
+    public PageInfo<Map> searchBorrowDetailByUser(int page, int pageSize, int userId) {
+
         PageHelper.startPage(page,pageSize);
 
-        List<BorrowDetail> borrowDetails = borrowDetailMapper.selectByExample(borrowDetailExample);
+        Map map = new HashMap();
+        map.put("userId",userId);
+        List<Map> borrowDetails = borrowDetailMapper.selectUserBorrowDetal(map);
         PageInfo pageInfo = new PageInfo(borrowDetails,5);
         return pageInfo;
     }

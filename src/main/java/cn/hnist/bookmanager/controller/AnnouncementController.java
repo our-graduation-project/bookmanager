@@ -37,13 +37,33 @@ public class AnnouncementController {
         if("10".equals(pageSize)||pageSize == 0){
             pageSize = 10;
         }
-        PageInfo<Announcement> pageInfo = announcementService.searchAnnouncement(page, pageSize);
+        PageInfo<Announcement> pageInfo = announcementService.searchAnnouncement(page, pageSize,1);
         ModelAndView modelAndView = new ModelAndView("admin/noticelist");
+        modelAndView.addObject("pageInfo",pageInfo);
+        //modelAndView.addObject("error",error);
+
+        return modelAndView;
+
+    }
+
+    @RequestMapping("/deleteannouncementList")
+    //error代表错误,0代表正常，1代表删除失败，2代表启用失败，3代表添加失败，4代表修改失败
+    public ModelAndView deleteannouncementList(@RequestParam(value = "page" ,defaultValue = "1") int page,@RequestParam(value = "pageSize" ,defaultValue = "10") int pageSize){
+        if("1".equals(page)||page <= 0){
+            page = 1;
+        }
+
+        if("10".equals(pageSize)||pageSize == 0){
+            pageSize = 10;
+        }
+        PageInfo<Announcement> pageInfo = announcementService.searchAnnouncement(page, pageSize,0);
+        ModelAndView modelAndView = new ModelAndView("admin/deletedNoticelist");
         modelAndView.addObject("pageInfo",pageInfo);
         //modelAndView.addObject("error",error);
         return modelAndView;
 
     }
+
 
 @RequestMapping("/deleteAnnouncement")
     public void deleteAnnouncement(@RequestParam(value = "announcementId") int id,@RequestParam(value = "page")int page, HttpServletResponse response){

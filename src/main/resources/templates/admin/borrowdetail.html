@@ -60,6 +60,11 @@ $(document).ready(function(){
         <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{mydist/images/t02.png}"/></span>修改</li>
         <li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{mydist/images/t03.png}"/></span>删除</li>
         <li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{mydist/images/t04.png}"/></span>统计</li>
+
+            <form th:action="@{/userBorrowdetail}" method="post">
+                <li><label>用户名</label><input  name="userName" type="text" class="dfinput" /></li>
+                <li><input name="" type="submit" class="btn" value="搜索"/>
+            </form>
         </ul>
         
         
@@ -91,34 +96,39 @@ $(document).ready(function(){
         <tr th:each="a:${pageInfo.list}">
         <td><input name="" type="checkbox" value="" /></td>
         <td th:text="${a.borrowId}"></td>
-        <td th:text="${a.borrowId}></td>
-        <td>三国演义</td>
-        <td></td>
-        <td></td>
-        <td></td>
-		<td>20.0</td>
-		<td>1</td>
+            <td th:text="${a.username}"></td>
+            <td th:text="${a.bookname}"></td>
+            <td th:text="${a.borrowDate}"></td>
+            <td th:text="${a.shouldReturnDate}"></td>
+            <td th:text="${a.realReturnDate}"></td>
+            <td th:text="${a.fine}"></td>
+            <td th:if="${a.status} eq '1'">借出</td>
+            <td th:if="${a.status} eq '2'">期限归还</td>
+            <td th:if="${a.status} eq '3'">逾期归还</td>
+            <td th:if="${a.status} eq '4'">逾期</td>
+            <td th:if="${a.status} eq '5'">续借</td>
+
         <td><a href="borrowdetailedit.html" class="tablelink">修改</a>     <a href="#" class="tablelink"> 删除</a></td>
         </tr>
         
         </tbody>
     </table>
-    
-   
-    <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
-        <ul class="paginList">
-        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-        <li class="paginItem"><a href="javascript:;">1</a></li>
-        <li class="paginItem current"><a href="javascript:;">2</a></li>
-        <li class="paginItem"><a href="javascript:;">3</a></li>
-        <li class="paginItem"><a href="javascript:;">4</a></li>
-        <li class="paginItem"><a href="javascript:;">5</a></li>
-        <li class="paginItem more"><a href="javascript:;">...</a></li>
-        <li class="paginItem"><a href="javascript:;">10</a></li>
-        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
-    </div>
+
+
+        <div class="pagin">
+            <div class="message">当前显示第&nbsp;<i class="blue" th:text="${pageInfo.pageNum}"></i>页</div>
+            <ul class="paginList">
+                <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.prePage},state=${state},userName=${userName})}"><span class="pagepre"></span></a></li>
+
+                <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[0]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[0]}"></a></li>
+                <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[1]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[1]}"></a></li>
+                <li class="paginItem"><a href="javascript:;" th:text="${pageInfo.navigatepageNums[2]}"></a></li>
+                <li class="paginItem"><a  th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[3]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[3]}"></a></li>
+                <li class="paginItem"><a   th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[4]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[4]}"></a></li>
+                <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.nextPage})}"><span class="pagenxt"></span></a></li>
+
+            </ul>
+        </div>
     
     
     <div class="tip">

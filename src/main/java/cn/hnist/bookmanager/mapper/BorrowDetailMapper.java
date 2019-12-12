@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface BorrowDetailMapper {
@@ -30,4 +31,8 @@ public interface BorrowDetailMapper {
     int updateByPrimaryKeySelective(BorrowDetail record);
 
     int updateByPrimaryKey(BorrowDetail record);
+
+    List<Map> selectBorrowDetal();
+
+    List<Map> selectUserBorrowDetal(Map map);
 }
