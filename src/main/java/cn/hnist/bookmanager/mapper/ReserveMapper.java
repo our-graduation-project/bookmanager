@@ -28,4 +28,5 @@ public interface ReserveMapper {
     int updateByPrimaryKeySelective(Reserve record);
 
     int updateByPrimaryKey(Reserve record);
+
 }

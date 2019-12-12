@@ -2,6 +2,7 @@ package cn.hnist.bookmanager.mapper;
 
 import cn.hnist.bookmanager.model.Book;
 import cn.hnist.bookmanager.model.BookExample;
+import cn.hnist.bookmanager.model.Label;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -36,4 +37,11 @@ public interface BookMapper {
     int updateByPrimaryKeyWithBLOBs(Book record);
 
     int updateByPrimaryKey(Book record);
+
+    /**
+     * 根据标签名查询书籍
+     * @param labelName
+     * @return
+     */
+    List<Book> selectByLabelName(String labelName);
 }
