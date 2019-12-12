@@ -19,19 +19,19 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户登录
-     * @param userName
-     * @param userPwd
      * @return
      */
     @Override
-    public List<User> loginUser(String userName, String userPwd) {
-        UserExample userExample = new UserExample();
-        userExample.or().andUserNameEqualTo(userName).andUserPwdEqualTo(userPwd);
-        List<User> users = mapper.selectByExample(userExample);
-        if (users != null && !users.isEmpty()) {
-            return users;
+    public boolean loginUser(User user) {
+        UserExample userExample=new UserExample();
+        userExample.or().andUserNameEqualTo(user.getUserName())
+                .andUserPwdEqualTo(user.getUserPwd());
+        List<User> users=mapper.selectByExample(userExample);
+        if (users!=null||users.size()==1){
+            return true;
         }
-        return null;
+        return false;
+
     }
 
     /**
