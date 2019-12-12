@@ -56,5 +56,14 @@ public class LogUtils {
         return LoggerFactory.getLogger(LogEnum.CONTROLLER.getCategory());
     }
 
+    /**
+     * 获取书本预期未还系统所进行的操作的日志logger
+     *
+     * @return
+     */
+    public static Logger getTimeOutTaskLogger(){
+        return LoggerFactory.getLogger(LogEnum.TIMEOUTTASK.getCategory());
+    }
+
 
 }

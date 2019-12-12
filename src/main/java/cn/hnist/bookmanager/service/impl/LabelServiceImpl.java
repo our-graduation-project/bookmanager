@@ -87,9 +87,9 @@ public class LabelServiceImpl implements LabelService {
      * @return
      */
     @Override
-    public String selectLabelNameById(int id) {
+    public Label selectLabelNameById(int id) {
         Label label = labelMapper.selectByPrimaryKey(id);
-        return label.getLabelName();
+        return label;
     }
 
     /**

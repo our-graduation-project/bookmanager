@@ -40,10 +40,10 @@ public class SendMail {
 
     /**
      * 输入验证码和账户 进行邮件发送
-     * @param code
+     * @param content
      * @param account
      */
-    public static void sendMail(String code, String account){
+    public static void sendMail(String content, String account){
 
         //设置发件人
         try {
@@ -53,7 +53,7 @@ public class SendMail {
             //设置主题
             message.setSubject("验证码");
             //设置邮件正文  第二个参数是邮件发送的类型
-            message.setContent("这是好贵的问答系统验证码为：" + code,"text/html;charset=UTF-8");
+            message.setContent(content,"text/html;charset=UTF-8");
             System.out.println("开始执行");
             //发送一封邮件
             Transport transport = session.getTransport();

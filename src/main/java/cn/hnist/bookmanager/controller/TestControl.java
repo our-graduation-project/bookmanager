@@ -22,14 +22,14 @@ public class TestControl {
     @RequestMapping("/helloworld")
     public ModelAndView helloWorld(){
         //System.out.println("come in");
-        Logger log = LogUtils.getExceptionLogger();
-        Logger log1 = LogUtils.getBussinessLogger();
-        Logger log2 = LogUtils.getDBLogger();
+//        Logger log = LogUtils.getExceptionLogger();
+//        Logger log1 = LogUtils.getBussinessLogger();
+//        Logger log2 = LogUtils.getDBLogger();
         Book bookById = bookService.findBookById(1);
-        ModelAndView model = new ModelAndView("/admin/booklist");
+        ModelAndView model = new ModelAndView("/admin/main");
         model.addObject("book",bookById);
-        log1.info("getBussinessLogger===日志测试");
-        LogUtils.getControllerLogger().info("getControllerLogger===日志测试");
+//        log1.info("getBussinessLogger===日志测试");
+//        LogUtils.getControllerLogger().info("getControllerLogger===日志测试");
 //        System.out.println(1/0);
 //        log2.debug("getDBLogger===日志测试");
         return model;
