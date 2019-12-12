@@ -59,6 +59,24 @@ class BookServiceImplTest {
     }
 
     @Test
+    void deleteBookBat() {
+        List<Book> books = new ArrayList<>();
+        Book book1 = new Book();
+        book1.setBookId(5);
+        books.add(book1);
+        Book book2 = new Book();
+        book2.setBookId(7);
+        books.add(book2);
+        Book book3 = new Book();
+        book3.setBookId(9);
+        books.add(book3);
+        Book book4 = new Book();
+        book4.setBookId(11);
+        books.add(book4);
+        System.out.println(bookService.deleteBookBat(books));
+    }
+
+    @Test
     void updateBook() {
         Book book = new Book();
         book.setBookId(2);

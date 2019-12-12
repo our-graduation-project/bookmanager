@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,6 +63,25 @@ public class BookServiceImpl implements BookService {
     @Override
     public int deleteBook(int id) {
         return bookMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+     * 批量删除图书
+     * @param books
+     * @return
+     */
+    @Override
+    public int deleteBookBat(List<Book> books) {
+        if(books != null && books.size()>0){
+            List<Integer> Ids = new ArrayList<>();
+            for (int i = 0; i < books.size(); i++) {
+                Ids.add(books.get(i).getBookId());
+            }
+            BookExample bookExample = new BookExample();
+            bookExample.or().andBookIdIn(Ids);
+            return bookMapper.deleteByExample(bookExample);
+        }
+        return 0;
     }
 
     /**

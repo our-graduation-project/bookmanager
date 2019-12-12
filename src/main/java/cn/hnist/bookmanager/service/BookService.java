@@ -35,7 +35,12 @@ public interface BookService {
      */
     int deleteBook(int id);
 
-
+    /**
+     * 批量删除图书
+     * @param books
+     * @return
+     */
+    int deleteBookBat(List<Book> books);
     /**
      * 根据图书id修改图书信息
      * @param id
