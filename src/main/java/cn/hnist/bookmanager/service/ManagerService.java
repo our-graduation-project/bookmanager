@@ -17,7 +17,7 @@ public interface ManagerService {
      * @param manager 管理员
      * @return boolean
      */
-    boolean login(Manager manager);
+    Manager login(Manager manager);
 
 
     /**
@@ -55,5 +55,29 @@ public interface ManagerService {
      * @return
      */
     PageInfo searchAllManager(Integer indexPage, Integer pageSize);
+
+    /**
+     * 通过邮箱查询管理员
+     * @param
+     * @param mailBox
+     * @return
+     */
+    Manager searchByMailBox(String mailBox);
+
+    /**
+     * 通过邮箱查询管理员
+     * @param
+     * @param phone
+     * @return
+     */
+    Manager searchByPhone(String phone);
+
+    /**
+     * 通过邮箱查询管理员
+     * @param
+     * @param managerNickname
+     * @return
+     */
+    Manager searchByManagerNickname(String managerNickname);
 
 }

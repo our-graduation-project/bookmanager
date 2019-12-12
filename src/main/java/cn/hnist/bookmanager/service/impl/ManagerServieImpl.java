@@ -30,15 +30,15 @@ public class ManagerServieImpl implements ManagerService {
      * @return
      */
     @Override
-    public boolean login(Manager manager) {
+    public Manager login(Manager manager) {
         ManagerExample managerExample = new ManagerExample();
         managerExample.or().andMailboxEqualTo(manager.getMailbox())
                 .andManagerPwdEqualTo(manager.getManagerPwd());
         List<Manager> managers = managerMapper.selectByExample(managerExample);
         if(managers == null || managers.size() != 1  ){
-            return false;
+            return null;
         }
-        return true;
+        return managers.get(0);
     }
 
     /**
@@ -114,6 +114,39 @@ public class ManagerServieImpl implements ManagerService {
         List<Manager> managers = managerMapper.selectByExample(managerExample);
         PageInfo pageInfo = new PageInfo(managers);
         return pageInfo;
+    }
+
+    @Override
+    public Manager searchByMailBox(String mailBox) {
+        ManagerExample managerExample = new ManagerExample();
+        managerExample.or().andMailboxEqualTo(mailBox);
+        List<Manager> managers = managerMapper.selectByExample(managerExample);
+        if(managers == null || managers.size() == 1){
+            return managers.get(0);
+        }
+        return null;
+    }
+
+    @Override
+    public Manager searchByPhone(String phone) {
+        ManagerExample managerExample = new ManagerExample();
+        managerExample.or().andPhoneEqualTo(phone);
+        List<Manager> managers = managerMapper.selectByExample(managerExample);
+        if(managers == null || managers.size() == 1){
+            return managers.get(0);
+        }
+        return null;
+    }
+
+    @Override
+    public Manager searchByManagerNickname(String managerNickname) {
+        ManagerExample managerExample = new ManagerExample();
+        managerExample.or().andManagerNicknameEqualTo(managerNickname);
+        List<Manager> managers = managerMapper.selectByExample(managerExample);
+        if(managers == null || managers.size() == 1){
+            return managers.get(0);
+        }
+        return null;
     }
 
 }
