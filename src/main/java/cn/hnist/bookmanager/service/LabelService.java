@@ -46,7 +46,7 @@ public interface LabelService {
      * @param id
      * @return
      */
-    String selectLabelNameById(int id);
+    Label selectLabelNameById(int id);
 
     /**
      * 查询所有标签

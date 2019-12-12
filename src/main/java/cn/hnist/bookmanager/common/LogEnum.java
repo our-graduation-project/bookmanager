@@ -1,6 +1,9 @@
 package cn.hnist.bookmanager.common;
 
+import org.omg.CORBA.TIMEOUT;
+
 /**
+ *
  * @author whg
  * @date 2019/12/9 23:38
  **/
@@ -14,7 +17,9 @@ public enum LogEnum {
 
     EXCEPTION("exception"),
 
-    CONTROLLER("controller")
+    CONTROLLER("controller"),
+
+    TIMEOUTTASK("timeouttask")
     ;
 
 
