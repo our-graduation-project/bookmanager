@@ -8,7 +8,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -60,6 +59,7 @@ public class LabelServiceImpl implements LabelService {
         LabelExample labelExample = new LabelExample();
         labelExample.or().andLabelIdEqualTo(id);
         int i = labelMapper.updateByExample(new Label(id,name), labelExample);
+        System.out.println(1/0);
         return i > 0 ? true : false;
     }
 

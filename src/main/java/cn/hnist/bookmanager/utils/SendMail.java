@@ -1,8 +1,11 @@
 package cn.hnist.bookmanager.utils;
 
+import org.springframework.stereotype.Component;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.Serializable;
 import java.util.Properties;
 
 /**
@@ -10,7 +13,8 @@ import java.util.Properties;
  * @author whg
  * @date 2019/12/3 22:12
  **/
-public class SendMail {
+@Component
+public class SendMail implements Serializable {
 
     private static Message message = null;
 
@@ -26,7 +30,7 @@ public class SendMail {
         properties.setProperty("mail.transport","smtp");//发送的协议是简单的邮件传输协议
         properties.setProperty("mail.smtp.ssl.enable","true");
         //建立两点之间的链接
-        System.out.println("执行了2");
+//        System.out.println("执行了2");
         session = Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -34,6 +38,8 @@ public class SendMail {
                 return new PasswordAuthentication("1547527394@qq.com","jhxoncskcrpjiede");
             }
         });
+        //不会在控制台输出太多内容
+        session.setDebug(false);
         //创建邮件对象
         message = new MimeMessage(session);
     }
@@ -43,7 +49,7 @@ public class SendMail {
      * @param content
      * @param account
      */
-    public static void sendMail(String content, String account){
+    public static void sendMail(String title, String content, String account){
 
         //设置发件人
         try {
@@ -51,7 +57,7 @@ public class SendMail {
             //设置收件人
             message.setRecipient(Message.RecipientType.TO,new InternetAddress(account));//收件人
             //设置主题
-            message.setSubject("验证码");
+            message.setSubject(title);
             //设置邮件正文  第二个参数是邮件发送的类型
             message.setContent(content,"text/html;charset=UTF-8");
             System.out.println("开始执行");
@@ -70,6 +76,6 @@ public class SendMail {
     }
 
     public static void main(String[] args) {
-        sendMail("111212","1547527394@qq.com");
+        sendMail("验证码","111212","1547527394@qq.com");
     }
 }
