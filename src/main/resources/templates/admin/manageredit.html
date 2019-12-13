@@ -34,8 +34,8 @@
            <li><label>管理员昵称</label><input name="" id = "managerNickname" type="text" class="dfinput" th:value="${manager.managerNickname}" /></li>
 		   <li><label>密码</label><input name="" id = "mailbox" type="text" class="dfinput" th:value="${manager.mailbox}" /></li>
 		   <li><label>电话</label><input name="" id = "phone" type="text" class="dfinput" th:value="${manager.phone}" /></li>
-            <li><label>性别</label><input name="sex" value="0" th:checked="${sex==1}"  type="radio" class="" />男
-                &nbsp;<input name="sex" value="1" th:checked="${sex==0}" type="radio" class="" />女</li>
+            <li><label>性别</label><input name="sex" value="0" th:checked="${manager.sex==0}"  type="radio" class="" />男
+                &nbsp;<input name="sex" value="1" th:checked="${manager.sex==1}" type="radio" class="" />女</li>
 		   <li><label>年龄</label><input id = "age" name="" type="text" class="dfinput" th:value="${manager.age}" /></li>
             <li><a onclick="editManager()" class="mybtn" style="display: inline-block">修改</a>
                 <label>&nbsp;</label><a th:href="@{managerlist}" class="mybtn" style="display: inline-block">返回</a></li>
