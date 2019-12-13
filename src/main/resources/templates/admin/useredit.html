@@ -55,7 +55,7 @@
             var userPwd = $("#userPwd").val();
             var mailbox = $("#mailbox").val();
             var phone = $("#phone").val();
-            var sex = $("#sex").val();
+            var sex = $('input:radio[name="sex"]:checked').val();
             var age = $("#age").val();
             console.log(userId + "--" + userName+ "--"
                 +userPwd+"--"+mailbox + "--" +phone+ "--" +sex+"--"+age);
