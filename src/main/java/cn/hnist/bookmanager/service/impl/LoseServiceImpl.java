@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 向清润
@@ -72,14 +73,14 @@ public class LoseServiceImpl implements LoseService {
      *
      * @param page     当前页
      * @param pageSize 页面大小
-     * @return
+     * @return 遗失数据列表
      */
     @Override
-    public PageInfo<Lose> searchLose(int page, int pageSize) {
+    public PageInfo<Map> searchLose(int page, int pageSize) {
         LoseExample loseExample = new LoseExample();
         loseExample.or();
         PageHelper.startPage(page,pageSize);
-        List<Lose> loses = loseMapper.selectByExample(loseExample);
+        List<Map> loses = loseMapper.selectLoseList();
         PageInfo pageInfo = new PageInfo(loses,3);
         return pageInfo;
     }

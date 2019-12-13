@@ -4,13 +4,17 @@ import cn.hnist.bookmanager.model.BorrowDetail;
 import cn.hnist.bookmanager.model.User;
 import cn.hnist.bookmanager.service.impl.BorrowDetailServiceImpl;
 import cn.hnist.bookmanager.service.impl.UserServiceImpl;
+import cn.hnist.bookmanager.utils.APIResult;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -63,5 +67,29 @@ public class boorrowdetailController {
 
         return modelAndView;
     }
+
+@RequestMapping("/returnBook")
+@ResponseBody
+public ModelAndView returnBook(@RequestParam(value = "status",defaultValue = "1") int status,@RequestParam(value = "borrowId",defaultValue = "") int borrowId){
+    ModelAndView modelAndView ;
+    int len = 0;
+    BorrowDetail borrowDetail = new BorrowDetail();
+    if((status==1||status==4||status==5)&&borrowId!=0){
+        borrowDetail.setStatus(status);
+        borrowDetail.setBorrowId(borrowId);
+        len = borrowDetailService.returnBook(borrowDetail);
+
+    }
+    System.out.println("len:"+len);
+    if(len > 0){
+        modelAndView = borrowDetailList(1,0,null);
+        return modelAndView;
+    }else {
+        modelAndView = new ModelAndView("/error/404");
+    }
+    return modelAndView;
+}
+
+
 
 }

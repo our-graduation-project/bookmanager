@@ -108,7 +108,8 @@ $(document).ready(function(){
             <td th:if="${a.status} eq '4'">逾期</td>
             <td th:if="${a.status} eq '5'">续借</td>
 
-        <td><a href="borrowdetailedit.html" class="tablelink">修改</a>     <a href="#" class="tablelink"> 删除</a></td>
+
+            <td th:if="${a.status} eq '1' or ${a.status} eq '4' or ${a.status} eq '5'" ><a class="tablelink"  th:href="@{/returnBook(status = ${a.status},borrowId = ${a.borrowId})}">归还</a></td>
         </tr>
         
         </tbody>
@@ -131,23 +132,23 @@ $(document).ready(function(){
         </div>
     
     
-    <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
-        
-      <div class="tipinfo">
-        <span><img src="../../static/mydist/images/ticon.png"  th:src="@{mydist/images/ticon.png}"/></span>
-        <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
-        </div>
-        </div>
-        
-        <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" />
-        </div>
-    
-    </div>
+<!--    <div class="tip">-->
+<!--    	<div class="tiptop"><span>提示信息</span><a></a></div>-->
+<!--        -->
+<!--      <div class="tipinfo">-->
+<!--        <span><img src="../../static/mydist/images/ticon.png"  th:src="@{mydist/images/ticon.png}"/></span>-->
+<!--        <div class="tipright">-->
+<!--        <p>是否确认对信息的修改 ？</p>-->
+<!--        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>-->
+<!--        </div>-->
+<!--        </div>-->
+<!--        -->
+<!--        <div class="tipbtn">-->
+<!--        <input name="" type="button"  class="sure" value="确定" />&nbsp;-->
+<!--        <input name="" type="button"  class="cancel" value="取消" />-->
+<!--        </div>-->
+<!--    -->
+<!--    </div>-->
     
     
     

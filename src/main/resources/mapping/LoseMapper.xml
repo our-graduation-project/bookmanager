@@ -208,4 +208,22 @@
       fine = #{fine,jdbcType=DOUBLE}
     where lose_id = #{loseId,jdbcType=INTEGER}
   </update>
+
+
+
+
+
+
+
+  
+  <!--  自己写的连表查询-->
+  <select id="selectLoseList" resultType="java.util.Map">
+select lose.lose_id loseId,lose.lose_date loseDate,
+lose.fine,`user`.user_name username,`book`.book_name
+bookname from lose,`user`,book
+where lose.book_id=book.book_id
+and lose.user_id=`user`.user_id
+  </select>
+
+
 </mapper>

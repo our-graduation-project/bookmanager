@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -57,11 +58,11 @@ class LoseServiceImplTest {
 
     @Test
     void searchLose() {
-        PageInfo<Lose> pageInfo = loseService.searchLose(2, 5);
-        List<Lose> list = pageInfo.getList();
-        for (Lose l :
+        PageInfo<Map> pageInfo = loseService.searchLose(2, 5);
+        List<Map> list = pageInfo.getList();
+        for (Map m :
                 list) {
-            System.out.println(l);
+            System.out.println(m.get("bookname"));
         }
     }
 }
