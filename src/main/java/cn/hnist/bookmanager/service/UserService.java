@@ -13,7 +13,7 @@ public interface UserService {
      * 登录
      * @return
      */
-    boolean loginUser(User user);
+    User loginUser(User user);
 
     /**
      * 用户增加

@@ -22,15 +22,15 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public boolean loginUser(User user) {
+    public User loginUser(User user) {
         UserExample userExample=new UserExample();
-        userExample.or().andUserNameEqualTo(user.getUserName())
+        userExample.or().andMailboxEqualTo(user.getMailbox())
                 .andUserPwdEqualTo(user.getUserPwd());
         List<User> users=mapper.selectByExample(userExample);
-        if (users!=null||users.size()==1){
-            return true;
+        if (users==null||users.size()!=1){
+           return null;
         }
-        return false;
+        return users.get(0);
 
     }
 

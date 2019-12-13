@@ -20,9 +20,9 @@ public class UserController{
 
     @RequestMapping("/loginUser")
     public ModelAndView loginUser(User user){
-         boolean login = userService.loginUser(user);
+
          ModelAndView model=new ModelAndView("redirect:index");
-         model.addObject("user",login);
+
          return model;
     }
 

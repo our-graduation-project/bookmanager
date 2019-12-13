@@ -41,7 +41,7 @@ $(document).ready(function(){
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
+        <li><a href="main.html"  th:href="@{/main}">首页</a></li>
     <li><a href="#">数据表</a></li>
     <li><a href="#">基本内容</a></li>
     </ul>
@@ -50,6 +50,8 @@ $(document).ready(function(){
         <div class="rightinfo">
         <div class="tools">
             <ul class="toolbar">
+                <!--<li><input name="" type="text" placeholder="输入用户名称" style=" width:250px;height:30px"></li>-->
+                <!--<li th:each="user : ${pageInfo.getList()}" style="width:90px;"><a th:href="@{/toEdituserByName(userName=${user.userName})}"><button type="button" style="width: 100px;height:30px">查询</button></a></li>-->
                 <!--<li class="click"><a th:href="@{/admin/useradd.html}"><img src="../../static/mydist/images/t01.png" th:src="@{/mydist/images/t01.png}"/>添加</a></li>-->
                 <!--<li class="click"><a th:href="@{../admin/useredit.html}"><img src="../../static/mydist/images/t02.png" th:src="@{/mydist/images/t02.png}"/>修改</a></li>-->
                 <!--<li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{/mydist/images/t03.png}"/></span>删除</li>-->
@@ -82,10 +84,13 @@ $(document).ready(function(){
                     <td th:text="${user.mailbox}"></td>
                     <td th:text="${user.userPwd}"></td>
                     <td th:text="${user.phone}"></td>
-                    <td th:text="${user.sex}"></td>
+                    <td >
+                        <div th:if="${user.sex eq 0}">男</div>
+                        <div th:if="${user.sex eq 1}">女</div>
+                    </td>
                     <td th:text="${user.age}"></td>
-                    <td><a th:href="@{/toEdituser(userId=${user.userId})}" class="tablelink">添加</a>
-                        <a th:href="@{/toEdituserByName(userName=${user.userName})}" class="tablelink">修改</a>
+                    <td><!--<a th:href="@{/toEdituser(userId=${user.userId})}" class="tablelink">添加</a>-->
+                        <a th:href="@{toEdituserByName(userName=${user.userName})}" class="tablelink">修改</a>
                         <a th:href="@{/deleteUser(userId=${user.userId},page=${pageInfo.getPages()})}" class="tablelink"> 删除</a></td>
                 </tr>
             </table>
