@@ -96,23 +96,17 @@
         
         </tbody>
     </table>
-    
-   
-    <div class="pagin">
-    	<div class="message">当前显示第&nbsp;<i class="blue" th:text="${pageInfo.pageNum}"></i>页</div>
-        <ul class="paginList">
-        <li class="paginItem"><a th:href="@{/AnnouncementList(page=${pageInfo.prePage})}"><span class="pagepre"></span></a></li>
 
-        <li class="paginItem"><a th:href="@{/AnnouncementList(page=${pageInfo.navigatepageNums[0]})}" th:text="${pageInfo.navigatepageNums[0]}"></a></li>
-        <li class="paginItem"><a th:href="@{/AnnouncementList(page=${pageInfo.navigatepageNums[1]})}" th:text="${pageInfo.navigatepageNums[1]}"></a></li>
-        <li class="paginItem"><a href="javascript:;" th:text="${pageInfo.navigatepageNums[2]}"></a></li>
-        <li class="paginItem"><a  th:href="@{/AnnouncementList(page=${pageInfo.navigatepageNums[3]})}" th:text="${pageInfo.navigatepageNums[3]}"></a></li>
-        <li class="paginItem"><a th:if="${!pageInfo.isLastPage} "  th:href="@{/AnnouncementList(page=${pageInfo.navigatepageNums[4]})}" th:text="${pageInfo.navigatepageNums[4]}"></a></li>
-            <li class="paginItem"><a th:href="@{/AnnouncementList(page=${pageInfo.nextPage})}"><span class="pagenxt"></span></a></li>
+        <div class="pagin">
+            <div class="message">当前显示第&nbsp;<i class="blue" th:text="${pageInfo.pageNum}"></i>页</div>
+            <ul class="paginList">
+                <li class="paginItem"><a th:href="@{/announcementList(page=${pageInfo.prePage},state=${state},userName=${userName})}"><span class="pagepre"></span></a></li>
+                <li class="paginItem" th:each="a:${pageInfo.navigatepageNums}"><a th:href="@{/announcementList(page=${a},state=${state},userName=${userName})}" th:text="${a}"></a></li>
 
-        </ul>
-    </div>
-    
+                <li class="paginItem"><a th:href="@{/announcementList(page=${pageInfo.nextPage})}"><span class="pagenxt"></span></a></li>
+
+            </ul>
+        </div>
     
 <!--    <div class="tip">-->
 <!--    	<div class="tiptop"><span>提示信息</span><a></a></div>-->

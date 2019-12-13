@@ -120,12 +120,8 @@ $(document).ready(function(){
             <div class="message">当前显示第&nbsp;<i class="blue" th:text="${pageInfo.pageNum}"></i>页</div>
             <ul class="paginList">
                 <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.prePage},state=${state},userName=${userName})}"><span class="pagepre"></span></a></li>
+                <li class="paginItem" th:each="a:${pageInfo.navigatepageNums}"><a th:href="@{/borrowDetailList(page=${a},state=${state},userName=${userName})}" th:text="${a}"></a></li>
 
-                <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[0]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[0]}"></a></li>
-                <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[1]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[1]}"></a></li>
-                <li class="paginItem"><a href="javascript:;" th:text="${pageInfo.navigatepageNums[2]}"></a></li>
-                <li class="paginItem"><a  th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[3]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[3]}"></a></li>
-                <li class="paginItem"><a   th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[4]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[4]}"></a></li>
                 <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.nextPage})}"><span class="pagenxt"></span></a></li>
 
             </ul>
