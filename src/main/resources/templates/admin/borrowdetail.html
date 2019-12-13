@@ -58,7 +58,7 @@ $(document).ready(function(){
     	<ul class="toolbar">
 
             <form th:action="@{/userBorrowdetail}" method="post">
-                <li><label>用户名</label><input  name="userName" type="text" class="dfinput" /></li>
+                <li><label>用户名</label><input  th:value="${userName}" name="userName" type="text" class="dfinput" /></li>
                 <li><input name="" type="submit" class="btn" value="搜索"/>
             </form>
         </ul>
