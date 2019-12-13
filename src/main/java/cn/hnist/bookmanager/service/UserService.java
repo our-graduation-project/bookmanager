@@ -7,6 +7,7 @@ import com.github.pagehelper.PageInfo;
 import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
+
 public interface UserService {
     /**
      * 登录
@@ -46,7 +47,7 @@ public interface UserService {
      * @param userId
      * @return
      */
-    User searchUserById(Integer userId);
+    User searchUserById(int userId);
 
     /**
      * 查询所有用户

@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>网站后台管理系统</title>
-<link href="../../static/mydist/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../../static/mydist/js/jquery.js"></script>
+<link href="../../static/mydist/css/style.css" rel="stylesheet" th:href="@{mydist/css/style.css}" type="text/css" />
+<script type="text/javascript" src="../../static/mydist/js/jquery.js" th:src="@{mydist/js/jquery.js}"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -32,7 +32,12 @@ $(document).ready(function(){
 
 
 <body>
-
+    <div style="width: 100%; display: table" >
+        <th:block th:include="common/top::nav"/>
+    </div>
+    <div style="float: left; ">
+        <th:block th:include="common/left::nav"/>
+    </div>
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -41,98 +46,118 @@ $(document).ready(function(){
     <li><a href="#">基本内容</a></li>
     </ul>
     </div>
-    
-    <div class="rightinfo">
-    
-    <div class="tools">
-    
-    	<ul class="toolbar">
-        <li class="click"><a href="useradd.html"><img src="../../static/mydist/images/t01.png" />添加</a></li>
-        <li class="click"><span><img src="../../static/mydist/images/t02.png" /></span>修改</li>
-        <li class="click"><span><img src="../../static/mydist/images/t03.png" /></span>删除</li>
-        <li class="click"><span><img src="../../static/mydist/images/t04.png" /></span>统计</li>
-        </ul>
-        
-        
-        <ul class="toolbar1">
-        <li><span><img src="../../static/mydist/images/t05.png" /></span>设置</li>
-        </ul>
-    
-    </div>
-    
-    
-    <table class="tablelist">
-    	<thead>
-    	<tr>
-        <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>编号<i class="sort"><img src="../../static/mydist/images/px.gif" /></i></th>
-        <th>用户</th>
-        <th>邮箱</th>
-        <th>密码</th>
-        <th>电话</th>
-		<th>性别</th>
-		<th>年龄</th>
-        <th>操作</th>
-        </tr>
-        </thead>
-		
-        <tbody>
-        <tr>
-        <td><input name="" type="checkbox" value="" /></td>
-        <td>1</td>
-        <td>张三</td>
-        <td>2625066139@qq.com</td>
-        <td>123456</td>
-        <td>15697404366</td>
-        <td>1</td>
-		<td>22</td>
-        <td><a href="useredit.html" class="tablelink">修改</a>     <a href="#" class="tablelink"> 删除</a></td>
-        </tr> 
+    <div class="mainindex">
+        <div class="rightinfo">
+        <div class="tools">
+            <ul class="toolbar">
+                <!--<li class="click"><a th:href="@{/admin/useradd.html}"><img src="../../static/mydist/images/t01.png" th:src="@{/mydist/images/t01.png}"/>添加</a></li>-->
+                <!--<li class="click"><a th:href="@{../admin/useredit.html}"><img src="../../static/mydist/images/t02.png" th:src="@{/mydist/images/t02.png}"/>修改</a></li>-->
+                <!--<li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{/mydist/images/t03.png}"/></span>删除</li>-->
+                <!--<li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{/mydist/images/t04.png}"/></span>统计</li>-->
+            </ul>
+            <ul class="toolbar1">
+                <li><span><img src="../../static/mydist/images/t05.png" th:src="@{/mydist/images/t05.png}"/></span>设置</li>
+            </ul>
+        </div>
+            <table class="tablelist">
+                <thead>
+                <tr>
+                    <th><input name="" type="checkbox" value="" checked="checked"/></th>
+                    <th>编号<i class="sort"><img src="../../static/mydist/images/px.gif" th:src="@{/mydist/images/px.gif}"/></i></th>
+                    <th>用户</th>
+                    <th>邮箱</th>
+                    <th>密码</th>
+                    <th>电话</th>
+		            <th>性别</th>
+		            <th>年龄</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
 
-    </table>
-    
-   
-    <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
-        <ul class="paginList">
-        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-        <li class="paginItem"><a href="javascript:;">1</a></li>
-        <li class="paginItem current"><a href="javascript:;">2</a></li>
-        <li class="paginItem"><a href="javascript:;">3</a></li>
-        <li class="paginItem"><a href="javascript:;">4</a></li>
-        <li class="paginItem"><a href="javascript:;">5</a></li>
-        <li class="paginItem more"><a href="javascript:;">...</a></li>
-        <li class="paginItem"><a href="javascript:;">10</a></li>
-        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
-    </div>
-    
-    
-    <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
-        
-      <div class="tipinfo">
-        <span><img src="../../static/mydist/images/ticon.png" /></span>
-        <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+                <tbody>
+                <tr th:each="user : ${pageInfo.getList()}">
+                    <td><input name="" type="checkbox" value="" /></td>
+                    <td th:text="${user.userId}"></td>
+                    <td th:text="${user.userName}"></td>
+                    <td th:text="${user.mailbox}"></td>
+                    <td th:text="${user.userPwd}"></td>
+                    <td th:text="${user.phone}"></td>
+                    <td th:text="${user.sex}"></td>
+                    <td th:text="${user.age}"></td>
+                    <td><a th:href="@{/toEdituser(userId=${user.userId})}" class="tablelink">添加</a>
+                        <a th:href="@{/toEdituserByName(userName=${user.userName})}" class="tablelink">修改</a>
+                        <a th:href="@{/deleteUser(userId=${user.userId},page=${pageInfo.getPages()})}" class="tablelink"> 删除</a></td>
+                </tr>
+            </table>
+        <div class="pagin">
+            <div class="message">共<i class="blue" th:text="${pageInfo.getTotal()}"></i>条记录，当前显示第&nbsp;<i class="blue" th:text="${pageInfo.getPageNum()}">2</i>页</div>
+            <ul class="paginList">
+                <li class="paginItem"><a th:href="@{/loadUsers(page=${pageInfo.prePage})}"><span class="pagepre"></span></a></li>
+                <li class="paginItem"><a href="javascript:;" th:href="@{/loadUsers(page=${pageInfo.getFirstPage()},pageSize=${pageInfo.getPageSize()})}">首页</a></li>
+                <li class="paginItem current"><a  th:each="num : ${pageInfo.getNavigatepageNums()}" th:text="${num}" th:href="@{/loadUsers(page=${num},pageSize=${pageInfo.getPageSize()})}">2</a></li>
+
+                <!--            <li class="paginItem more"><a href="javascript:;">...</a></li>-->
+                <li class="paginItem"><a href="javascript:;" th:href="@{/loadUsers(page=${pageInfo.getLastPage()},pageSize=${pageInfo.getPageSize()})}">尾页</a></li>
+                <li class="paginItem"><a th:href="@{/loadUsers(page=${pageInfo.getNextPage()})}"><span class="pagenxt"></span></a></li>
+            </ul>
+        </div>
+
+        <div class="tip">
+            <div class="tiptop"><span>添加用户</span><a></a></div>
+
+           <div class="tipinfo">
+                    <!--            <span><img src="../../static/mydist/images/ticon.png" th:src="@{mydist/images/ticon.png}"/></span>-->
+               <div class="tipright">
+                   <label>用户名</label>&nbsp;<input name="" id = "addUserName" type="text" class="dfinput" />
+                   <label>邮箱</label>&nbsp;<input name="" id = "addMailBox" type="text" class="dfinput" />
+                   <label>密码</label>&nbsp;<input name="" id = "addUserPwd" type="text" class="dfinput" />
+                   <label>电话</label>&nbsp;<input name="" id = "addPhone" type="text" class="dfinput" />
+                   <label>性别</label>&nbsp;<input name="" id = "addSex" type="text" class="dfinput" />
+                   <label>年龄</label>&nbsp;<input name="" id = "addAge" type="text" class="dfinput" />
+                   <label id="error" style="display: none">错误信息</label>
+               </div>
+           </div>
+
+            <div class="tipbtn" >
+                <a onclick="addUser()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;确定</a>
+                <label>&nbsp;</label><a  class="mybtn" style="display: inline-block">&nbsp;&nbsp;取消</a>
+            </div>
         </div>
         </div>
-        
-        <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" />
-        </div>
-    
     </div>
-    
-    
-    
-    
-    </div>
-    
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
+
+
+    function deleteUser(userId) {
+        console.log(userId);
+        if( alert("确认删除") ){
+            var data = {"userId": userId};
+            $.ajax({
+                //请求方式
+                type : "POST",
+                //请求的媒体类型
+                contentType: "application/json;charset=UTF-8",
+                //请求地址
+                url : "admin/deleteUser",
+                //数据，json字符串
+                data : JSON.stringify(data),
+                success: function (result) {
+                    if (result.result) {
+                        alert("删除成功");
+                    }
+                    else {
+                        console.log(result.message+"--"+result.result);
+                        alert("删除失败");
+                    }
+                },
+                error: function () {
+                    alert("操作失败");
+                }
+
+            })
+        }
+    }
 	</script>
 </body>
 </html>

@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public User searchUserById(Integer userId) {
+    public User searchUserById(int userId) {
         User user=mapper.selectByPrimaryKey(userId);
         return user;
     }
@@ -106,8 +106,7 @@ public class UserServiceImpl implements UserService {
         userExample.or();
         PageHelper.startPage(page,pageSize);
         List<User> users = mapper.selectByExample(userExample);
-        PageInfo pageInfo=new PageInfo(users,1);
+        PageInfo pageInfo=new PageInfo(users,3);
         return pageInfo;
     }
-
 }
