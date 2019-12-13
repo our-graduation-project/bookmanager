@@ -34,12 +34,14 @@
                     <li><label>电话</label><input name="phone" id="phone" type="text" class="dfinput"  /></li>
                     <li><label>密码</label><input name="managerPwd" id="managerPwd" type="text" class="dfinput" /></li>
                     <li><label>确认密码</label><input   type="text" id="managerPwds" name="managerPwds" class="dfinput" /></li>
-                    <li><label>性别</label>
-                         <input  name="sex"  value="1"  type="radio" class="" />男
-                          <input 　name="sex"  value="0"  type="radio" class="" />女</li>
+                     <li><label for="sex" class="col-sm-2 control-label">性别</label>
+                    <div id="sex" class="col-sm-8">
+                            <label><input name="sex" type="radio" value="0" /> 男</label>
+                            <label><input name="sex" type="radio" value="1"/> 女</label>
+                    </div></li>
                     <li><label>年龄</label><input name="age" id="age" type="text" class="dfinput"  /></li>
                     <li> <a onclick="addManager()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;确定</a>
-                        <label>&nbsp;</label><a onclick="addManager()" class="mybtn" style="display: inline-block">&nbsp重置</a></li>
+                        <label>&nbsp;</label><a th:href="@{managerlist}"  class="mybtn" style="display: inline-block">&nbsp; 返回</a></li>
                     <li><label id="error" style="display: none">错误信息</label></li>
                 </ul>
             </form>

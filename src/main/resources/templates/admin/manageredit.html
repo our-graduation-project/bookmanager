@@ -38,7 +38,7 @@
                 &nbsp;<input name="sex" value="1" th:checked="${sex==0}" type="radio" class="" />女</li>
 		   <li><label>年龄</label><input id = "age" name="" type="text" class="dfinput" th:value="${manager.age}" /></li>
             <li><a onclick="editManager()" class="mybtn" style="display: inline-block">修改</a>
-                <label>&nbsp;</label><a onclick="aaa()" class="mybtn" style="display: inline-block">重置</a></li>
+                <label>&nbsp;</label><a th:href="@{managerlist}" class="mybtn" style="display: inline-block">返回</a></li>
             <li><label id="error" style="display: none">错误信息</label></li>
         </ul>	
 		

@@ -33,7 +33,7 @@
             <li><label>标签id</label><input name="typeId" id = "typeId" type="text" class="dfinput" th:value="${booktype.typeId}" readonly/></li>
            <li><label>类型名</label><input name="typeName" id="typeName" th:value="${booktype.typeName}" type="text" class="dfinput" /></li>
             <li><a onclick="editBookType()" class="mybtn" style="display: inline-block">修改</a>
-                <label>&nbsp;</label><a onclick="aaa()" class="mybtn" style="display: inline-block">重置</a></li>
+                <label>&nbsp;</label><a th:href="@{booktypelist}" class="mybtn" style="display: inline-block">返回</a></li>
             <li><label id="error" style="display: none">错误信息</label></li>
         </ul>	
 		
