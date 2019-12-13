@@ -32,7 +32,12 @@ $(document).ready(function(){
 
 
 <body>
-
+<div style="width: 100%; display: table" >
+    <th:block th:include="common/top::nav"/>
+</div>
+<div style="float: left; ">
+    <th:block th:include="common/left::nav"/>
+</div>
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -41,7 +46,7 @@ $(document).ready(function(){
     <li><a href="#">基本内容</a></li>
     </ul>
     </div>
-    
+<div class="mainindex">
     <div class="rightinfo">
     
     <div class="tools">
@@ -121,16 +126,12 @@ $(document).ready(function(){
     </div>
     
     
-    
+    </div>
     
     </div>
     
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
-
-
-
-
     </script>
 </body>
 </html>

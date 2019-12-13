@@ -61,9 +61,7 @@ public class BookTypeController {
     @RequestMapping("/admin/booktypemodify")
     @ResponseBody
     public APIResult bookTypeModify(@RequestBody Booktype booktype){
-        System.out.println(booktype);
         int i = bookTypeService.updateBookType(booktype);
-        System.out.println("i-----"+i);
         boolean flg = false;
         if(i > 0){
             flg = true;
@@ -89,7 +87,6 @@ public class BookTypeController {
     @RequestMapping("/admin/booketypeadd")
     @ResponseBody
     public APIResult bookeTypeAdd(@RequestBody Booktype booktype){
-        System.out.println(booktype);
         //判断这种书的类型是否已经存在
         Booktype booktypeTypeName = bookTypeService.searchBookTypeByTypeName(booktype.getTypeName());
         if(booktypeTypeName != null){

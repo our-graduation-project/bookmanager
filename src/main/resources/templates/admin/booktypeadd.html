@@ -9,6 +9,12 @@
 </head>
 <body>
 
+    <div style="width: 100%; display: table" >
+       <th:block th:include="common/top::nav"/>
+    </div>
+     <div style="float: left; ">
+        <th:block th:include="common/left::nav"/>
+     </div>
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -16,10 +22,12 @@
     <li><a href="#">图书类型添加</a></li>
     </ul>
     </div>
-    
+
+    <div class="mainindex">
     <div class="formbody">
     
-    <div class="formtitle"><span>图书类型添加</span></div>
+    <div class="formtitle">
+        <span>图书类型添加</span></div>
     
 	<form action="" method="post">
 		<ul class="forminfo">
@@ -31,6 +39,7 @@
 		
 	</form>
     
+    </div>
     </div>
 </body>
 <script type="text/javascript">

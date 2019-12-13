@@ -48,8 +48,6 @@ public class ManagerController {
      */
     @RequestMapping("/login")
     public String login(@RequestParam("mailbox") String mailbox,@RequestParam("managerPwd") String managerPwd){
-        //System.out.println("come in");
-        System.out.println("mailbox"+mailbox+"managerPwd"+managerPwd);
         Logger log = LogUtils.getExceptionLogger();
         Logger log1 = LogUtils.getBussinessLogger();
         Logger log2 = LogUtils.getDBLogger();
@@ -64,7 +62,6 @@ public class ManagerController {
             TokenUtil.becomeToken(map);
             log1.info("getBussinessLogger===管理员登录");
             LogUtils.getControllerLogger().info("getControllerLogger===管理员登录");
-            System.out.println(login);
             return "/admin/main";
         }
         log1.info("getBussinessLogger===管理员登录");
@@ -116,7 +113,6 @@ public class ManagerController {
     @RequestMapping("/admin/manageradd")
     @ResponseBody
     public APIResult ManagerAdd(@RequestBody Manager manager){
-        System.out.println(manager);
         Manager manager1 = managerService.searchByMailBox(manager.getMailbox());
         if(manager1 != null){
             return new APIResult("邮箱已存在",false,400);
@@ -160,10 +156,8 @@ public class ManagerController {
 
     @RequestMapping("/admin/managermodify")
     @ResponseBody
-    public APIResult ManagerModify(@RequestBody Manager manager){
-        System.out.println(manager);
+    public APIResult managerModify(@RequestBody Manager manager){
         int i = managerService.updateManager(manager);
-        System.out.println("i-----"+i);
         boolean flg = false;
         if(i > 0){
             flg = true;

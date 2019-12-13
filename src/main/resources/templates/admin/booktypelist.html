@@ -33,6 +33,12 @@ $(document).ready(function(){
 
 <body>
 
+<div style="width: 100%; display: table" >
+    <th:block th:include="common/top::nav"/>
+</div>
+<div style="float: left; ">
+    <th:block th:include="common/left::nav"/>
+</div>
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -41,7 +47,7 @@ $(document).ready(function(){
     <li><a href="#">基本内容</a></li>
     </ul>
     </div>
-    
+<div class="mainindex">
     <div class="rightinfo">
     
     <div class="tools">
@@ -111,7 +117,7 @@ $(document).ready(function(){
     </div>
     
     
-    
+    </div>
     
     </div>
     
@@ -135,6 +141,7 @@ $(document).ready(function(){
                 success: function (result) {
                     if (result.result) {
                         alert("删除成功");
+                        window.location.href="booktypelist";
                     }
                     else {
                         console.log(result.message+"--"+result.result);
