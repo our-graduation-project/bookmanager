@@ -1,8 +1,6 @@
 package cn.hnist.bookmanager.service.impl;
 
 import cn.hnist.bookmanager.mapper.LabelRelationMapper;
-import cn.hnist.bookmanager.model.Book;
-import cn.hnist.bookmanager.model.Label;
 import cn.hnist.bookmanager.model.LabelRelation;
 import cn.hnist.bookmanager.model.LabelRelationExample;
 import cn.hnist.bookmanager.service.LabelRelationService;

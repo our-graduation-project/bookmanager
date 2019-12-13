@@ -580,7 +580,7 @@
     var Direction = {
       NEXT: 'next',
       PREV: 'prev',
-      LEFT: 'left',
+      LEFT: 'templates.common.left',
       RIGHT: 'right'
     };
     var Event = {
@@ -2495,10 +2495,10 @@
     };
     var AttachmentMap = {
       AUTO: 'auto',
-      TOP: 'top',
+      TOP: 'templates.common.top',
       RIGHT: 'right',
       BOTTOM: 'bottom',
-      LEFT: 'left'
+      LEFT: 'templates.common.left'
     };
     var Default = {
       animation: true,
@@ -2508,7 +2508,7 @@
       delay: 0,
       html: false,
       selector: false,
-      placement: 'top',
+      placement: 'templates.common.top',
       offset: 0,
       container: false,
       fallbackPlacement: 'flip',

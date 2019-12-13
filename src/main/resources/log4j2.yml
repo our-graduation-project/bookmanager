@@ -9,7 +9,7 @@ Configuration:
       - name: log.level.console
         value: info
       - name: log.path
-        value: F:\ideaworkSpace\毕业设计\book-manager\log
+        value: D:\study\bookmanager-log
       - name: project.name
         value: bookmanager
       - name: log.pattern

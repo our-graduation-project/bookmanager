@@ -36,10 +36,10 @@ KindEditor.plugin('emoticons', function(K) {
 			if (previewDiv) {
 				cell.mouseover(function() {
 					if (j > colsHalf) {
-						previewDiv.css('left', 0);
+						previewDiv.css('templates.common.left', 0);
 						previewDiv.css('right', '');
 					} else {
-						previewDiv.css('left', '');
+						previewDiv.css('templates.common.left', '');
 						previewDiv.css('right', 0);
 					}
 					previewImg.attr('src', path + num + '.gif');

@@ -882,7 +882,7 @@ jQuery.ready.promise = function( obj ) {
 						try {
 							// Use the trick by Diego Perini
 							// http://javascript.nwbox.com/IEContentLoaded/
-							top.doScroll("left");
+							top.doScroll("templates.common.left");
 						} catch(e) {
 							return setTimeout( doScrollCheck, 50 );
 						}
@@ -7123,7 +7123,7 @@ jQuery(function() {
 	// getComputedStyle returns percent when specified for top/left/bottom/right
 	// rather than make the css module depend on the offset module, we just check for it here
 	if ( !jQuery.support.pixelPosition && jQuery.fn.position ) {
-		jQuery.each( [ "top", "left" ], function( i, prop ) {
+		jQuery.each( [ "templates.common.top", "templates.common.left" ], function(i, prop ) {
 			jQuery.cssHooks[ prop ] = {
 				get: function( elem, computed ) {
 					if ( computed ) {
@@ -9295,8 +9295,8 @@ jQuery.offset = {
 
 		var curElem = jQuery( elem ),
 			curOffset = curElem.offset(),
-			curCSSTop = jQuery.css( elem, "top" ),
-			curCSSLeft = jQuery.css( elem, "left" ),
+			curCSSTop = jQuery.css( elem, "templates.common.top" ),
+			curCSSLeft = jQuery.css( elem, "templates.common.left" ),
 			calculatePosition = ( position === "absolute" || position === "fixed" ) && jQuery.inArray("auto", [curCSSTop, curCSSLeft]) > -1,
 			props = {}, curPosition = {}, curTop, curLeft;
 

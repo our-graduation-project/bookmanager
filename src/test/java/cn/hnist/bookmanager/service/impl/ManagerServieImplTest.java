@@ -33,7 +33,7 @@ class ManagerServieImplTest {
         Manager manager = new Manager();
         manager.setMailbox("123@qq.com");
         manager.setManagerPwd("123456");
-        boolean login = managerService.login(manager);
+        Manager login = managerService.login(manager);
         System.out.println("----------login"+login);
     }
 

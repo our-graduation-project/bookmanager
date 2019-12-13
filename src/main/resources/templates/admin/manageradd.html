@@ -1,9 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="../../static/mydist/css/style.css" rel="stylesheet" type="text/css" />
+<link href="../../static/mydist/css/style.css" th:href="@{mydist/css/style.css}" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" th:src="@{plugins/jquery/jquery.js}"></script>
+    <script type="text/javascript" src="../../static/mydist/js/public.js" th:src="@{mydist/js/public.js}"></script>
 </head>
 
 <body>
@@ -11,7 +13,7 @@
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
+    <li><a href="main.html"  th:href="@{/main}">首页</a></li>
     <li><a href="#">管理员添加</a></li>
     </ul>
     </div>
@@ -19,23 +21,112 @@
     <div class="formbody">
     
     <div class="formtitle"><span>管理员添加</span></div>
-    
-	<form action="" method="post">
-		<ul class="forminfo">
-           <li><label>管理员名</label><input name="" type="text" class="dfinput" /></li>
-           <li><label>管理员昵称</label><input name="" type="text" class="dfinput" /></li>
-		   <li><label>邮箱</label><input name="" type="email" class="dfinput" /></li>
-		   <li><label>密码</label><input name="" type="text" class="dfinput" /></li>
-		   <li><label>确认密码</label><input name="" type="text" class="dfinput" /></li>
-		   <li><label>电话</label><input name="" type="text" class="dfinput" /></li>
-		   <li><label>性别</label><input name="sex" type="radio" class="" />男&nbsp;<input name="sex" type="radio" class="" />女</li>
-		   <li><label>年龄</label><input name="" type="text" class="dfinput" /></li>
-		   <li><input name="" type="submit" class="btn" value="提交"/>
-	       <label>&nbsp;</label><input name="" type="reset" class="btn" value="重置"/></li>
-        </ul>	
-		
-	</form>
-    
+            <form action="" method="post">
+                <ul class="forminfo">
+                    <li><label>管理员名</label><input name="managerName" id="managerName" type="text" class="dfinput"  /></li>
+                    <li><label>管理员昵称</label><input name="managerNickname" id="managerNickname" type="text" class="dfinput"  /></li>
+                    <li><label>邮箱</label><input name="mailbox" id="mailbox" type="text" class="dfinput"  /></li>
+                    <li><label>电话</label><input name="phone" id="phone" type="text" class="dfinput"  /></li>
+                    <li><label>密码</label><input name="managerPwd" id="managerPwd" type="text" class="dfinput" /></li>
+                    <li><label>确认密码</label><input   type="text" id="managerPwds" name="managerPwds" class="dfinput" /></li>
+                    <li><label>性别</label>
+                         <input  name="sex"  value="1"  type="radio" class="" />男
+                          <input 　name="sex"  value="0"  type="radio" class="" />女</li>
+                    <li><label>年龄</label><input name="age" id="age" type="text" class="dfinput"  /></li>
+                    <li> <a onclick="addManager()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;确定</a>
+                        <label>&nbsp;</label><a onclick="addManager()" class="mybtn" style="display: inline-block">&nbsp重置</a></li>
+                    <li><label id="error" style="display: none">错误信息</label></li>
+                </ul>
+            </form>
     </div>
 </body>
+
+<script type="text/javascript">
+    function addManager() {
+        var managerName = $("#managerName").val();
+        var managerNickname = $("#managerNickname").val();
+        var mailbox = $("#mailbox").val();
+        var phone = $("#phone").val();
+        var age = $("#age").val();
+        var managerPwd = $("#managerPwd").val();
+        var managerPwds = $("#managerPwds").val();
+        var sex = $('input:radio[name="sex"]:checked').val();
+        if(managerPwd == null || managerPwd == "" || managerPwd == undefined){
+            $("#error").css("display","block");
+            $("#error").html("密码不能为空");
+            return false;
+        }
+
+        console.log(managerName);
+        if(managerName == null || managerName == "" || managerName == undefined){
+            $("#error").css("display","block");
+            $("#error").html("managerName不能为空");
+            return false;
+        }
+        if(managerNickname == null || managerNickname == "" || managerNickname == undefined){
+            $("#error").css("display","block");
+            $("#error").html("managerNickname不能为空");
+            return false;
+        }
+        if(mailbox == null || mailbox == "" || mailbox == undefined){
+            $("#error").css("display","block");
+            $("#error").html("mailbox不能为空");
+            return false;
+        }
+        if(phone == null || phone == "" || phone == undefined){
+            $("#error").css("display","block");
+            $("#error").html("phone不能为空");
+            return false;
+        }
+        if(age == null || age == "" || age == undefined){
+            $("#error").css("display","block");
+            $("#error").html("age不能为空");
+            return false;
+        }
+        if(sex == null || sex == "" || sex == undefined){
+            $("#error").css("display","block");
+            $("#error").html("sex不能为空");
+            return false;
+        }
+
+        if(managerPwd != managerPwds){
+            $("#error").css("display","block");
+            $("#error").html("两次输入密码不一致");
+            return false;
+        }
+
+        var data = {"managerName" : managerName,
+            "managerNickname":managerNickname,
+            "mailbox":mailbox,
+            "managerPwd":managerPwd,
+            "phone":phone,
+            "age":age,
+            "sex":sex};
+        $.ajax({
+            //请求方式
+            type : "POST",
+            //请求的媒体类型
+            contentType: "application/json;charset=UTF-8",
+            //请求地址
+            url : "admin/manageradd",
+            //数据，json字符串
+            data : JSON.stringify(data),
+            success: function (result) {
+                if (result.result) {
+                    alert("添加成功");
+                    window.location.href="formanageradd";
+                }
+                else {
+                    $("#error").html(result.message);
+                    console.log(result.message+"--"+result.result);
+                    alert("添加失败");
+                }
+            },
+            error: function () {
+                alert("操作失败");
+            }
+
+        })
+    }
+</script>
 </html>

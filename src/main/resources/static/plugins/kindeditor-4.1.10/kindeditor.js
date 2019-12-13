@@ -565,7 +565,7 @@ function _ready(fn) {
 	function ieReadyFunc() {
 		if (!loaded) {
 			try {
-				document.documentElement.doScroll('left');
+				document.documentElement.doScroll('templates.common.left');
 			} catch(e) {
 				setTimeout(ieReadyFunc, 100);
 				return;
@@ -3333,8 +3333,8 @@ function _drag(options) {
 	clickEl.mousedown(function(e) {
 		e.stopPropagation();
 		var self = clickEl.get(),
-			x = _removeUnit(moveEl.css('left')),
-			y = _removeUnit(moveEl.css('top')),
+			x = _removeUnit(moveEl.css('templates.common.left')),
+			y = _removeUnit(moveEl.css('templates.common.top')),
 			width = moveEl.width(),
 			height = moveEl.height(),
 			pageX = e.pageX,
@@ -3439,14 +3439,14 @@ _extend(KWidget, {
 		updateProp = _undef(updateProp, true);
 		if (x !== null) {
 			x = x < 0 ? 0 : _addUnit(x);
-			self.div.css('left', x);
+			self.div.css('templates.common.left', x);
 			if (updateProp) {
 				self.x = x;
 			}
 		}
 		if (y !== null) {
 			y = y < 0 ? 0 : _addUnit(y);
-			self.div.css('top', y);
+			self.div.css('templates.common.top', y);
 			if (updateProp) {
 				self.y = y;
 			}
@@ -4323,7 +4323,7 @@ _extend(KDialog, KWidget, {
 		var self = this, body = self.bodyDiv;
 		self.loading = K('<div class="ke-dialog-loading"><div class="ke-inline-block ke-dialog-loading-content" style="margin-top:' + Math.round(body.height() / 3) + 'px;">' + msg + '</div></div>')
 			.width(body.width()).height(body.height())
-			.css('top', self.headerDiv.height() + 'px');
+			.css('templates.common.top', self.headerDiv.height() + 'px');
 		body.css('visibility', 'hidden').after(self.loading);
 		self.isLoading = true;
 		return self;

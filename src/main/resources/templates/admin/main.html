@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
+<title>网站后台管理系统</title>
   <style>
     img:hover{
       filter: alpha(opacity=60);
@@ -35,13 +35,13 @@
 
 
     <div class="welinfo">
-      <span><img src="../../static/mydist/images/sun.png" alt="天气" /></span>
+      <span><img src="../../static/mydist/images/sun.png" th:src="@{mydist/images/sun.png}"  alt="天气" /></span>
       <b>Admin早上好，欢迎使用信息管理系统</b>
       <a href="#">修改账号信息</a>
     </div>
 
     <div class="welinfo">
-      <span><img src="../../static/mydist/images/time.png" alt="时间" /></span>
+      <span><img src="../../static/mydist/images/time.png" th:src="@{mydist/images/time.png}" alt="时间" /></span>
       <i>您上次登录的时间：2013-10-09 15:22</i> （不是您登录的？<a href="#">请点这里</a>）
     </div>
 
@@ -49,21 +49,21 @@
 
     <ul class="iconlist">
 
-      <li><a href="borrow.html"><img width="150" height="150" src="../../static/mydist/images/ico01.jpg" /></a><p><a href="#">借书</a></p></li>
-      <li><a href="returnbook.html"><img width="150" height="150" src="../../static/mydist/images/ico02.jpg" /></a><p><a href="#">还书</a></p></li>
-      <li><a href="renewalbook.html"><img width="150" height="150" src="../../static/mydist/images/ico03.jpeg" /></a><p><a href="#">续借</a></p></li>
-      <li><a href="lose.html"><img width="150" height="150" src="../../static/mydist/images/ico04.jpg" /></a><p><a href="#">丢失</a></p></li>
-      <li><a href="noticeedit.html"><img width="150" height="150" src="../../static/mydist/images/ico05.png" /></a><p><a href="#">发布公告</a></p></li>
+      <li><a href="borrow.html"><img width="150" height="150" src="../../static/mydist/images/ico01.jpg" th:src="@{mydist/images/ico01.jpg}" /></a><p><a href="#">借书</a></p></li>
+      <li><a href="returnbook.html"><img width="150" height="150" src="../../static/mydist/images/ico02.jpg" th:src="@{mydist/images/ico02.jpg}"  /></a><p><a href="#">还书</a></p></li>
+      <li><a href="renewalbook.html"><img width="150" height="150" src="../../static/mydist/images/ico03.jpeg" th:src="@{mydist/images/ico03.jpg}"  /></a><p><a href="#">续借</a></p></li>
+      <li><a href="lose.html"><img width="150" height="150" src="../../static/mydist/images/ico04.jpg" th:src="@{mydist/images/ico04.jpg} " /></a><p><a href="#">丢失</a></p></li>
+      <li><a href="noticeedit.html"><img width="150" height="150" src="../../static/mydist/images/ico05.png" th:src="@{mydist/images/ico05.jpg}"  /></a><p><a href="#">发布公告</a></p></li>
 
     </ul>
 
-    <div class="ibox"><a class="ibtn"><img src="../../static/mydist/images/iadd.png" />添加新的快捷功能</a></div>
+    <div class="ibox"><a class="ibtn"><img src="../../static/mydist/images/iadd.png" th:src="@{mydist/images/iadd.png}" />添加新的快捷功能</a></div>
 
     <div class="xline"></div>
     <div class="box"></div>
 
     <div class="welinfo">
-      <span><img src="../../static/mydist/images/dp.png" alt="提醒" /></span>
+      <span><img src="../../static/mydist/images/dp.png" th:src="@{mydist/images/dp.png}" alt="提醒" /></span>
       <b>信息管理系统使用指南</b>
     </div>
 

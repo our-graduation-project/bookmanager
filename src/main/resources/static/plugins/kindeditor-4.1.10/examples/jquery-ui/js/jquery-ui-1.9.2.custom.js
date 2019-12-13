@@ -321,7 +321,7 @@ $.extend( $.ui, {
 			return false;
 		}
 
-		var scroll = ( a && a === "left" ) ? "scrollLeft" : "scrollTop",
+		var scroll = ( a && a === "templates.common.left" ) ? "scrollLeft" : "scrollTop",
 			has = false;
 
 		if ( el[ scroll ] > 0 ) {
@@ -1226,7 +1226,7 @@ $.fn.position = function( options ) {
 			marginTop: marginTop
 		};
 
-		$.each( [ "left", "top" ], function( i, dir ) {
+		$.each( [ "templates.common.left", "templates.common.top" ], function(i, dir ) {
 			if ( $.ui.position[ collision[ i ] ] ) {
 				$.ui.position[ collision[ i ] ][ dir ]( position, {
 					targetWidth: targetWidth,
@@ -1271,8 +1271,8 @@ $.fn.position = function( options ) {
 							width: elemWidth,
 							height: elemHeight
 						},
-						horizontal: right < 0 ? "left" : left > 0 ? "right" : "center",
-						vertical: bottom < 0 ? "top" : top > 0 ? "bottom" : "middle"
+						horizontal: right < 0 ? "templates.common.left" : left > 0 ? "right" : "center",
+						vertical: bottom < 0 ? "templates.common.top" : top > 0 ? "bottom" : "middle"
 					};
 				if ( targetWidth < elemWidth && abs( left + right ) < targetWidth ) {
 					feedback.horizontal = "center";
@@ -1379,12 +1379,12 @@ $.ui.position = {
 				collisionPosLeft = position.left - data.collisionPosition.marginLeft,
 				overLeft = collisionPosLeft - offsetLeft,
 				overRight = collisionPosLeft + data.collisionWidth - outerWidth - offsetLeft,
-				myOffset = data.my[ 0 ] === "left" ?
+				myOffset = data.my[ 0 ] === "templates.common.left" ?
 					-data.elemWidth :
 					data.my[ 0 ] === "right" ?
 						data.elemWidth :
 						0,
-				atOffset = data.at[ 0 ] === "left" ?
+				atOffset = data.at[ 0 ] === "templates.common.left" ?
 					data.targetWidth :
 					data.at[ 0 ] === "right" ?
 						-data.targetWidth :
@@ -1414,13 +1414,13 @@ $.ui.position = {
 				collisionPosTop = position.top - data.collisionPosition.marginTop,
 				overTop = collisionPosTop - offsetTop,
 				overBottom = collisionPosTop + data.collisionHeight - outerHeight - offsetTop,
-				top = data.my[ 1 ] === "top",
+				top = data.my[ 1 ] === "templates.common.top",
 				myOffset = top ?
 					-data.elemHeight :
 					data.my[ 1 ] === "bottom" ?
 						data.elemHeight :
 						0,
-				atOffset = data.at[ 1 ] === "top" ?
+				atOffset = data.at[ 1 ] === "templates.common.top" ?
 					data.targetHeight :
 					data.at[ 1 ] === "bottom" ?
 						-data.targetHeight :
@@ -3557,7 +3557,7 @@ $.extend(Datepicker.prototype, {
 		}
 
 		// move input on screen for focus, but hidden behind dialog
-		this._dialogInput.css('left', (this._pos[0] + 20) + 'px').css('top', this._pos[1] + 'px');
+		this._dialogInput.css('templates.common.left', (this._pos[0] + 20) + 'px').css('templates.common.top', this._pos[1] + 'px');
 		inst.settings.onSelect = onSelect;
 		this._inDialog = true;
 		this.dpDiv.addClass(this._dialogClass);
@@ -4757,9 +4757,9 @@ $.extend(Datepicker.prototype, {
 					if (numMonths[1] > 1)
 						switch (col) {
 							case 0: calender += ' ui-datepicker-group-first';
-								cornerClass = ' ui-corner-' + (isRTL ? 'right' : 'left'); break;
+								cornerClass = ' ui-corner-' + (isRTL ? 'right' : 'templates.common.left'); break;
 							case numMonths[1]-1: calender += ' ui-datepicker-group-last';
-								cornerClass = ' ui-corner-' + (isRTL ? 'left' : 'right'); break;
+								cornerClass = ' ui-corner-' + (isRTL ? 'templates.common.left' : 'right'); break;
 							default: calender += ' ui-datepicker-group-middle'; cornerClass = ''; break;
 						}
 					calender += '">';
@@ -5114,7 +5114,7 @@ $.widget("ui.dialog", {
 			using: function( pos ) {
 				var topOffset = $( this ).css( pos ).offset().top;
 				if ( topOffset < 0 ) {
-					$( this ).css( "top", pos.top - topOffset );
+					$( this ).css( "templates.common.top", pos.top - topOffset );
 				}
 			}
 		},
@@ -5557,7 +5557,7 @@ $.widget("ui.dialog", {
 					myAt[ 1 ] = myAt[ 0 ];
 				}
 
-				$.each( [ "left", "top" ], function( i, offsetPosition ) {
+				$.each( [ "templates.common.left", "templates.common.top" ], function(i, offsetPosition ) {
 					if ( +myAt[ i ] === myAt[ i ] ) {
 						offset[ i ] = myAt[ i ];
 						myAt[ i ] = offsetPosition;
@@ -6184,13 +6184,13 @@ $.widget("ui.draggable", $.ui.mouse, {
 		if ($.isArray(obj)) {
 			obj = {left: +obj[0], top: +obj[1] || 0};
 		}
-		if ('left' in obj) {
+		if ('templates.common.left' in obj) {
 			this.offset.click.left = obj.left + this.margins.left;
 		}
 		if ('right' in obj) {
 			this.offset.click.left = this.helperProportions.width - obj.right + this.margins.left;
 		}
-		if ('top' in obj) {
+		if ('templates.common.top' in obj) {
 			this.offset.click.top = obj.top + this.margins.top;
 		}
 		if ('bottom' in obj) {
@@ -6229,8 +6229,8 @@ $.widget("ui.draggable", $.ui.mouse, {
 		if(this.cssPosition == "relative") {
 			var p = this.element.position();
 			return {
-				top: p.top - (parseInt(this.helper.css("top"),10) || 0) + this.scrollParent.scrollTop(),
-				left: p.left - (parseInt(this.helper.css("left"),10) || 0) + this.scrollParent.scrollLeft()
+				top: p.top - (parseInt(this.helper.css("templates.common.top"),10) || 0) + this.scrollParent.scrollTop(),
+				left: p.left - (parseInt(this.helper.css("templates.common.left"),10) || 0) + this.scrollParent.scrollLeft()
 			};
 		} else {
 			return { top: 0, left: 0 };
@@ -7918,13 +7918,13 @@ $.extend( $.effects, {
 	getBaseline: function( origin, original ) {
 		var y, x;
 		switch ( origin[ 0 ] ) {
-			case "top": y = 0; break;
+			case "templates.common.top": y = 0; break;
 			case "middle": y = 0.5; break;
 			case "bottom": y = 1; break;
 			default: y = origin[ 0 ] / original.height;
 		}
 		switch ( origin[ 1 ] ) {
-			case "left": x = 0; break;
+			case "templates.common.left": x = 0; break;
 			case "center": x = 0.5; break;
 			case "right": x = 1; break;
 			default: x = origin[ 1 ] / original.width;
@@ -7992,7 +7992,7 @@ $.extend( $.effects, {
 				position: element.css( "position" ),
 				zIndex: element.css( "z-index" )
 			});
-			$.each([ "top", "left", "bottom", "right" ], function(i, pos) {
+			$.each([ "templates.common.top", "templates.common.left", "bottom", "right" ], function(i, pos) {
 				props[ pos ] = element.css( pos );
 				if ( isNaN( parseInt( props[ pos ], 10 ) ) ) {
 					props[ pos ] = "auto";
@@ -8282,12 +8282,12 @@ var rvertical = /up|down|vertical/,
 $.effects.effect.blind = function( o, done ) {
 	// Create element
 	var el = $( this ),
-		props = [ "position", "top", "bottom", "left", "right", "height", "width" ],
+		props = [ "position", "templates.common.top", "bottom", "templates.common.left", "right", "height", "width" ],
 		mode = $.effects.setMode( el, o.mode || "hide" ),
 		direction = o.direction || "up",
 		vertical = rvertical.test( direction ),
 		ref = vertical ? "height" : "width",
-		ref2 = vertical ? "top" : "left",
+		ref2 = vertical ? "templates.common.top" : "templates.common.left",
 		motion = rpositivemotion.test( direction ),
 		animation = {},
 		show = mode === "show",
@@ -8311,7 +8311,7 @@ $.effects.effect.blind = function( o, done ) {
 	if ( !motion ) {
 		el
 			.css( vertical ? "bottom" : "right", 0 )
-			.css( vertical ? "top" : "left", "auto" )
+			.css( vertical ? "templates.common.top" : "templates.common.left", "auto" )
 			.css({ position: "absolute" });
 
 		animation[ ref2 ] = show ? margin : distance + margin;
@@ -8347,7 +8347,7 @@ $.effects.effect.blind = function( o, done ) {
 
 $.effects.effect.bounce = function( o, done ) {
 	var el = $( this ),
-		props = [ "position", "top", "bottom", "left", "right", "height", "width" ],
+		props = [ "position", "templates.common.top", "bottom", "templates.common.left", "right", "height", "width" ],
 
 		// defaults:
 		mode = $.effects.setMode( el, o.mode || "effect" ),
@@ -8363,8 +8363,8 @@ $.effects.effect.bounce = function( o, done ) {
 		easing = o.easing,
 
 		// utility:
-		ref = ( direction === "up" || direction === "down" ) ? "top" : "left",
-		motion = ( direction === "up" || direction === "left" ),
+		ref = ( direction === "up" || direction === "down" ) ? "templates.common.top" : "templates.common.left",
+		motion = ( direction === "up" || direction === "templates.common.left" ),
 		i,
 		upAnim,
 		downAnim,
@@ -8384,7 +8384,7 @@ $.effects.effect.bounce = function( o, done ) {
 
 	// default distance for the BIGGEST bounce is the outer Distance / 3
 	if ( !distance ) {
-		distance = el[ ref === "top" ? "outerHeight" : "outerWidth" ]() / 3;
+		distance = el[ ref === "templates.common.top" ? "outerHeight" : "outerWidth" ]() / 3;
 	}
 
 	if ( show ) {
@@ -8448,13 +8448,13 @@ $.effects.effect.bounce = function( o, done ) {
 $.effects.effect.clip = function( o, done ) {
 	// Create element
 	var el = $( this ),
-		props = [ "position", "top", "bottom", "left", "right", "height", "width" ],
+		props = [ "position", "templates.common.top", "bottom", "templates.common.left", "right", "height", "width" ],
 		mode = $.effects.setMode( el, o.mode || "hide" ),
 		show = mode === "show",
 		direction = o.direction || "vertical",
 		vert = direction === "vertical",
 		size = vert ? "height" : "width",
-		position = vert ? "top" : "left",
+		position = vert ? "templates.common.top" : "templates.common.left",
 		animation = {},
 		wrapper, animate, distance;
 
@@ -8502,12 +8502,12 @@ $.effects.effect.clip = function( o, done ) {
 $.effects.effect.drop = function( o, done ) {
 
 	var el = $( this ),
-		props = [ "position", "top", "bottom", "left", "right", "opacity", "height", "width" ],
+		props = [ "position", "templates.common.top", "bottom", "templates.common.left", "right", "opacity", "height", "width" ],
 		mode = $.effects.setMode( el, o.mode || "hide" ),
 		show = mode === "show",
-		direction = o.direction || "left",
-		ref = ( direction === "up" || direction === "down" ) ? "top" : "left",
-		motion = ( direction === "up" || direction === "left" ) ? "pos" : "neg",
+		direction = o.direction || "templates.common.left",
+		ref = ( direction === "up" || direction === "down" ) ? "templates.common.top" : "templates.common.left",
+		motion = ( direction === "up" || direction === "templates.common.left" ) ? "pos" : "neg",
 		animation = {
 			opacity: show ? 1 : 0
 		},
@@ -8518,7 +8518,7 @@ $.effects.effect.drop = function( o, done ) {
 	el.show();
 	$.effects.createWrapper( el );
 
-	distance = o.distance || el[ ref === "top" ? "outerHeight": "outerWidth" ]( true ) / 2;
+	distance = o.distance || el[ ref === "templates.common.top" ? "outerHeight": "outerWidth" ]( true ) / 2;
 
 	if ( show ) {
 		el
@@ -8656,7 +8656,7 @@ $.effects.effect.fold = function( o, done ) {
 
 	// Create element
 	var el = $( this ),
-		props = [ "position", "top", "bottom", "left", "right", "height", "width" ],
+		props = [ "position", "templates.common.top", "bottom", "templates.common.left", "right", "height", "width" ],
 		mode = $.effects.setMode( el, o.mode || "hide" ),
 		show = mode === "show",
 		hide = mode === "hide",
@@ -8902,10 +8902,10 @@ $.effects.effect.size = function( o, done ) {
 	// Create element
 	var original, baseline, factor,
 		el = $( this ),
-		props0 = [ "position", "top", "bottom", "left", "right", "width", "height", "overflow", "opacity" ],
+		props0 = [ "position", "templates.common.top", "bottom", "templates.common.left", "right", "width", "height", "overflow", "opacity" ],
 
 		// Always restore
-		props1 = [ "position", "top", "bottom", "left", "right", "overflow", "opacity" ],
+		props1 = [ "position", "templates.common.top", "bottom", "templates.common.left", "right", "overflow", "opacity" ],
 
 		// Copy for children
 		props2 = [ "width", "height", "overflow" ],
@@ -9081,7 +9081,7 @@ $.effects.effect.size = function( o, done ) {
 						left: el.to.left
 					});
 				} else {
-					$.each([ "top", "left" ], function( idx, pos ) {
+					$.each([ "templates.common.top", "templates.common.left" ], function(idx, pos ) {
 						el.css( pos, function( _, str ) {
 							var val = parseInt( str, 10 ),
 								toRef = idx ? el.to.left : el.to.top;
@@ -9110,15 +9110,15 @@ $.effects.effect.size = function( o, done ) {
 $.effects.effect.shake = function( o, done ) {
 
 	var el = $( this ),
-		props = [ "position", "top", "bottom", "left", "right", "height", "width" ],
+		props = [ "position", "templates.common.top", "bottom", "templates.common.left", "right", "height", "width" ],
 		mode = $.effects.setMode( el, o.mode || "effect" ),
-		direction = o.direction || "left",
+		direction = o.direction || "templates.common.left",
 		distance = o.distance || 20,
 		times = o.times || 3,
 		anims = times * 2 + 1,
 		speed = Math.round(o.duration/anims),
-		ref = (direction === "up" || direction === "down") ? "top" : "left",
-		positiveMotion = (direction === "up" || direction === "left"),
+		ref = (direction === "up" || direction === "down") ? "templates.common.top" : "templates.common.left",
+		positiveMotion = (direction === "up" || direction === "templates.common.left"),
 		animation = {},
 		animation1 = {},
 		animation2 = {},
@@ -9172,19 +9172,19 @@ $.effects.effect.slide = function( o, done ) {
 
 	// Create element
 	var el = $( this ),
-		props = [ "position", "top", "bottom", "left", "right", "width", "height" ],
+		props = [ "position", "templates.common.top", "bottom", "templates.common.left", "right", "width", "height" ],
 		mode = $.effects.setMode( el, o.mode || "show" ),
 		show = mode === "show",
-		direction = o.direction || "left",
-		ref = (direction === "up" || direction === "down") ? "top" : "left",
-		positiveMotion = (direction === "up" || direction === "left"),
+		direction = o.direction || "templates.common.left",
+		ref = (direction === "up" || direction === "down") ? "templates.common.top" : "templates.common.left",
+		positiveMotion = (direction === "up" || direction === "templates.common.left"),
 		distance,
 		animation = {};
 
 	// Adjust
 	$.effects.save( el, props );
 	el.show();
-	distance = o.distance || el[ ref === "top" ? "outerHeight" : "outerWidth" ]( true );
+	distance = o.distance || el[ ref === "templates.common.top" ? "outerHeight" : "outerWidth" ]( true );
 
 	$.effects.createWrapper( el ).css({
 		overflow: "hidden"
@@ -9982,8 +9982,8 @@ $.widget("ui.resizable", $.ui.mouse, {
 					position: this.element.css('position'),
 					width: this.element.outerWidth(),
 					height: this.element.outerHeight(),
-					top: this.element.css('top'),
-					left: this.element.css('left')
+					top: this.element.css('templates.common.top'),
+					left: this.element.css('templates.common.left')
 				})
 			);
 
@@ -10132,8 +10132,8 @@ $.widget("ui.resizable", $.ui.mouse, {
 				position: wrapper.css('position'),
 				width: wrapper.outerWidth(),
 				height: wrapper.outerHeight(),
-				top: wrapper.css('top'),
-				left: wrapper.css('left')
+				top: wrapper.css('templates.common.top'),
+				left: wrapper.css('templates.common.left')
 			}).insertAfter( wrapper );
 			wrapper.remove();
 		}
@@ -10169,7 +10169,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 		this._renderProxy();
 
-		var curleft = num(this.helper.css('left')), curtop = num(this.helper.css('top'));
+		var curleft = num(this.helper.css('templates.common.left')), curtop = num(this.helper.css('templates.common.top'));
 
 		if (o.containment) {
 			curleft += $(o.containment).scrollLeft() || 0;
@@ -10242,12 +10242,12 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 		if(this._helper) {
 			var pr = this._proportionallyResizeElements, ista = pr.length && (/textarea/i).test(pr[0].nodeName),
-				soffseth = ista && $.ui.hasScroll(pr[0], 'left') /* TODO - jump height */ ? 0 : that.sizeDiff.height,
+				soffseth = ista && $.ui.hasScroll(pr[0], 'templates.common.left') /* TODO - jump height */ ? 0 : that.sizeDiff.height,
 				soffsetw = ista ? 0 : that.sizeDiff.width;
 
 			var s = { width: (that.helper.width()  - soffsetw), height: (that.helper.height() - soffseth) },
-				left = (parseInt(that.element.css('left'), 10) + (that.position.left - that.originalPosition.left)) || null,
-				top = (parseInt(that.element.css('top'), 10) + (that.position.top - that.originalPosition.top)) || null;
+				left = (parseInt(that.element.css('templates.common.left'), 10) + (that.position.left - that.originalPosition.left)) || null,
+				top = (parseInt(that.element.css('templates.common.top'), 10) + (that.position.top - that.originalPosition.top)) || null;
 
 			if (!o.animate)
 				this.element.css($.extend(s, { top: top, left: left }));
@@ -10475,7 +10475,7 @@ $.ui.plugin.add("resizable", "alsoResize", {
 				var el = $(this);
 				el.data("resizable-alsoresize", {
 					width: parseInt(el.width(), 10), height: parseInt(el.height(), 10),
-					left: parseInt(el.css('left'), 10), top: parseInt(el.css('top'), 10)
+					left: parseInt(el.css('templates.common.left'), 10), top: parseInt(el.css('templates.common.top'), 10)
 				});
 			});
 		};
@@ -10499,7 +10499,7 @@ $.ui.plugin.add("resizable", "alsoResize", {
 		_alsoResize = function (exp, c) {
 			$(exp).each(function() {
 				var el = $(this), start = $(this).data("resizable-alsoresize"), style = {},
-					css = c && c.length ? c : el.parents(ui.originalElement[0]).length ? ['width', 'height'] : ['width', 'height', 'top', 'left'];
+					css = c && c.length ? c : el.parents(ui.originalElement[0]).length ? ['width', 'height'] : ['width', 'height', 'templates.common.top', 'templates.common.left'];
 
 				$.each(css, function (i, prop) {
 					var sum = (start[prop]||0) + (delta[prop]||0);
@@ -10529,12 +10529,12 @@ $.ui.plugin.add("resizable", "animate", {
 		var that = $(this).data("resizable"), o = that.options;
 
 		var pr = that._proportionallyResizeElements, ista = pr.length && (/textarea/i).test(pr[0].nodeName),
-					soffseth = ista && $.ui.hasScroll(pr[0], 'left') /* TODO - jump height */ ? 0 : that.sizeDiff.height,
+					soffseth = ista && $.ui.hasScroll(pr[0], 'templates.common.left') /* TODO - jump height */ ? 0 : that.sizeDiff.height,
 						soffsetw = ista ? 0 : that.sizeDiff.width;
 
 		var style = { width: (that.size.width - soffsetw), height: (that.size.height - soffseth) },
-					left = (parseInt(that.element.css('left'), 10) + (that.position.left - that.originalPosition.left)) || null,
-						top = (parseInt(that.element.css('top'), 10) + (that.position.top - that.originalPosition.top)) || null;
+					left = (parseInt(that.element.css('templates.common.left'), 10) + (that.position.left - that.originalPosition.left)) || null,
+						top = (parseInt(that.element.css('templates.common.top'), 10) + (that.position.top - that.originalPosition.top)) || null;
 
 		that.element.animate(
 			$.extend(style, top && left ? { top: top, left: left } : {}), {
@@ -10545,8 +10545,8 @@ $.ui.plugin.add("resizable", "animate", {
 					var data = {
 						width: parseInt(that.element.css('width'), 10),
 						height: parseInt(that.element.css('height'), 10),
-						top: parseInt(that.element.css('top'), 10),
-						left: parseInt(that.element.css('left'), 10)
+						top: parseInt(that.element.css('templates.common.top'), 10),
+						left: parseInt(that.element.css('templates.common.left'), 10)
 					};
 
 					if (pr && pr.length) $(pr[0]).css({ width: data.width, height: data.height });
@@ -10591,7 +10591,7 @@ $.ui.plugin.add("resizable", "containment", {
 			that.containerSize = { height: (element.innerHeight() - p[3]), width: (element.innerWidth() - p[1]) };
 
 			var co = that.containerOffset, ch = that.containerSize.height,	cw = that.containerSize.width,
-						width = ($.ui.hasScroll(ce, "left") ? ce.scrollWidth : cw ), height = ($.ui.hasScroll(ce) ? ce.scrollHeight : ch);
+						width = ($.ui.hasScroll(ce, "templates.common.left") ? ce.scrollWidth : cw ), height = ($.ui.hasScroll(ce) ? ce.scrollHeight : ch);
 
 			that.parentData = {
 				element: ce, left: co.left, top: co.top, width: width, height: height
@@ -11549,7 +11549,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 		if ( this.options.values && this.options.values.length ) {
 			this.handles.each(function( i ) {
 				valPercent = ( that.values(i) - that._valueMin() ) / ( that._valueMax() - that._valueMin() ) * 100;
-				_set[ that.orientation === "horizontal" ? "left" : "bottom" ] = valPercent + "%";
+				_set[ that.orientation === "horizontal" ? "templates.common.left" : "bottom" ] = valPercent + "%";
 				$( this ).stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
 				if ( that.options.range === true ) {
 					if ( that.orientation === "horizontal" ) {
@@ -11577,7 +11577,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 			valPercent = ( valueMax !== valueMin ) ?
 					( value - valueMin ) / ( valueMax - valueMin ) * 100 :
 					0;
-			_set[ this.orientation === "horizontal" ? "left" : "bottom" ] = valPercent + "%";
+			_set[ this.orientation === "horizontal" ? "templates.common.left" : "bottom" ] = valPercent + "%";
 			this.handle.stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
 
 			if ( oRange === "min" && this.orientation === "horizontal" ) {
@@ -12083,7 +12083,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 			horizontalDirection = this._getDragHorizontalDirection();
 
 		if (this.floating && horizontalDirection) {
-			return ((horizontalDirection == "right" && isOverRightHalf) || (horizontalDirection == "left" && !isOverRightHalf));
+			return ((horizontalDirection == "right" && isOverRightHalf) || (horizontalDirection == "templates.common.left" && !isOverRightHalf));
 		} else {
 			return verticalDirection && ((verticalDirection == "down" && isOverBottomHalf) || (verticalDirection == "up" && !isOverBottomHalf));
 		}
@@ -12097,7 +12097,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 	_getDragHorizontalDirection: function() {
 		var delta = this.positionAbs.left - this.lastPositionAbs.left;
-		return delta != 0 && (delta > 0 ? "right" : "left");
+		return delta != 0 && (delta > 0 ? "right" : "templates.common.left");
 	},
 
 	refresh: function(event) {
@@ -12323,7 +12323,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 			//When entering a new container, we will find the item with the least distance and append our item near it
 			var dist = 10000; var itemWithLeastDistance = null;
-			var posProperty = this.containers[innermostIndex].floating ? 'left' : 'top';
+			var posProperty = this.containers[innermostIndex].floating ? 'templates.common.left' : 'templates.common.top';
 			var sizeProperty = this.containers[innermostIndex].floating ? 'width' : 'height';
 			var base = this.positionAbs[posProperty] + this.offset.click[posProperty];
 			for (var j = this.items.length - 1; j >= 0; j--) {
@@ -12369,7 +12369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 			$(o.appendTo != 'parent' ? o.appendTo : this.currentItem[0].parentNode)[0].appendChild(helper[0]);
 
 		if(helper[0] == this.currentItem[0])
-			this._storedCSS = { width: this.currentItem[0].style.width, height: this.currentItem[0].style.height, position: this.currentItem.css("position"), top: this.currentItem.css("top"), left: this.currentItem.css("left") };
+			this._storedCSS = { width: this.currentItem[0].style.width, height: this.currentItem[0].style.height, position: this.currentItem.css("position"), top: this.currentItem.css("templates.common.top"), left: this.currentItem.css("templates.common.left") };
 
 		if(helper[0].style.width == '' || o.forceHelperSize) helper.width(this.currentItem.width());
 		if(helper[0].style.height == '' || o.forceHelperSize) helper.height(this.currentItem.height());
@@ -12385,13 +12385,13 @@ $.widget("ui.sortable", $.ui.mouse, {
 		if ($.isArray(obj)) {
 			obj = {left: +obj[0], top: +obj[1] || 0};
 		}
-		if ('left' in obj) {
+		if ('templates.common.left' in obj) {
 			this.offset.click.left = obj.left + this.margins.left;
 		}
 		if ('right' in obj) {
 			this.offset.click.left = this.helperProportions.width - obj.right + this.margins.left;
 		}
-		if ('top' in obj) {
+		if ('templates.common.top' in obj) {
 			this.offset.click.top = obj.top + this.margins.top;
 		}
 		if ('bottom' in obj) {
@@ -12431,8 +12431,8 @@ $.widget("ui.sortable", $.ui.mouse, {
 		if(this.cssPosition == "relative") {
 			var p = this.currentItem.position();
 			return {
-				top: p.top - (parseInt(this.helper.css("top"),10) || 0) + this.scrollParent.scrollTop(),
-				left: p.left - (parseInt(this.helper.css("left"),10) || 0) + this.scrollParent.scrollLeft()
+				top: p.top - (parseInt(this.helper.css("templates.common.top"),10) || 0) + this.scrollParent.scrollTop(),
+				left: p.left - (parseInt(this.helper.css("templates.common.left"),10) || 0) + this.scrollParent.scrollLeft()
 			};
 		} else {
 			return { top: 0, left: 0 };

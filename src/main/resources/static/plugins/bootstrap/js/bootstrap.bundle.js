@@ -579,7 +579,7 @@
     var Direction = {
       NEXT: 'next',
       PREV: 'prev',
-      LEFT: 'left',
+      LEFT: 'templates.common.left',
       RIGHT: 'right'
     };
     var Event = {
@@ -1697,9 +1697,9 @@
    * @returns {number} amount of scrolled pixels
    */
   function getScroll(element) {
-    var side = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'top';
+    var side = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'templates.common.top';
 
-    var upperSide = side === 'top' ? 'scrollTop' : 'scrollLeft';
+    var upperSide = side === 'templates.common.top' ? 'scrollTop' : 'scrollLeft';
     var nodeName = element.nodeName;
 
     if (nodeName === 'BODY' || nodeName === 'HTML') {
@@ -1723,8 +1723,8 @@
   function includeScroll(rect, element) {
     var subtract = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
-    var scrollTop = getScroll(element, 'top');
-    var scrollLeft = getScroll(element, 'left');
+    var scrollTop = getScroll(element, 'templates.common.top');
+    var scrollLeft = getScroll(element, 'templates.common.left');
     var modifier = subtract ? -1 : 1;
     rect.top += scrollTop * modifier;
     rect.bottom += scrollTop * modifier;
@@ -1852,8 +1852,8 @@
     try {
       if (isIE(10)) {
         rect = element.getBoundingClientRect();
-        var scrollTop = getScroll(element, 'top');
-        var scrollLeft = getScroll(element, 'left');
+        var scrollTop = getScroll(element, 'templates.common.top');
+        var scrollLeft = getScroll(element, 'templates.common.left');
         rect.top += scrollTop;
         rect.left += scrollLeft;
         rect.bottom += scrollTop;
@@ -1953,7 +1953,7 @@
     var height = Math.max(html.clientHeight, window.innerHeight || 0);
 
     var scrollTop = !excludeScroll ? getScroll(html) : 0;
-    var scrollLeft = !excludeScroll ? getScroll(html, 'left') : 0;
+    var scrollLeft = !excludeScroll ? getScroll(html, 'templates.common.left') : 0;
 
     var offset = {
       top: scrollTop - relativeOffset.top + relativeOffset.marginTop,
@@ -2177,7 +2177,7 @@
    * @returns {String} flipped placement
    */
   function getOppositePlacement(placement) {
-    var hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' };
+    var hash = { left: 'right', right: 'templates.common.left', bottom: 'templates.common.top', top: 'bottom' };
     return placement.replace(/left|right|bottom|top/g, function (matched) {
       return hash[matched];
     });
@@ -2206,9 +2206,9 @@
     };
 
     // depending by the popper placement we have to compute its offsets slightly differently
-    var isHoriz = ['right', 'left'].indexOf(placement) !== -1;
-    var mainSide = isHoriz ? 'top' : 'left';
-    var secondarySide = isHoriz ? 'left' : 'top';
+    var isHoriz = ['right', 'templates.common.left'].indexOf(placement) !== -1;
+    var mainSide = isHoriz ? 'templates.common.top' : 'templates.common.left';
+    var secondarySide = isHoriz ? 'templates.common.left' : 'templates.common.top';
     var measurement = isHoriz ? 'height' : 'width';
     var secondaryMeasurement = !isHoriz ? 'height' : 'width';
 
@@ -2528,7 +2528,7 @@
     Object.keys(styles).forEach(function (prop) {
       var unit = '';
       // add unit if the value is numeric and is one of the following
-      if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
+      if (['width', 'height', 'templates.common.top', 'right', 'bottom', 'templates.common.left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
         unit = 'px';
       }
       element.style[prop] = styles[prop] + unit;
@@ -2648,8 +2648,8 @@
       right: Math.floor(popper.right)
     };
 
-    var sideA = x === 'bottom' ? 'top' : 'bottom';
-    var sideB = y === 'right' ? 'left' : 'right';
+    var sideA = x === 'bottom' ? 'templates.common.top' : 'bottom';
+    var sideB = y === 'right' ? 'templates.common.left' : 'right';
 
     // if gpuAcceleration is set to `true` and transform is supported,
     //  we use `translate3d` to apply the position to the popper we
@@ -2771,12 +2771,12 @@
         popper = _data$offsets.popper,
         reference = _data$offsets.reference;
 
-    var isVertical = ['left', 'right'].indexOf(placement) !== -1;
+    var isVertical = ['templates.common.left', 'right'].indexOf(placement) !== -1;
 
     var len = isVertical ? 'height' : 'width';
     var sideCapitalized = isVertical ? 'Top' : 'Left';
     var side = sideCapitalized.toLowerCase();
-    var altSide = isVertical ? 'left' : 'top';
+    var altSide = isVertical ? 'templates.common.left' : 'templates.common.top';
     var opSide = isVertical ? 'bottom' : 'right';
     var arrowElementSize = getOuterSizes(arrowElement)[len];
 
@@ -2861,7 +2861,7 @@
    * @method placements
    * @memberof Popper
    */
-  var placements = ['auto-start', 'auto', 'auto-end', 'top-start', 'top', 'top-end', 'right-start', 'right', 'right-end', 'bottom-end', 'bottom', 'bottom-start', 'left-end', 'left', 'left-start'];
+  var placements = ['auto-start', 'auto', 'auto-end', 'top-start', 'templates.common.top', 'top-end', 'right-start', 'right', 'right-end', 'bottom-end', 'bottom', 'bottom-start', 'left-end', 'templates.common.left', 'left-start'];
 
   // Get rid of `auto` `auto-start` and `auto-end`
   var validPlacements = placements.slice(3);
@@ -2943,17 +2943,17 @@
 
       // using floor because the reference offsets may contain decimals we are not going to consider here
       var floor = Math.floor;
-      var overlapsRef = placement === 'left' && floor(popperOffsets.right) > floor(refOffsets.left) || placement === 'right' && floor(popperOffsets.left) < floor(refOffsets.right) || placement === 'top' && floor(popperOffsets.bottom) > floor(refOffsets.top) || placement === 'bottom' && floor(popperOffsets.top) < floor(refOffsets.bottom);
+      var overlapsRef = placement === 'templates.common.left' && floor(popperOffsets.right) > floor(refOffsets.left) || placement === 'right' && floor(popperOffsets.left) < floor(refOffsets.right) || placement === 'templates.common.top' && floor(popperOffsets.bottom) > floor(refOffsets.top) || placement === 'bottom' && floor(popperOffsets.top) < floor(refOffsets.bottom);
 
       var overflowsLeft = floor(popperOffsets.left) < floor(boundaries.left);
       var overflowsRight = floor(popperOffsets.right) > floor(boundaries.right);
       var overflowsTop = floor(popperOffsets.top) < floor(boundaries.top);
       var overflowsBottom = floor(popperOffsets.bottom) > floor(boundaries.bottom);
 
-      var overflowsBoundaries = placement === 'left' && overflowsLeft || placement === 'right' && overflowsRight || placement === 'top' && overflowsTop || placement === 'bottom' && overflowsBottom;
+      var overflowsBoundaries = placement === 'templates.common.left' && overflowsLeft || placement === 'right' && overflowsRight || placement === 'templates.common.top' && overflowsTop || placement === 'bottom' && overflowsBottom;
 
       // flip the variation if required
-      var isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+      var isVertical = ['templates.common.top', 'bottom'].indexOf(placement) !== -1;
       var flippedVariation = !!options.flipVariations && (isVertical && variation === 'start' && overflowsLeft || isVertical && variation === 'end' && overflowsRight || !isVertical && variation === 'start' && overflowsTop || !isVertical && variation === 'end' && overflowsBottom);
 
       if (overlapsRef || overflowsBoundaries || flippedVariation) {
@@ -2994,9 +2994,9 @@
 
     var placement = data.placement.split('-')[0];
     var floor = Math.floor;
-    var isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+    var isVertical = ['templates.common.top', 'bottom'].indexOf(placement) !== -1;
     var side = isVertical ? 'right' : 'bottom';
-    var opSide = isVertical ? 'left' : 'top';
+    var opSide = isVertical ? 'templates.common.left' : 'templates.common.top';
     var measurement = isVertical ? 'width' : 'height';
 
     if (popper[side] < floor(reference[opSide])) {
@@ -3079,7 +3079,7 @@
     // Use height if placement is left or right and index is 0 otherwise use width
     // in this way the first offset will use an axis and the second one
     // will use the other one
-    var useHeight = ['right', 'left'].indexOf(basePlacement) !== -1;
+    var useHeight = ['right', 'templates.common.left'].indexOf(basePlacement) !== -1;
 
     // Split the offset string to obtain a list of values and operands
     // The regex addresses values with the plus or minus sign in front (+10, -20, etc)
@@ -3165,13 +3165,13 @@
       offsets = parseOffset(offset, popper, reference, basePlacement);
     }
 
-    if (basePlacement === 'left') {
+    if (basePlacement === 'templates.common.left') {
       popper.top += offsets[0];
       popper.left -= offsets[1];
     } else if (basePlacement === 'right') {
       popper.top += offsets[0];
       popper.left += offsets[1];
-    } else if (basePlacement === 'top') {
+    } else if (basePlacement === 'templates.common.top') {
       popper.left += offsets[0];
       popper.top -= offsets[1];
     } else if (basePlacement === 'bottom') {
@@ -3215,7 +3215,7 @@
         return defineProperty({}, placement, value);
       },
       secondary: function secondary(placement) {
-        var mainSide = placement === 'right' ? 'left' : 'top';
+        var mainSide = placement === 'right' ? 'templates.common.left' : 'templates.common.top';
         var value = popper[mainSide];
         if (popper[placement] > boundaries[placement] && !options.escapeWithReference) {
           value = Math.min(popper[mainSide], boundaries[placement] - (placement === 'right' ? popper.width : popper.height));
@@ -3225,7 +3225,7 @@
     };
 
     order.forEach(function (placement) {
-      var side = ['left', 'top'].indexOf(placement) !== -1 ? 'primary' : 'secondary';
+      var side = ['templates.common.left', 'templates.common.top'].indexOf(placement) !== -1 ? 'primary' : 'secondary';
       popper = _extends({}, popper, check[side](placement));
     });
 
@@ -3252,8 +3252,8 @@
           reference = _data$offsets.reference,
           popper = _data$offsets.popper;
 
-      var isVertical = ['bottom', 'top'].indexOf(basePlacement) !== -1;
-      var side = isVertical ? 'left' : 'top';
+      var isVertical = ['bottom', 'templates.common.top'].indexOf(basePlacement) !== -1;
+      var side = isVertical ? 'templates.common.left' : 'templates.common.top';
       var measurement = isVertical ? 'width' : 'height';
 
       var shiftOffsets = {
@@ -3319,11 +3319,11 @@
         popper = _data$offsets.popper,
         reference = _data$offsets.reference;
 
-    var isHoriz = ['left', 'right'].indexOf(basePlacement) !== -1;
+    var isHoriz = ['templates.common.left', 'right'].indexOf(basePlacement) !== -1;
 
-    var subtractLength = ['top', 'left'].indexOf(basePlacement) === -1;
+    var subtractLength = ['templates.common.top', 'templates.common.left'].indexOf(basePlacement) === -1;
 
-    popper[isHoriz ? 'left' : 'top'] = reference[basePlacement] - (subtractLength ? popper[isHoriz ? 'width' : 'height'] : 0);
+    popper[isHoriz ? 'templates.common.left' : 'templates.common.top'] = reference[basePlacement] - (subtractLength ? popper[isHoriz ? 'width' : 'height'] : 0);
 
     data.placement = getOppositePlacement(placement);
     data.offsets.popper = getClientRect(popper);
@@ -3450,7 +3450,7 @@
        * Popper will try to prevent overflow following these priorities by default,
        * then, it could overflow on the left and on top of the `boundariesElement`
        */
-      priority: ['left', 'right', 'top', 'bottom'],
+      priority: ['templates.common.left', 'right', 'templates.common.top', 'bottom'],
       /**
        * @prop {number} padding=5
        * Amount of pixel used to define a minimum distance between the boundaries
@@ -5003,10 +5003,10 @@
     };
     var AttachmentMap = {
       AUTO: 'auto',
-      TOP: 'top',
+      TOP: 'templates.common.top',
       RIGHT: 'right',
       BOTTOM: 'bottom',
-      LEFT: 'left'
+      LEFT: 'templates.common.left'
     };
     var Default = {
       animation: true,
@@ -5016,7 +5016,7 @@
       delay: 0,
       html: false,
       selector: false,
-      placement: 'top',
+      placement: 'templates.common.top',
       offset: 0,
       container: false,
       fallbackPlacement: 'flip',

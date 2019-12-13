@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>网站后台管理系统</title>
-<link href="../../static/mydist/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../../static/mydist/js/jquery.js"></script>
+<link href="../../static/mydist/css/style.css" th:href="@{mydist/css/style.css}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../static/mydist/js/jquery.js" th:src="@{mydist/js/jquery.js}"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -36,7 +36,7 @@ $(document).ready(function(){
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
+        <li><a href="main.html"  th:href="@{/main}">首页</a></li>
     <li><a href="#">数据表</a></li>
     <li><a href="#">基本内容</a></li>
     </ul>
@@ -47,15 +47,15 @@ $(document).ready(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-        <li class="click"><a href="manageradd.html"><img src="../../static/mydist/images/t01.png" />添加</a></li>
-        <li class="click"><span><img src="../../static/mydist/images/t02.png" /></span>修改</li>
-        <li class="click"><span><img src="../../static/mydist/images/t03.png" /></span>删除</li>
-        <li class="click"><span><img src="../../static/mydist/images/t04.png" /></span>统计</li>
+        <li class="click"><a href="manageradd.html"><img src="../../static/mydist/images/t01.png" th:src="@{mydist/images/t01.png}" />添加</a></li>
+        <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{mydist/images/t02.png}" /></span>修改</li>
+        <li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{mydist/images/t03.png}" /></span>删除</li>
+        <li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{mydist/images/t04.png}" /></span>统计</li>
         </ul>
         
         
         <ul class="toolbar1">
-        <li><span><img src="../../static/mydist/images/t05.png" /></span>设置</li>
+        <li><span><img src="../../static/mydist/images/t05.png" th:src="@{mydist/images/t05.png}" /></span>设置</li>
         </ul>
     
     </div>
@@ -65,11 +65,9 @@ $(document).ready(function(){
     	<thead>
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>编号<i class="sort"><img src="../../static/mydist/images/px.gif" /></i></th>
         <th>管理员名</th>
         <th>昵称</th>
         <th>邮箱</th>
-		<th>密码</th>
         <th>电话</th>
 		<th>性别</th>
 		<th>年龄</th>
@@ -78,52 +76,47 @@ $(document).ready(function(){
         </thead>
 		
         <tbody>
-        <tr>
+        <tr th:each="manager:${pageInfo.list}">
         <td><input name="" type="checkbox" value="" /></td>
-        <td>1</td>
-        <td>张三</td>
-		<td>admin</td>
-        <td>2625066139@qq.com</td>
-        <td>123456</td>
-        <td>15697404366</td>
-        <td>1</td>
-		<td>22</td>
-        <td><a href="manageredit.html" class="tablelink">修改</a>     <a href="#" class="tablelink"> 删除</a></td>
-        </tr> 
-
+        <td name="managerName"  th:text="${manager.managerName}"></td>
+		<td name="managerNickname"  th:text="${manager.managerNickname}"></td>
+        <td name="mailbox"  th:text="${manager.mailbox}"></td>
+        <td name="phone"  th:text="${manager.phone}"></td>
+        <td name="sex"  th:text="${manager.sex}"></td>
+		<td name="age"  th:text="${manager.age}"></td>
+        <td><a href="manageredit.html" th:href = "@{/tomanagermodify(managerId=${manager.managerId})}" class="tablelink">修改</a>
+        </tr>
     </table>
-    
-   
-    <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
-        <ul class="paginList">
-        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-        <li class="paginItem"><a href="javascript:;">1</a></li>
-        <li class="paginItem current"><a href="javascript:;">2</a></li>
-        <li class="paginItem"><a href="javascript:;">3</a></li>
-        <li class="paginItem"><a href="javascript:;">4</a></li>
-        <li class="paginItem"><a href="javascript:;">5</a></li>
-        <li class="paginItem more"><a href="javascript:;">...</a></li>
-        <li class="paginItem"><a href="javascript:;">10</a></li>
-        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
-    </div>
+
+
+        <div class="pagin">
+            <div class="message">共<i class="blue" th:text="${pageInfo.getTotal()}"></i>条记录，当前显示第&nbsp;<i class="blue" th:text="${pageInfo.getPageNum()}">2&nbsp;</i>页</div>
+            <ul class="paginList" >
+                <li class="paginItem"><a href="javascript:;" th:href="@{/forManagerList(page=${pageInfo.getPrePage()},limit=${pageInfo.getPageSize()})}"><span class="pagepre"></span></a></li>
+                <li class="paginItem"><a href="javascript:;" th:href="@{/forManagerList(page=${pageInfo.getFirstPage()},limit=${pageInfo.getPageSize()})}">首页</a></li>
+                <li class="paginItem current"><a  th:each="num : ${pageInfo.getNavigatepageNums()}" th:text="${num}" th:href="@{/forManagerList(page=${num},limit=${pageInfo.getPageSize()})}">2</a></li>
+
+                <!--            <li class="paginItem more"><a href="javascript:;">...</a></li>-->
+                <li class="paginItem"><a href="javascript:;" th:href="@{/forManagerList(page=${pageInfo.getLastPage()},limit=${pageInfo.getPageSize()})}">尾页</a></li>
+                <li class="paginItem"><a href="javascript:;" th:href="@{/forManagerList(page=${pageInfo.getNextPage()},limit=${pageInfo.getPageSize()})}"><span class="pagenxt"></span></a></li>
+            </ul>
+        </div>
     
     
     <div class="tip">
     	<div class="tiptop"><span>提示信息</span><a></a></div>
-        
+
       <div class="tipinfo">
-        <span><img src="../../static/mydist/images/ticon.png" /></span>
+        <span><img src="../../static/mydist/images/ticon.png" th:src="@{mydist/images/ticon.png}" /></span>
         <div class="tipright">
         <p>是否确认对信息的修改 ？</p>
         <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
         </div>
         </div>
-        
+
         <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" />
+            <a onclick="editManager()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;确定</a>
+            <label>&nbsp;</label><a  class="mybtn" style="display: inline-block">&nbsp;&nbsp;取消</a>
         </div>
     
     </div>
@@ -135,6 +128,10 @@ $(document).ready(function(){
     
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
-	</script>
+
+
+
+
+    </script>
 </body>
 </html>

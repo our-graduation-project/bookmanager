@@ -1,28 +1,38 @@
-package cn.hnist.bookmanager.service.impl;
+package cn.hnist.bookmanager.controller;
 
 import cn.hnist.bookmanager.BookManagerApplication;
-import cn.hnist.bookmanager.service.BookService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.servlet.http.HttpSession;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author whg
- * @date 2019/12/9 20:49
- **/
+ * @Author: Zxw
+ * @Description:
+ * @Date: Created in 20:22 2019/12/11
+ * @Modifued By:
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BookManagerApplication.class)
-class BookServiceImplTest {
+class ManagerControllerTest {
+
 
     @Autowired
-    private BookService bookService;
+    private ManagerController managerController;
 
     @Test
-    void findBookById() {
-        System.out.println(bookService.findBookById(1));
+    void forLogin() {
+        managerController.forLogin();
     }
+
+//    @Test
+//    void login() {
+//        String login = managerController.login("123@qq.com", "123456");
+//        System.out.println(login);
+//    }
 }

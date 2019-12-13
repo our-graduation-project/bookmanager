@@ -60,6 +60,11 @@ class BookTypeServiceImplTest {
     void searchAllBookType() {
         PageInfo pageInfo = bookTypeService.searchAllBookType(1, 2);
         System.out.println(pageInfo.toString());
+        List list = pageInfo.getList();
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+
+        }
 
     }
 
