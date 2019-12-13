@@ -25,7 +25,7 @@ public interface AnnouncementService {
      * @param state 需要修改成什么状态
      * @return 受影响行数
      */
-    int isdelte(int id,int state);
+    int updateIsDelete(int id,int state);
 
     /**
      * 修改公告

@@ -21,7 +21,7 @@ import java.util.Map;
  * @createTime 2019.12.12.16:37
  */
 @Controller
-public class boorrowdetailController {
+public class BoorrowdetailController {
     @Autowired
     BorrowDetailServiceImpl borrowDetailService;
 
