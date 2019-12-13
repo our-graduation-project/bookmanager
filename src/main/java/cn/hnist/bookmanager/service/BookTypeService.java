@@ -2,10 +2,6 @@ package cn.hnist.bookmanager.service;
 
 import cn.hnist.bookmanager.model.Booktype;
 import com.github.pagehelper.PageInfo;
-import io.swagger.models.auth.In;
-import org.omg.CORBA.INTERNAL;
-
-import java.util.List;
 
 /**
  * @Author: Zxw
@@ -37,8 +33,8 @@ public interface BookTypeService {
     int updateBookType(Booktype booktype);
 
     /**
-     * 通过书籍类型名分页查询查找书籍类型
-     * @param name
+     * 通过书籍类型id查询查找书籍类型
+     * @param booktypeId
      * @return
      */
     Booktype searchBookTypeById(Integer booktypeId);
@@ -57,4 +53,10 @@ public interface BookTypeService {
      */
     PageInfo searchAllBookType(Integer indexPage,Integer pageSize);
 
+    /**
+     * 匹配与typename名字相同的BookType记录
+     * @param typeName
+     * @return
+     */
+    Booktype searchBookTypeByTypeName(String typeName);
 }

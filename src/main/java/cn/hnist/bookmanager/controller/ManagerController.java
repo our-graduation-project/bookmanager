@@ -8,7 +8,6 @@ import cn.hnist.bookmanager.utils.TokenUtil;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.slf4j.Logger;
@@ -30,12 +29,23 @@ public class ManagerController {
     private ManagerService managerService;
 
 
+    /**
+     * 到login主页面
+     * @param
+     * @return
+     */
     @RequestMapping("/forlogin")
     public String forLogin(){
         return "/admin/login";
     }
 
 
+    /**
+     * 验证manager登录主页面
+     * @param mailbox
+     * @param managerPwd
+     * @return
+     */
     @RequestMapping("/login")
     public String login(@RequestParam("mailbox") String mailbox,@RequestParam("managerPwd") String managerPwd){
         //System.out.println("come in");
@@ -62,28 +72,47 @@ public class ManagerController {
         return "/admin/login";
     }
 
+    /**
+     * 到manager主页面
+     * @param
+     * @return
+     */
     @RequestMapping("/main")
     public String forMain(){
         return "/admin/main";
     }
 
+    /**
+     * 到managerlist页面
+     * @param
+     * @return
+     */
     @RequestMapping("/managerlist")
-    public ModelAndView forManagerList(@RequestParam(value = "page" ,defaultValue = "0") Integer indexPage,
-                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit){
+    public ModelAndView forManagerList(@RequestParam(value = "indexPage" ,defaultValue = "0") Integer indexPage,
+                                 @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize){
 
         //这里我默认分页带大小为10
-        PageInfo pageInfo = managerService.searchAllManager(indexPage, limit);
+        PageInfo pageInfo = managerService.searchAllManager(indexPage, pageSize);
         ModelAndView modelAndView = new ModelAndView("/admin/managerlist");
         modelAndView.addObject( "pageInfo", pageInfo);
         return modelAndView;
     }
 
-//    @RequestMapping("/formanageradd")
+    /**
+     * 到添加manager记录页面
+     * @param
+     * @return
+     */
     @RequestMapping("/formanageradd")
     public String forManagerAdd(){
         return "admin/manageradd";
     }
 
+    /**
+     * 添加manager记录
+     * @param manager
+     * @return
+     */
     @RequestMapping("/admin/manageradd")
     @ResponseBody
     public APIResult ManagerAdd(@RequestBody Manager manager){
@@ -110,6 +139,11 @@ public class ManagerController {
         return new APIResult(flg,200);
     }
 
+    /**
+     * 到修改manager记录页面
+     * @param managerId
+     * @return
+     */
     @RequestMapping("/tomanagermodify")
     public ModelAndView toManagerModify(@RequestParam("managerId") int managerId){
         Manager manager = managerService.searchManagerById(managerId);
@@ -118,6 +152,11 @@ public class ManagerController {
         return modelAndView;
     }
 
+    /**
+     * 修改manager记录
+     * @param manager
+     * @return
+     */
 
     @RequestMapping("/admin/managermodify")
     @ResponseBody

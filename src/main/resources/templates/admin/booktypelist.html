@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>图书管理系统后台管理系统H</title>
-<link href="../../static/mydist/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../../static/mydist/js/jquery.js"></script>
+<link href="../../static/mydist/css/style.css" th:href="@{mydist/css/style.css}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../static/mydist/js/jquery.js" th:src="@{mydist/js/jquery.js}"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -36,7 +36,7 @@ $(document).ready(function(){
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
+    <li><a href="#" th:href="@{/main}">首页</a></li>
     <li><a href="#">数据表</a></li>
     <li><a href="#">基本内容</a></li>
     </ul>
@@ -47,15 +47,15 @@ $(document).ready(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-        <li class="click"><a href="booktypeadd.html"><img src="../../static/mydist/images/t01.png" />添加</a></li>
-        <li class="click"><span><img src="../../static/mydist/images/t02.png" /></span>修改</li>
-        <li class="click"><span><img src="../../static/mydist/images/t03.png" /></span>删除</li>
-        <li class="click"><span><img src="../../static/mydist/images/t04.png" /></span>统计</li>
+        <li class="click"><a href="booktypeadd.html"><img src="../../static/mydist/images/t01.png" th:src="@{mydist/images/t01png}" />添加</a></li>
+        <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{mydist/images/t02.png}" /></span>修改</li>
+        <li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{mydist/images/t03.png}" /></span>删除</li>
+        <li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{mydist/images/t04.png}" /></span>统计</li>
         </ul>
         
         
         <ul class="toolbar1">
-        <li><span><img src="../../static/mydist/images/t05.png" /></span>设置</li>
+        <li><span><img src="../../static/mydist/images/t05.png" th:src="@{mydist/images/t05.png}" /></span>设置</li>
         </ul>
     
     </div>
@@ -65,53 +65,47 @@ $(document).ready(function(){
     	<thead>
     	<tr>
         <th><input name="" type="checkbox" value=""/></th>
-        <th>编号<i class="sort"><img src="../../static/mydist/images/px.gif" /></i></th>
+        <th>编号<i class="sort"><img src="../../static/mydist/images/px.gif" th:src="@{mydist/images/px.gif}" /></i></th>
         <th>书的类型</th>
         <th>操作</th>
         </tr>
         </thead>
 		
         <tbody>
-        <tr>
+        <tr th:each="booktype:${pageInfo.list}">
         <td><input name="" type="checkbox" value="" /></td>
-        <td>1</td>
-        <td>java</td>
-        <td><a href="booktypeedit.html" class="tablelink">修改</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td th:text="${booktype.typeId}"></td>
+        <td th:text="${booktype.typeName}"></td>
+        <td><a href="booktypeedit.html" th:href="@{/tobooktypemodify(typeId=${booktype.typeId})}" class="tablelink">修改</a>
+            <a th:onclick="'delBookType('+${booktype.typeId}+')'"   style="display: inline-block">删除</a>
         </tr> 
         
     </table>
-    
-   
-    <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
-        <ul class="paginList">
-        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-        <li class="paginItem"><a href="javascript:;">1</a></li>
-        <li class="paginItem current"><a href="javascript:;">2</a></li>
-        <li class="paginItem"><a href="javascript:;">3</a></li>
-        <li class="paginItem"><a href="javascript:;">4</a></li>
-        <li class="paginItem"><a href="javascript:;">5</a></li>
-        <li class="paginItem more"><a href="javascript:;">...</a></li>
-        <li class="paginItem"><a href="javascript:;">10</a></li>
-        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
-    </div>
+
+
+        <div class="pagin">
+            <div class="message">共<i class="blue" th:text="${pageInfo.getTotal()}"></i>条记录，当前显示第&nbsp;<i class="blue" th:text="${pageInfo.getPageNum()}">2&nbsp;</i>页</div>
+            <ul class="paginList" >
+                <li class="paginItem"><a  th:href="@{/booktypelist(indexPage=${pageInfo.getPrePage()},pageSize=${pageInfo.getPageSize()})}"><span class="pagepre"></span></a></li>
+                <li class="paginItem"><a  th:href="@{/booktypelist(indexPage=${pageInfo.getFirstPage()},pageSize=${pageInfo.getPageSize()})}">首页</a></li>
+                <li class="paginItem current"><a  th:each="num : ${pageInfo.getNavigatepageNums()}" th:text="${num}" th:href="@{/booktypelist(indexPage=${num},pageSize=${pageInfo.getPageSize()})}">2</a></li>
+
+                <!--            <li class="paginItem more"><a href="javascript:;">...</a></li>-->
+                <li class="paginItem"><a  th:href="@{/booktypelist(indexPage=${pageInfo.getLastPage()},pageSize=${pageInfo.getPageSize()})}">尾页</a></li>
+                <li class="paginItem"><a  th:href="@{/booktypelist(indexPage=${pageInfo.getNextPage()},pageSize=${pageInfo.getPageSize()})}"><span class="pagenxt"></span></a></li>
+            </ul>
+        </div>
     
     
     <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
-        
-      <div class="tipinfo">
-        <span><img src="../../static/mydist/images/ticon.png" /></span>
-        <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
-        </div>
-        </div>
-        
-        <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" />
+        <div class="tiptop"><span>提示信息</span><a></a></div>
+
+        <div class="tipinfo">
+            <span><img src="../../static/mydist/images/ticon.png" th:src="@{mydist/images/ticon.png}" /></span>
+            <div class="tipright">
+                <p>是否确认对信息的修改 ？</p>
+                <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+            </div>
         </div>
     
     </div>
@@ -123,6 +117,40 @@ $(document).ready(function(){
     
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
+
+    function delBookType(typeId) {
+
+
+        if(confirm("你确定要删除此条BookType 吗？")){
+            var data = {"typeId": typeId};
+            $.ajax({
+                //请求方式
+                type : "POST",
+                //请求的媒体类型
+                contentType: "application/json;charset=UTF-8",
+                //请求地址
+                url : "admin/booktypedel",
+                //数据，json字符串
+                data : JSON.stringify(data),
+                success: function (result) {
+                    if (result.result) {
+                        alert("删除成功");
+                    }
+                    else {
+                        console.log(result.message+"--"+result.result);
+                        alert("删除失败");
+                    }
+                },
+                error: function () {
+                    alert("操作失败");
+                }
+
+            })
+
+        }
+
+
+    }
 	</script>
 </body>
 </html>

@@ -1,17 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="../../static/mydist/css/style.css" rel="stylesheet" type="text/css" />
+<link href="../../static/mydist/css/style.css"  th:href="@{mydist/css/style.css}" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" th:src="@{plugins/jquery/jquery.js}"></script>
+    <script type="text/javascript" src="../../static/mydist/js/public.js" th:src="@{mydist/js/public.js}"></script>
 </head>
-
 <body>
 
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="booklist.html">图书管理</a></li>
+    <li><a href="booklist.html" th:href="@{/booklist}">图书管理</a></li>
     <li><a href="#">图书类型添加</a></li>
     </ul>
     </div>
@@ -20,15 +21,55 @@
     
     <div class="formtitle"><span>图书类型添加</span></div>
     
-	<form action="" method="post" enctype="multipart/form-data">
+	<form action="" method="post">
 		<ul class="forminfo">
-           <li><label>类型名</label><input name="" type="text" class="dfinput" /></li>
-		   <li><input name="" type="submit" class="btn" value="提交"/>
-	       <label>&nbsp;</label><input name="" type="reset" class="btn" value="重置"/></li>
+            <li><label>类型名</label><input name="typeName" id="typeName" type="text" class="dfinput"  /></li>
+            <li><a onclick="addBookType()" class="mybtn" style="display: inline-block">确定</a>
+                <label>&nbsp;</label><a onclick="aaa()" class="mybtn" style="display: inline-block">重置</a></li>
+            <li><label id="error" style="display: none">错误信息</label></li>
         </ul>	
 		
 	</form>
     
     </div>
 </body>
+<script type="text/javascript">
+    function addBookType() {
+        var typeName = $("#typeName").val();
+
+        if(typeName == null || typeName == "" || typeName == undefined){
+            $("#error").css("display","block");
+            $("#error").html("typeName不能为空");
+            return false;
+        }
+
+        var data = {"typeName" : typeName
+            };
+        $.ajax({
+            //请求方式
+            type : "POST",
+            //请求的媒体类型
+            contentType: "application/json;charset=UTF-8",
+            //请求地址
+            url : "admin/booketypeadd",
+            //数据，json字符串
+            data : JSON.stringify(data),
+            success: function (result) {
+                if (result.result) {
+                    alert("添加成功");
+                    window.location.href="tobooktypeadd";
+                }
+                else {
+                    $("#error").html(result.message);
+                    console.log(result.message+"--"+result.result);
+                    alert("添加失败");
+                }
+            },
+            error: function () {
+                alert("操作失败");
+            }
+
+        })
+    }
+</script>
 </html>

@@ -40,7 +40,7 @@ $(function(){
     <span><img src="../../static/mydist/images/leftico01.png" th:src="@{mydist/images/leftico01.png}"  /></span>管理员管理
     </div>
     	<ul class="menuson">
-        <li class="active"><cite></cite><a href="../admin/index.html" target="rightFrame">首页模版</a><i></i></li>
+        <li class="active"><cite></cite><a href="../admin/main.html" th:href="@{/main}" target="rightFrame">首页模版</a><i></i></li>
         <li><cite></cite><a href="../admin/managerlist.html" th:href="@{/managerlist}" target="rightFrame">管理员列表</a><i></i></li>
         <li><cite></cite><a href="../admin/manageradd.html" th:href="@{/formanageradd}" target="rightFrame">增加管理员</a><i></i></li>
 <!--        <li><cite></cite><a href="../admin/imglist.html" target="rightFrame">图片列表</a><i></i></li>-->
@@ -71,7 +71,8 @@ $(function(){
     <dd><div class="title"><span><img src="../../static/mydist/images/leftico04.png" th:src="@{mydist/images/leftico04.png}" /></span>图书管理</div>
     <ul class="menuson">
 <!--        <li ><cite></cite><a href="../admin/booklist.html" target="rightFrame">图书列表</a><i></i></li>-->
-		<li ><cite></cite><a href="../admin/booktypelist.html" target="rightFrame">图书类别</a><i></i></li>
+		<li ><cite></cite><a href="../admin/booktypelist.html" th:href="@{/booktypelist}" target="rightFrame">图书类别</a><i></i></li>
+        <li ><cite></cite><a href="../admin/booktypeadd.html.html" th:href="@{/tobooktypeadd}" target="rightFrame">增加图书类别</a><i></i></li>
         <li ><cite></cite><a href="toLabelList" target="rightFrame">标签列表</a><i></i></li>
     </ul>
     </dd> 
@@ -86,7 +87,7 @@ $(function(){
     
 	<dd><div class="title"><span><img src="../../static/mydist/images/leftico03.png" th:src="@{mydist/images/leftico03.png}"  /></span>公告管理</div>
 	<ul class="menuson">
-	   <li class="active"><cite></cite><a href="" target="rightFrame">公告列表</a><i></i></li>
+	   <li class="active"><cite></cite><a href="../admin/noticelist.html" target="rightFrame">公告列表</a><i></i></li>
 	   <li ><cite></cite><a href="../admin/noticelist.html" target="rightFrame">增加公告</a><i></i></li>
 	</ul>
 	</dd>  

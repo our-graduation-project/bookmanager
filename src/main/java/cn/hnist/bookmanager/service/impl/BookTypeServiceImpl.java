@@ -107,7 +107,25 @@ public class BookTypeServiceImpl implements BookTypeService {
         booktypeExample.or();
         PageHelper.startPage(indexPage,pageSize);
         List<Booktype> booktypes = booktypeMapper.selectByExample(booktypeExample);
+        System.out.println("_------------------_"+booktypes.size());
         PageInfo pageInfo = new PageInfo(booktypes);
         return pageInfo;
+    }
+
+    /**
+     * 通过typeName精确查找是否有该改名字相同的booktype
+     *
+     * @param typeName 书类型名
+     * @return
+     */
+    @Override
+    public Booktype searchBookTypeByTypeName(String typeName) {
+        BooktypeExample booktypeExample = new BooktypeExample();
+        booktypeExample.or().andTypeNameEqualTo(typeName);
+        List<Booktype> booktypes = booktypeMapper.selectByExample(booktypeExample);
+        if(booktypes != null && !booktypes.isEmpty()){
+            return booktypes.get(0);
+        }
+        return null;
     }
 }

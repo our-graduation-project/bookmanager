@@ -92,13 +92,12 @@ $(document).ready(function(){
         <div class="pagin">
             <div class="message">共<i class="blue" th:text="${pageInfo.getTotal()}"></i>条记录，当前显示第&nbsp;<i class="blue" th:text="${pageInfo.getPageNum()}">2&nbsp;</i>页</div>
             <ul class="paginList" >
-                <li class="paginItem"><a href="javascript:;" th:href="@{/forManagerList(page=${pageInfo.getPrePage()},limit=${pageInfo.getPageSize()})}"><span class="pagepre"></span></a></li>
-                <li class="paginItem"><a href="javascript:;" th:href="@{/forManagerList(page=${pageInfo.getFirstPage()},limit=${pageInfo.getPageSize()})}">首页</a></li>
-                <li class="paginItem current"><a  th:each="num : ${pageInfo.getNavigatepageNums()}" th:text="${num}" th:href="@{/forManagerList(page=${num},limit=${pageInfo.getPageSize()})}">2</a></li>
-
+                <li class="paginItem"><a  th:href="@{/managerlist(indexPage=${pageInfo.getPrePage()},pageSize=${pageInfo.getPageSize()})}"><span class="pagepre"></span></a></li>
+                <li class="paginItem"><a  th:href="@{/managerlist(indexPage=${pageInfo.getFirstPage()},pageSize=${pageInfo.getPageSize()})}">首页</a></li>
+                <li class="paginItem current"><a  th:each="num : ${pageInfo.getNavigatepageNums()}" th:text="${num}" th:href="@{/managerlist(indexPage=${num},pageSize=${pageInfo.getPageSize()})}">2</a></li>
                 <!--            <li class="paginItem more"><a href="javascript:;">...</a></li>-->
-                <li class="paginItem"><a href="javascript:;" th:href="@{/forManagerList(page=${pageInfo.getLastPage()},limit=${pageInfo.getPageSize()})}">尾页</a></li>
-                <li class="paginItem"><a href="javascript:;" th:href="@{/forManagerList(page=${pageInfo.getNextPage()},limit=${pageInfo.getPageSize()})}"><span class="pagenxt"></span></a></li>
+                <li class="paginItem"><a  th:href="@{/managerlist(indexPage=${pageInfo.getLastPage()},pageSize=${pageInfo.getPageSize()})}">尾页</a></li>
+                <li class="paginItem"><a  th:href="@{/managerlist(indexPage=${pageInfo.getNextPage()},pageSize=${pageInfo.getPageSize()})}"><span class="pagenxt"></span></a></li>
             </ul>
         </div>
     
