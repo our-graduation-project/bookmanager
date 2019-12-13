@@ -67,16 +67,16 @@ public class AnnouncementController {
 @RequestMapping("/deleteAnnouncement")
     public void deleteAnnouncement(@RequestParam(value = "announcementId") int id,@RequestParam(value = "page")int page, HttpServletResponse response){
 
-        int len = announcementService.isdelte(id, 0);
+        int len = announcementService.updateIsDelete(id, 0);
         if(len == 0){
             try {
-                response.sendRedirect("/bookmanager/AnnouncementList?error=1&page="+page);
+                response.sendRedirect("/bookmanager/announcementList?error=1&page="+page);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     try {
-        response.sendRedirect("/bookmanager/AnnouncementList?page="+page);
+        response.sendRedirect("/bookmanager/announcementList?page="+page);
     } catch (IOException e) {
         e.printStackTrace();
     }
@@ -84,16 +84,16 @@ public class AnnouncementController {
     }
     @RequestMapping("/recoveryAnnouncement")
     public void recoveryAnnouncement(@RequestParam(value = "announcementId") int id,@RequestParam(value = "page")int page, HttpServletResponse response){
-        int len = announcementService.isdelte(id, 1);
+        int len = announcementService.updateIsDelete(id, 1);
         if(len == 0){
             try {
-                response.sendRedirect("/bookmanager/AnnouncementList?error=2&page="+page);
+                response.sendRedirect("/bookmanager/announcementList?error=2&page="+page);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         try {
-            response.sendRedirect("/bookmanager/AnnouncementList?page="+page);
+            response.sendRedirect("/bookmanager/announcementList?page="+page);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -36,7 +36,8 @@
                 <li><label>密码</label><input name="" th:value="${user.getUserPwd()}" type="text" class="dfinput" id="userPwd"/></li>
                 <li><label>邮箱</label><input name="" th:value="${user.getMailbox()}" type="text" class="dfinput" id="mailbox"/></li>
                 <li><label>电话</label><input name="" th:value="${user.getPhone()}" type="text" class="dfinput" id="phone"/></li>
-                <li><label>性别</label><input name="sex" th:value="${user.getSex()}" type="radio" class="" id="sex"/>男&nbsp;<input name="sex" type="radio" class="" />女</li>
+                <li><label>性别</label><input name="sex" th:checked="${user.getSex()==1}" th:value="${user.getSex()}" type="radio" class="" id="sex"/>男&nbsp;
+                    <input name="sex" th:checked="${user.getSex()==1}" type="radio" class="" />女</li>
                 <li><label>年龄</label><input name="" th:value="${user.getAge()}" type="text" class="dfinput" id="age"/></li>
                 <li><a onclick="edituser()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;修改</a>
                     <label>&nbsp;</label><a onclick="aaa()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;重置</a></li>

@@ -52,11 +52,7 @@ $(document).ready(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-        <li class="click"><span><img src="../../static/mydist/images/t01.png" th:src="@{/mydist/images/t01.png}" /></span>添加</li>
-        <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{/mydist/images/t02.png}" /></span>修改</li>
-        <li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{/mydist/images/t03.png}"/></span>删除</li>
-        <li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{/mydist/images/t04.png}"/></span>统计</li>
-        </ul>
+      </ul>
         
         
         <ul class="toolbar1">
@@ -70,7 +66,7 @@ $(document).ready(function(){
     	<thead>
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>编号<i class="sort"><img src="../../static/mydist/images/px.gif" /></i></th>
+        <th>编号<i class="sort"><img src="../../static/mydist/images/px.gif" th:src="@{/mydist/images/px.gif}" /></i></th>
         <th>用户</th>
         <th>图书</th>
         <th>丢失日期</th>

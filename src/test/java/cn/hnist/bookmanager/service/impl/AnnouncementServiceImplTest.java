@@ -44,7 +44,7 @@ class AnnouncementServiceImplTest {
 
     @Test
     void isdelte() {
-        int len = announcementService.isdelte(2, 0);
+        int len = announcementService.updateIsDelete(2, 0);
         System.out.println(len);
 
     }

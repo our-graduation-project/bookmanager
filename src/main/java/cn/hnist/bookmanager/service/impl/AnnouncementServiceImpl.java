@@ -48,7 +48,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
      * @return 受影响行数
      */
     @Override
-    public int isdelte(int id, int state) {
+    public int updateIsDelete(int id, int state) {
         int len = 0;
         Announcement announcement = searchOneAnnouncement(id);
         if(announcement!=null){

@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
+    <script type="application/json" th:src="@{plugins/jquery/jquery.js}"></script>
 <link href="../../static/mydist/css/style.css" th:href="@{/mydist/css/style.css}" rel="stylesheet" type="text/css" />
 </head>
 
@@ -35,7 +36,7 @@
 			<li><input type="hidden" th:value="${announcement.isDelete}" id="isDelete"/></li>
 
 			<li><input type="hidden" th:value="${announcement.announcementId}" id="announcementId"/></li>
-		   <li><input name="" type="submit" onclick="update()" class="btn" value="提交"/>
+            <li><label>&nbsp;</label><a onclick="update()" class="mybtn" style="display: inline-block;text-align: center">&nbsp;&nbsp;重置</a></li>
             <li><label id="error" style="display: none">错误信息</label></li>
 
         </ul>	
