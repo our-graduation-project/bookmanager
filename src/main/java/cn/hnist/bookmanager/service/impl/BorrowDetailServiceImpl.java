@@ -72,7 +72,7 @@ public class BorrowDetailServiceImpl implements BorrowDetailService {
      * @param date2 归还时间
      * @return 相差的天数
      */
-    private   int differentDays (Date date1,Date date2)
+    public int differentDays (Date date1,Date date2)
     {
 
 

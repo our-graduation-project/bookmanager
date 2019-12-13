@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -72,10 +73,19 @@ public class BoorrowdetailController {
 public ModelAndView returnBook(@RequestParam(value = "status",defaultValue = "1") int status,@RequestParam(value = "borrowId",defaultValue = "") int borrowId){
     ModelAndView modelAndView ;
     int len = 0;
-    BorrowDetail borrowDetail = new BorrowDetail();
+
     if((status==1||status==4||status==5)&&borrowId!=0){
+        BorrowDetail borrowDetail = borrowDetailService.searchOneBorrowDetail(borrowId);
         borrowDetail.setStatus(status);
         borrowDetail.setBorrowId(borrowId);
+        borrowDetail.setRealReturnDate(new Date());
+
+        if(status == BorrowDetailServiceImpl.OVERDUE_NO_RETURN_FLAG){
+            int day = borrowDetailService.differentDays(borrowDetail.getShouldReturnDate(),borrowDetail.getRealReturnDate());
+            borrowDetail.setFine(day*BorrowDetailServiceImpl.FINE_FLAGE);
+        }
+
+
         len = borrowDetailService.returnBook(borrowDetail);
 
     }
