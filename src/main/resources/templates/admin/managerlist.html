@@ -87,7 +87,10 @@ $(document).ready(function(){
 		<td name="managerNickname"  th:text="${manager.managerNickname}"></td>
         <td name="mailbox"  th:text="${manager.mailbox}"></td>
         <td name="phone"  th:text="${manager.phone}"></td>
-        <td name="sex"  th:text="${manager.sex}"></td>
+        <td >
+            <div th:if="${manager.sex eq 0}">男</div>
+            <div th:if="${manager.sex  eq 1}">女</div>
+        </td>
 		<td name="age"  th:text="${manager.age}"></td>
         <td><a href="manageredit.html" th:href = "@{/tomanagermodify(managerId=${manager.managerId})}" class="tablelink">修改</a>
         </tr>
