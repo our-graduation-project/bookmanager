@@ -41,7 +41,6 @@ public class AnnouncementController {
         ModelAndView modelAndView = new ModelAndView("admin/noticelist");
         modelAndView.addObject("pageInfo",pageInfo);
         //modelAndView.addObject("error",error);
-
         return modelAndView;
 
     }
