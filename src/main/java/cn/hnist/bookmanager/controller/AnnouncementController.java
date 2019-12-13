@@ -27,7 +27,7 @@ public class AnnouncementController {
     @Autowired
     AnnouncementServiceImpl announcementService;
 
-    @RequestMapping("/AnnouncementList")
+    @RequestMapping("/announcementList")
     //error代表错误,0代表正常，1代表删除失败，2代表启用失败，3代表添加失败，4代表修改失败
     public ModelAndView announcementList(@RequestParam(value = "page" ,defaultValue = "1") int page,@RequestParam(value = "pageSize" ,defaultValue = "10") int pageSize){
         if("1".equals(page)||page <= 0){
@@ -136,9 +136,9 @@ public class AnnouncementController {
 
     @RequestMapping("/update")
     @ResponseBody
-    //state=ok说明已经填写了信息，准备提交
+    //提交信息
     public APIResult updateAnnouncement(@RequestBody Announcement announcement){
-        ModelAndView modelAndView;
+
 
             int len = 0;
             if(announcement != null&&announcement.getAnnouncementName()!=null&&announcement.getAnnouncementContent()!=null&&announcement.getAnnouncementId()!=null){

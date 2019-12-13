@@ -3,7 +3,7 @@ package cn.hnist.bookmanager.service;
 import cn.hnist.bookmanager.model.Lose;
 import com.github.pagehelper.PageInfo;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * 遗失情况Service,里面包含了遗失信息的操作
@@ -42,7 +42,7 @@ public interface LoseService {
      * @param pageSize 页面大小
      * @return
      */
-    PageInfo<Lose> searchLose(int page, int pageSize);
+    PageInfo<Map> searchLose(int page, int pageSize);
 
 
 }

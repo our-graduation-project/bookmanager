@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface LoseMapper {
@@ -30,4 +31,6 @@ public interface LoseMapper {
     int updateByPrimaryKeySelective(Lose record);
 
     int updateByPrimaryKey(Lose record);
+
+    List<Map>selectLoseList();
 }
