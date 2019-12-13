@@ -58,7 +58,7 @@ public class BorrowDetailServiceImpl implements BorrowDetailService {
             }else {
                 borrowDetail.setStatus(BorrowDetailService.RETURN_FLAG);
             }
-            len = borrowDetailMapper.updateByPrimaryKey(borrowDetail);
+            len = borrowDetailMapper.updateByPrimaryKeySelective(borrowDetail);
 
         }
 
@@ -198,6 +198,15 @@ public class BorrowDetailServiceImpl implements BorrowDetailService {
         Map map = new HashMap();
         map.put("userId",userId);
         List<Map> borrowDetails = borrowDetailMapper.selectUserBorrowDetal(map);
+        for ( Map m:
+                borrowDetails) {
+            if(m.get("realReturnDate") == null){
+                m.put("realReturnDate","未归还");
+            }
+            if(m.get("fine") == null){
+                m.put("fine",0.0);
+            }
+        }
         PageInfo pageInfo = new PageInfo(borrowDetails,5);
         return pageInfo;
     }
