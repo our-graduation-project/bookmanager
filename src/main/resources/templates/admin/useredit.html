@@ -36,8 +36,8 @@
                 <li><label>密码</label><input name="" th:value="${user.getUserPwd()}" type="text" class="dfinput" id="userPwd"/></li>
                 <li><label>邮箱</label><input name="" th:value="${user.getMailbox()}" type="text" class="dfinput" id="mailbox"/></li>
                 <li><label>电话</label><input name="" th:value="${user.getPhone()}" type="text" class="dfinput" id="phone"/></li>
-                <li><label>性别</label><input name="sex" th:checked="${user.getSex()==1}" th:value="${user.getSex()}" type="radio" class="" id="sex"/>男&nbsp;
-                    <input name="sex" th:checked="${user.getSex()==1}" type="radio" class="" />女</li>
+                <li><label>性别</label><input name="sex" value="0" th:checked="${user.getSex()==0}"  type="radio" class="" id="sex"/>男
+                    &nbsp;<input name="sex" value="1" th:checked="${user.getSex()==1}" type="radio" class="" />女</li>
                 <li><label>年龄</label><input name="" th:value="${user.getAge()}" type="text" class="dfinput" id="age"/></li>
                 <li><a onclick="edituser()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;修改</a>
                     <label>&nbsp;</label><a onclick="aaa()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;重置</a></li>
@@ -61,33 +61,33 @@
                 +userPwd+"--"+mailbox + "--" +phone+ "--" +sex+"--"+age);
             if (userName == null || userName == undefined || userName.trim() == "") {
                 $("#error").css("display","block");
-                $("#error").html("标签名不能为空");
+                $("#error").html("用户名称不能为空");
                 return false;
             }
             if (userPwd == null || userPwd == undefined || userPwd.trim() == "") {
                 $("#error").css("display","block");
-                $("#error").html("标签名不能为空");
+                $("#error").html("密码不能为空");
                 return false;
             }
 
             if (mailbox == null || mailbox == undefined || mailbox.trim() == "") {
                 $("#error").css("display","block");
-                $("#error").html("标签名不能为空");
+                $("#error").html("邮箱不能为空");
                 return false;
             }
             if (phone == null || phone == undefined || phone.trim() == "") {
                 $("#error").css("display","block");
-                $("#error").html("标签名不能为空");
+                $("#error").html("电话不能为空");
                 return false;
             }
             if (age == null || age== undefined || age.trim() == "") {
                 $("#error").css("display","block");
-                $("#error").html("标签名不能为空");
+                $("#error").html("年龄不能为空");
                 return false;
             }
             if (sex == null || sex == undefined || sex.trim() == "") {
                 $("#error").css("display","block");
-                $("#error").html("标签名不能为空");
+                $("#error").html("性别不能为空");
                 return false;
             }
             var data = {"userId" : userId,"userName" : userName,"mailbox" : mailbox,"userPwd" : userPwd,
