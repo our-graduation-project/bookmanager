@@ -59,7 +59,6 @@ public class LabelServiceImpl implements LabelService {
         LabelExample labelExample = new LabelExample();
         labelExample.or().andLabelIdEqualTo(id);
         int i = labelMapper.updateByExample(new Label(id,name), labelExample);
-        System.out.println(1/0);
         return i > 0 ? true : false;
     }
 
