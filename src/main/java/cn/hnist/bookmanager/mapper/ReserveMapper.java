@@ -2,10 +2,12 @@ package cn.hnist.bookmanager.mapper;
 
 import cn.hnist.bookmanager.model.Reserve;
 import cn.hnist.bookmanager.model.ReserveExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface ReserveMapper {
     long countByExample(ReserveExample example);
 

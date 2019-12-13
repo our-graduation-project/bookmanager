@@ -1,14 +1,12 @@
 package cn.hnist.bookmanager.controller;
 
 
-import cn.hnist.bookmanager.model.Bookshelf;
 import cn.hnist.bookmanager.model.User;
 import cn.hnist.bookmanager.service.UserService;
 import cn.hnist.bookmanager.utils.APIResult;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
