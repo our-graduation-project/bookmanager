@@ -1,40 +1,103 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
-<link href="../../static/mydist/css/style.css" rel="stylesheet" type="text/css" />
+<title>用户添加</title>
+<link href="../../static/mydist/css/style.css" rel="stylesheet" th:href="@{mydist/css/style.css}" type="text/css" />
+	<script type="application/json" th:src="@{plugins/jquery/jquery.js}"></script>
+	<script type="application/json" src="../../static/mydist/js/public.js" th:src="@{mydist/js/public.js}"></script>
+	<style type="text/css">
+
+	</style>
 </head>
 
 <body>
+    <div style="width: 100%; display: table" >
+		<th:block th:include="common/top::nav"/>
+	</div>
+	<div style="float: left; ">
+		<th:block th:include="common/left::nav"/>
+	</div>
+	<div class="mainindex">
+		<div class="place">
+			<span>位置：</span>
+			<ul class="placeul">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">用户添加</a></li>
+			</ul>
+		</div>
 
-	<div class="place">
-    <span>位置：</span>
-    <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">用户添加</a></li>
-    </ul>
-    </div>
-    
-    <div class="formbody">
-    
-    <div class="formtitle"><span>用户添加</span></div>
-    
-	<form action="" method="post">
-		<ul class="forminfo">
-           <li><label>用户名</label><input name="" type="text" class="dfinput" /></li>
-		   <li><label>邮箱</label><input name="" type="email" class="dfinput" /></li>
-		   <li><label>密码</label><input name="" type="text" class="dfinput" /></li>
-		   <li><label>确认密码</label><input name="" type="text" class="dfinput" /></li>
-		   <li><label>电话</label><input name="" type="text" class="dfinput" /></li>
-		   <li><label>性别</label><input name="sex" type="radio" class="" />男&nbsp;<input name="sex" type="radio" class="" />女</li>
-		   <li><label>年龄</label><input name="" type="text" class="dfinput" /></li>
-		   <li><input name="" type="submit" class="btn" value="提交"/>
-	       <label>&nbsp;</label><input name="" type="reset" class="btn" value="重置"/></li>
-        </ul>	
-		
-	</form>
-    
-    </div>
+		<div class="formbody">
+		<div class="formtitle"><span>用户添加</span></div>
+		<form>
+			<ul class="forminfo" >
+				<li><label>用户名</label>&nbsp;<input name="" id = "addUserName" type="text" class="dfinput" /></li>
+				<li><label>邮箱</label>&nbsp;<input name="" id = "addMailBox" type="text" class="dfinput" /></li>
+				<li><label>密码</label>&nbsp;<input name="" id = "addUserPwd" type="text" class="dfinput" /></li>
+				<li><label>电话</label>&nbsp;<input name="" id = "addPhone" type="text" class="dfinput" /></li>
+				<li><label>性别</label>&nbsp;<input name="" id = "addSex" type="text" class="dfinput" /></li>
+				<li><label>年龄</label>&nbsp;<input name="" id = "addAge" type="text" class="dfinput" /></li>
+				<li><a onclick="addUser()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;增加</a>
+					<label>&nbsp;</label><a onclick="aaa()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;重置</a></li>
+				<li><label id="error" style="display: none">错误信息</label></li>
+			</ul>
+		</form>
+		</div>
+	</div>
+
+	<script type="application/javascript">
+
+		function addUser() {
+			var userName = $("#addUserName").val();
+			var mailbox=$("#addMailBox").val();
+			var userPwd=$("#addUserPwd").val();
+			var phone=$("#addPhone").val();
+			var sex=$("#addSex").val();
+			var age=$("#addAge").val();
+			console.log(userName+"--"+mailbox+"---"+userPwd+"--"+phone+"--"+sex+"--"+age);
+			if(userName == null || userName == "" || userName == undefined||
+					mailbox == null || mailbox == "" || mailbox == undefined||
+					userPwd == null || userPwd == "" || userPwd == undefined||
+					phone == null || phone == "" || phone == undefined||
+					sex == null || sex == "" || sex == undefined||
+					age == null || age == "" || age == undefined){
+				$("#error").css("display","block");
+				$("#error").html("标签名不能为空");
+				return false;
+			}
+
+			var data = {"userName" : userName,"mailbox" : mailbox,"userPwd" : userPwd,
+				"phone" : phone,"sex" : sex,"age" : age};
+			$.ajax({
+				//请求方式
+				type : "POST",
+				//请求的媒体类型
+				contentType: "application/json;charset=UTF-8",
+				//请求地址
+				url : "admin/addUser",
+				//数据，json字符串
+				data : JSON.stringify(data),
+				success: function (result) {
+					if (result.result) {
+						alert("添加成功");
+						window.location.href="loadUsers";
+					}
+					else {
+						$("#error").html(result.message);
+						console.log(result.message+"--"+result.result);
+						alert("添加失败");
+					}
+				},
+				error: function () {
+					alert("操作失败");
+				}
+
+			})
+		}
+
+
+
+
+	</script>
 </body>
 </html>

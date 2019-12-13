@@ -63,7 +63,7 @@ public class BookshelfServiceImpl implements BookshelfService {
         example.or().andBookshelfNameEqualTo(bookshelfName);
         PageHelper.startPage(page,pageSize);
         List<Bookshelf> bookshelfList=mapper.selectByExample(example);
-        PageInfo pageInfo=new PageInfo(bookshelfList,1);
+        PageInfo pageInfo=new PageInfo(bookshelfList,3);
         return pageInfo;
     }
 
@@ -75,8 +75,9 @@ public class BookshelfServiceImpl implements BookshelfService {
     public PageInfo<Bookshelf> searchBookshelf(int page, int pageSize) {
         BookshelfExample example=new BookshelfExample();
         example.or();
+        PageHelper.startPage(page,pageSize);
         List<Bookshelf> bookshelf=mapper.selectByExample(example);
-        PageInfo pageInfo=new PageInfo(bookshelf,1);
+        PageInfo pageInfo=new PageInfo(bookshelf,3);
         return pageInfo;
     }
 

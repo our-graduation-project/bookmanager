@@ -1,12 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="../../static/mydist/css/style.css" rel="stylesheet" type="text/css" />
+<link href="../../static/mydist/css/style.css" rel="stylesheet" th:href="@{mydist/css/style.css}" type="text/css" />
+    <script type="application/json" th:src="@{plugins/jquery/jquery.js}"></script>
+    <script type="application/json" src="../../static/mydist/js/public.js" th:src="@{mydist/js/public.js}"></script>
+    <style type="text/css">
+
+    </style>
 </head>
 
 <body>
+    <div style="width: 100%; display: table" >
+        <th:block th:include="common/top::nav"/>
+    </div>
+    <div style="float: left; ">
+        <th:block th:include="common/left::nav"/>
+    </div>
+    <div class="mainindex">
 
 	<div class="place">
     <span>位置：</span>
@@ -20,16 +32,70 @@
     
     <div class="formtitle"><span>书架编辑</span></div>
     
-	<form action="" method="post">
-		<ul class="forminfo">
-           <li><label>书架名</label><input name="" type="text" class="dfinput" /></li>
-		   <li><label>位置</label><input name="" type="text" class="dfinput" /></li>
-		   <li><input name="" type="submit" class="btn" value="提交"/>
-	       <label>&nbsp;</label><input name="" type="reset" class="btn" value="重置"/></li>
+	<form>
+		<ul class="forminfo" th:each="bookshelf:${pageInfo.getList()}">
+            <li><label>书架编号</label><input name="" id = "bookshelfId" type="text" class="dfinput" th:value="${bookshelf.getBookshelfId()}" readonly/></li>
+            <li><label>书架名</label><input name="" id = "bookshelfName" type="text" class="dfinput" th:value="${bookshelf.getBookshelfName()}"/></li>
+            <li><label>书架位置</label><input name="" id = "bookshelfPosition" type="text" class="dfinput" th:value="${bookshelf.getBookshelfPosition()}"/></li>
+            <li><a onclick="editshelf()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;修改</a>
+                <label>&nbsp;</label><a onclick="aaa()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;重置</a></li>
+            <li><label id="error" style="display: none">错误信息</label></li>
         </ul>	
 		
 	</form>
-    
     </div>
+    </div>
+    <script type="application/javascript">
+
+        function editshelf(){
+            console.log("进入");
+            var bookshelfId = $("#bookshelfId").val();
+            var bookshelfName = $("#bookshelfName").val();
+            var bookshelfPosition = $("#bookshelfPosition").val();
+            console.log(bookshelfId + "--" + bookshelfName+ "--" +bookshelfPosition);
+            if (bookshelfName == null || bookshelfName == undefined || bookshelfName.trim() == "") {
+                $("#error").css("display","block");
+                $("#error").html("标签名不能为空");
+                return false;
+            }
+            if (bookshelfPosition == null || bookshelfPosition == undefined || bookshelfPosition.trim() == "") {
+                $("#error").css("display","block");
+                $("#error").html("标签名不能为空");
+                return false;
+            }
+
+            var data = {"bookshelfId": bookshelfId,"bookshelfName":bookshelfName,"bookshelfPosition":bookshelfPosition};
+            $.ajax({
+                //请求方式
+                type : "POST",
+                //请求的媒体类型
+                contentType: "application/json;charset=UTF-8",
+                //请求地址
+                url : "admin/editshelf",
+                //数据，json字符串
+                data : JSON.stringify(data),
+                success: function (result) {
+                    if (result.result) {
+                        alert("修改成功");
+                        window.location.href="loadshelf"
+
+                    }
+                    else {
+                        console.log(result.message+"--"+result.result);
+                        alert("保存失败");
+                    }
+                },
+                error: function () {
+                    alert("操作失败");
+                }
+
+            })
+        }
+
+
+
+
+
+    </script>
 </body>
 </html>
