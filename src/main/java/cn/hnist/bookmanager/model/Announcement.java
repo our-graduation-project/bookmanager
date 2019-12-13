@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Getter
@@ -39,6 +40,12 @@ public class Announcement implements Serializable {
 
     public void setAnnouncementName(String announcementName) {
         this.announcementName = announcementName;
+    }
+
+    public String getPublishDateStr() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateString = formatter.format(publishDate);
+        return dateString;
     }
 
     public Date getPublishDate() {

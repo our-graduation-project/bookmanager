@@ -89,8 +89,9 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 
         PageHelper.startPage(page,pageSize);
 
-        List<Announcement> announcements = announcementMapper.selectByExample(announcementExample);
-        PageInfo pageInfo = new PageInfo(announcements,3);
+        List<Announcement> announcements = announcementMapper.selectByExampleWithBLOBs(announcementExample);
+
+        PageInfo pageInfo = new PageInfo(announcements,5);
         return pageInfo;
     }
 
@@ -107,8 +108,9 @@ public class AnnouncementServiceImpl implements AnnouncementService {
         AnnouncementExample announcementExample = new AnnouncementExample();
         announcementExample.or().andIsDeleteEqualTo(isDlete);
         PageHelper.startPage(page,pageSize);
-        List<Announcement> announcements = announcementMapper.selectByExample(announcementExample);
-        PageInfo pageInfo = new PageInfo(announcements,3);
+        List<Announcement> announcements = announcementMapper.selectByExampleWithBLOBs(announcementExample);
+        PageInfo pageInfo = new PageInfo(announcements,5);
+        //announcementMapper.selectByExampleWithBLOBs()
         return pageInfo;
     }
 

@@ -53,9 +53,9 @@
     
     	<ul class="toolbar">
             <a th:href="@{/addAnnouncement}"><li class="click"><span><img src="../../static/mydist/images/t01.png" th:src="@{/mydist/images/t01.png}"/></span>添加</li></a>
-            <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{/mydist/images/t02.png}"/></span>修改</li>
-            <a th:href="@{/deleteannouncementList}"><li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{/mydist/images/t03.png}"/></span>禁用公告</li></a>
+        <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{/mydist/images/t02.png}"/></span>修改</li>
 
+            <a th:href="@{/AnnouncementList}"><li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{/mydist/images/t04.png}"/></span>启用公告</li></a>
         </ul>
         
         
@@ -101,14 +101,14 @@
     <div class="pagin">
     	<div class="message">当前显示第&nbsp;<i class="blue" th:text="${pageInfo.pageNum}"></i>页</div>
         <ul class="paginList">
-        <li class="paginItem"><a th:href="@{/AnnouncementList(page=${pageInfo.prePage})}"><span class="pagepre"></span></a></li>
+        <li class="paginItem"><a th:href="@{/deleteannouncementList(page=${pageInfo.prePage})}"><span class="pagepre"></span></a></li>
 
-        <li class="paginItem"><a th:href="@{/AnnouncementList(page=${pageInfo.navigatepageNums[0]})}" th:text="${pageInfo.navigatepageNums[0]}"></a></li>
-        <li class="paginItem"><a th:href="@{/AnnouncementList(page=${pageInfo.navigatepageNums[1]})}" th:text="${pageInfo.navigatepageNums[1]}"></a></li>
+        <li class="paginItem"><a th:href="@{/deleteannouncementList(page=${pageInfo.navigatepageNums[0]})}" th:text="${pageInfo.navigatepageNums[0]}"></a></li>
+        <li class="paginItem"><a th:href="@{/deleteannouncementList(page=${pageInfo.navigatepageNums[1]})}" th:text="${pageInfo.navigatepageNums[1]}"></a></li>
         <li class="paginItem"><a href="javascript:;" th:text="${pageInfo.navigatepageNums[2]}"></a></li>
-        <li class="paginItem"><a  th:href="@{/AnnouncementList(page=${pageInfo.navigatepageNums[3]})}" th:text="${pageInfo.navigatepageNums[3]}"></a></li>
+        <li class="paginItem"><a  th:href="@{/deleteannouncementList(page=${pageInfo.navigatepageNums[3]})}" th:text="${pageInfo.navigatepageNums[3]}"></a></li>
         <li class="paginItem"><a th:if="${!pageInfo.isLastPage} "  th:href="@{/AnnouncementList(page=${pageInfo.navigatepageNums[4]})}" th:text="${pageInfo.navigatepageNums[4]}"></a></li>
-            <li class="paginItem"><a th:href="@{/AnnouncementList(page=${pageInfo.nextPage})}"><span class="pagenxt"></span></a></li>
+            <li class="paginItem"><a th:href="@{/deleteannouncementList(page=${pageInfo.nextPage})}"><span class="pagenxt"></span></a></li>
 
         </ul>
     </div>

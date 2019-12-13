@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
@@ -33,29 +33,43 @@ $(document).ready(function(){
 
 <body>
 
-	<div class="place">
+<div style="width: 100%; display: table" >
+    <th:block th:include="common/top::nav"/>
+</div>
+<div style="float: left; ">
+    <th:block th:include="common/left::nav"/>
+</div >
+
+<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">数据表</a></li>
-    <li><a href="#">基本内容</a></li>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">数据表</a></li>
+        <li><a href="#">基本内容</a></li>
     </ul>
-    </div>
+</div>
+<div class="mainindex">
+
     
     <div class="rightinfo">
     
     <div class="tools">
     
     	<ul class="toolbar">
-        <li class="click"><span><img src="../../static/mydist/images/t01.png" /></span>添加</li>
-        <li class="click"><span><img src="../../static/mydist/images/t02.png" /></span>修改</li>
-        <li class="click"><span><img src="../../static/mydist/images/t03.png" /></span>删除</li>
-        <li class="click"><span><img src="../../static/mydist/images/t04.png" /></span>统计</li>
+        <li class="click"><span><img src="../../static/mydist/images/t01.png" th:src="@{mydist/images/t01.png}"/></span>添加</li>
+        <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{mydist/images/t02.png}"/></span>修改</li>
+        <li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{mydist/images/t03.png}"/></span>删除</li>
+        <li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{mydist/images/t04.png}"/></span>统计</li>
+
+            <form th:action="@{/userBorrowdetail}" method="post">
+                <li><label>用户名</label><input  name="userName" type="text" class="dfinput" /></li>
+                <li><input name="" type="submit" class="btn" value="搜索"/>
+            </form>
         </ul>
         
         
         <ul class="toolbar1">
-        <li><span><img src="../../static/mydist/images/t05.png" /></span>设置</li>
+        <li><span><img src="../../static/mydist/images/t05.png" th:src="@{mydist/images/t05.png}"/></span>设置</li>
         </ul>
     
     </div>
@@ -65,7 +79,7 @@ $(document).ready(function(){
     	<thead>
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
-        <th>编号<i class="sort"><img src="../../static/mydist/images/px.gif" /></i></th>
+        <th>编号<i class="sort"><img src="../../static/mydist/images/px.gif" th:src="@{mydist/images/px.gif}"/></i></th>
         <th>用户</th>
         <th>图书</th>
         <th>借阅日期</th>
@@ -79,44 +93,49 @@ $(document).ready(function(){
 		
         <tbody>
 			
-        <tr>
+        <tr th:each="a:${pageInfo.list}">
         <td><input name="" type="checkbox" value="" /></td>
-        <td>1</td>
-        <td>张三</td>
-        <td>三国演义</td>
-        <td></td>
-        <td></td>
-        <td></td>
-		<td>20.0</td>
-		<td>1</td>
+        <td th:text="${a.borrowId}"></td>
+            <td th:text="${a.username}"></td>
+            <td th:text="${a.bookname}"></td>
+            <td th:text="${a.borrowDate}"></td>
+            <td th:text="${a.shouldReturnDate}"></td>
+            <td th:text="${a.realReturnDate}"></td>
+            <td th:text="${a.fine}"></td>
+            <td th:if="${a.status} eq '1'">借出</td>
+            <td th:if="${a.status} eq '2'">期限归还</td>
+            <td th:if="${a.status} eq '3'">逾期归还</td>
+            <td th:if="${a.status} eq '4'">逾期</td>
+            <td th:if="${a.status} eq '5'">续借</td>
+
         <td><a href="borrowdetailedit.html" class="tablelink">修改</a>     <a href="#" class="tablelink"> 删除</a></td>
-        </tr> 
+        </tr>
         
         </tbody>
     </table>
-    
-   
-    <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
-        <ul class="paginList">
-        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-        <li class="paginItem"><a href="javascript:;">1</a></li>
-        <li class="paginItem current"><a href="javascript:;">2</a></li>
-        <li class="paginItem"><a href="javascript:;">3</a></li>
-        <li class="paginItem"><a href="javascript:;">4</a></li>
-        <li class="paginItem"><a href="javascript:;">5</a></li>
-        <li class="paginItem more"><a href="javascript:;">...</a></li>
-        <li class="paginItem"><a href="javascript:;">10</a></li>
-        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
-    </div>
+
+
+        <div class="pagin">
+            <div class="message">当前显示第&nbsp;<i class="blue" th:text="${pageInfo.pageNum}"></i>页</div>
+            <ul class="paginList">
+                <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.prePage},state=${state},userName=${userName})}"><span class="pagepre"></span></a></li>
+
+                <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[0]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[0]}"></a></li>
+                <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[1]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[1]}"></a></li>
+                <li class="paginItem"><a href="javascript:;" th:text="${pageInfo.navigatepageNums[2]}"></a></li>
+                <li class="paginItem"><a  th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[3]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[3]}"></a></li>
+                <li class="paginItem"><a   th:href="@{/borrowDetailList(page=${pageInfo.navigatepageNums[4]},state=${state},userName=${userName})}" th:text="${pageInfo.navigatepageNums[4]}"></a></li>
+                <li class="paginItem"><a th:href="@{/borrowDetailList(page=${pageInfo.nextPage})}"><span class="pagenxt"></span></a></li>
+
+            </ul>
+        </div>
     
     
     <div class="tip">
     	<div class="tiptop"><span>提示信息</span><a></a></div>
         
       <div class="tipinfo">
-        <span><img src="../../static/mydist/images/ticon.png" /></span>
+        <span><img src="../../static/mydist/images/ticon.png"  th:src="@{mydist/images/ticon.png}"/></span>
         <div class="tipright">
         <p>是否确认对信息的修改 ？</p>
         <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
@@ -134,7 +153,7 @@ $(document).ready(function(){
     
     
     </div>
-    
+</div>
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
 	</script>

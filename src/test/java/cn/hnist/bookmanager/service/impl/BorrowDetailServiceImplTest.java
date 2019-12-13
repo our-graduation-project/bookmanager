@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -102,19 +103,19 @@ class BorrowDetailServiceImplTest {
 
     @Test
     void searchBorrowDetail() {
-        PageInfo<BorrowDetail> pageInfo = borrowDetailService.searchBorrowDetail(3, 5);
-        List<BorrowDetail> list = pageInfo.getList();
-        for (BorrowDetail b :
+        PageInfo<Map> pageInfo = borrowDetailService.searchBorrowDetail(1, 2);
+        List<Map> list = pageInfo.getList();
+        for (Map b :
                 list) {
-            System.out.println(b);
+            System.out.println(b.get("username"));
         }
     }
 
     @Test
     void searchBorrowDetailByUser() {
-        PageInfo<BorrowDetail> pageInfo = borrowDetailService.searchBorrowDetailByUser(2,4,16);
-        List<BorrowDetail> list = pageInfo.getList();
-        for (BorrowDetail b :
+        PageInfo<Map> pageInfo = borrowDetailService.searchBorrowDetailByUser(2,4,16);
+        List<Map> list = pageInfo.getList();
+        for (Map b :
                 list) {
             System.out.println(b);
         }

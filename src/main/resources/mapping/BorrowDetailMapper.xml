@@ -11,6 +11,10 @@
     <result column="fine" jdbcType="DOUBLE" property="fine" />
     <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
+
+
+
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -256,4 +260,35 @@
       status = #{status,jdbcType=INTEGER}
     where borrow_id = #{borrowId,jdbcType=INTEGER}
   </update>
+
+
+
+
+<!--  自己写的连表查询-->
+  <select id="selectBorrowDetal" resultType="java.util.Map">
+select borrow_detail.borrow_id borrowId,borrow_detail.borrow_date borrowDate,
+borrow_detail.should_return_date shouldReturnDate,borrow_detail.real_return_date realReturnDate,
+borrow_detail.fine,borrow_detail.`status`,`user`.user_name username,`book`.book_name
+bookname from borrow_detail,`user`,book
+where borrow_detail.book_id=book.book_id
+and borrow_detail.user_id=`user`.user_id
+  </select>
+
+  <select id="selectUserBorrowDetal" resultType="java.util.Map" parameterType="java.util.Map">
+select borrow_detail.borrow_id borrowId,borrow_detail.borrow_date borrowDate,
+borrow_detail.should_return_date shouldReturnDate,borrow_detail.real_return_date realReturnDate,
+borrow_detail.fine,borrow_detail.`status`,`user`.user_name username,`book`.book_name
+bookname from borrow_detail,`user`,book
+where borrow_detail.book_id=book.book_id
+and borrow_detail.user_id=`user`.user_id and borrow_detail.user_id = ${userId}
+  </select>
+
+
+
+
+
+
+
+
+
 </mapper>

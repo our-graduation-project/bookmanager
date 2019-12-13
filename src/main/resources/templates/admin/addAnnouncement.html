@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../../static/mydist/css/style.css" th:href="@{/mydist/css/style.css}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div style="width: 100%; display: table" >
+	<th:block th:include="common/top::nav"/>
+</div>
+<div style="float: left; ">
+	<th:block th:include="common/left::nav"/>
+</div>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">用户添加</a></li>
+    </ul>
+    </div>
+<div class="mainindex">
+    <div class="formbody">
+    
+    <div class="formtitle"><span>添加公告</span></div>
+    
+	<form th:action="@{/addAnnouncement(state ='OK')}" method="post">
+		<ul class="forminfo">
+           <li><label>公告标题</label><input  name="announcementName" type="text" class="dfinput" /></li>
+		   <li><label>公告</label><textarea  name="announcementContent" cols="56" rows="8" style="border:solid 1px">请填写公告</textarea></li>
+		   <li><input name="" type="submit" class="btn" value="提交"/>
+
+        </ul>	
+		
+	</form>
+    
+    </div>
+</div>
+</body>
+</html>
