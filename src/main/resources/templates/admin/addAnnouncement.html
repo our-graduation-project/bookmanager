@@ -26,17 +26,33 @@
     
     <div class="formtitle"><span>添加公告</span></div>
     
-	<form th:action="@{/addAnnouncement(state ='OK')}" method="post">
+	<form  method="post">
 		<ul class="forminfo">
-           <li><label>公告标题</label><input  name="announcementName" type="text" class="dfinput" /></li>
-		   <li><label>公告</label><textarea  name="announcementContent" cols="56" rows="8" style="border:solid 1px">请填写公告</textarea></li>
-		   <li><input name="" type="submit" class="btn" value="提交"/>
-
+           <li><label>公告标题</label><input id="announcementName" name="announcementName" type="text" class="dfinput" /></li>
+		   <li><label>公告</label><textarea id="announcementContent" name="announcementContent" cols="56" rows="8" style="border:solid 1px">请填写公告</textarea></li>
+            <li><label>&nbsp;</label><a onclick="addAnnouncement()" class="mybtn" style="display: inline-block;text-align: center">添加</a></li>
+            <li><label id="error" style="display: none">错误信息</label></li>
         </ul>	
 		
 	</form>
     
     </div>
 </div>
+<script type="text/javascript">
+    function addAnnouncement() {
+        var announcementName = $("#announcementName").val();
+        var announcementContent = $("#announcementContent").val();
+        if(announcementName == null|| announcementName == undefined || announcementName.trim()==""||
+            announcementContent == null|| announcementContent == undefined || announcementContent.trim()==""){
+            $("#error").css("display","block");
+            $("#error").html("公告名和信息不能为空");
+            return false;
+        }
+
+        window.location.href="/bookmanager/addAnnouncement?state=OK&announcementName="+announcementName
+            +"&announcementContent="+announcementContent;
+
+    }
+</script>
 </body>
 </html>

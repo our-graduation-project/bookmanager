@@ -113,6 +113,7 @@ public class AnnouncementController {
                 announcement.setPublishDate(new Date());
                len = announcementService.addAnnouncement(announcement);
             }
+            System.out.println(len);
             if(len > 0){
                 modelAndView = announcementList(1,10);
             }else {
