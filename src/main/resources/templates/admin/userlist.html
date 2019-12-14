@@ -95,7 +95,7 @@ $(document).ready(function(){
                     <td th:text="${user.age}"></td>
                     <td><!--<a th:href="@{/toEdituser(userId=${user.userId})}" class="tablelink">添加</a>-->
                         <a th:href="@{toEdituser(userId=${user.userId})}" class="tablelink">修改</a>
-                        <a onclick="deleteUser()" th:href="@{/deleteUser(userId=${user.userId},page=${pageInfo.getPages()})}" class="tablelink"> 删除</a></td>
+                        <a th:onclick="deleteuser([[${user.userId}]],[[${user.userName}]],[[${pageInfo.pageNum}]])" class="tablelink"> 删除</a></td>
                 </tr>
             </table>
         <div class="pagin">
@@ -128,7 +128,7 @@ $(document).ready(function(){
            </div>
 
             <div class="tipbtn" >
-                <a onclick="addUser()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;确定</a>
+                <a  class="mybtn" style="display: inline-block">&nbsp;&nbsp;确定</a>
                 <label>&nbsp;</label><a  class="mybtn" style="display: inline-block">&nbsp;&nbsp;取消</a>
             </div>
         </div>
@@ -136,7 +136,21 @@ $(document).ready(function(){
     </div>
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
+    function deleteuser(id,name,page) {
 
+        var r = confirm("您确定删除"+name+"吗？")
+
+        if (r == true) {
+
+            window.location.href="/bookmanager/deleteUser?userId="+id+"&page="+page;
+
+        } else {
+            return false;
+
+        }
+
+
+    }
 
     function deleteUser(userId) {
         console.log(userId);

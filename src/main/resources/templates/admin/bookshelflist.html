@@ -85,7 +85,8 @@ $(document).ready(function(){
                     <td th:text="${bookshelf.getBookshelfName()}"></td>
                     <td th:text="${bookshelf.getBookshelfPosition()}"></td>
                     <td><a th:href="@{toEditshelf(bookshelfId=${bookshelf.getBookshelfId()})}" class="tablelink">修改</a>
-                        <a  onclick="deleteshelf()" th:href="@{/deleteshelf(bookshelfId=${bookshelf.getBookshelfId()},page=${pageInfo.getPages()})}" class="tablelink"> 删除</a></td>
+                        <a th:onclick="deleteshelf([[${bookshelf.bookshelfId}]],[[${bookshelf.bookshelfName}]],[[${pageInfo.pageNum}]])" class="tablelink"> 删除</a>
+                    </td>
                 </tr>
             </table>
         <div class="pagin">
@@ -120,6 +121,22 @@ $(document).ready(function(){
     </div>
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
+
+    function deleteshelf(id,name,page) {
+
+        var r = confirm("您确定删除"+name+"吗？")
+
+        if (r == true) {
+
+            window.location.href="/bookmanager/deleteshelf?bookshelfId="+id+"&page="+page;
+
+        } else {
+            return false;
+
+        }
+
+
+    }
 
     function addshelf() {
         var bookshelfName = $("#addBookshelfName").val();
@@ -159,7 +176,7 @@ $(document).ready(function(){
     }
 
 
-    function deleteshelf(bookshelfId) {
+    function deleteShelf(bookshelfId) {
         console.log(bookshelfId);
         if( alert("确认删除") ){
             var data = {"bookshelfId": bookshelfId};
