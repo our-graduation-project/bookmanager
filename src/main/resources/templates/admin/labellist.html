@@ -84,7 +84,7 @@ $(document).ready(function(){
             <td th:text="${label.labelId}" id="labelName"></td>
             <td th:text="${label.labelName}" id="labelName"></td>
             <td><a th:href = "@{/toEditLabel(labelId=${label.labelId})}" class="tablelink">修改</a>
-                <a th:href="@{/deleteLabel(labelId=${label.labelId},page=${pageInfo.getPages()})}"  class="tablelink"> 删除</a></td>
+                <a th:onclick="deleteLabel([[${label.labelId}]],[[${label.labelName}]],[[${pageInfo.getPages()}]])"  class="tablelink"> 删除</a></td>
             </tr>
 
             </tbody>
@@ -124,6 +124,7 @@ $(document).ready(function(){
 
     
         </div>
+    </div>
     </div>
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
@@ -166,34 +167,40 @@ $(document).ready(function(){
 	}
 
 
-    function deleteLabel(labelId, labelName) {
+    function deleteLabel(labelId, labelName,page) {
         console.log(labelName + "---" + labelId);
-        if( alert("确认删除" + labelName) ){
-            var data = {"labelId": labelId};
-            $.ajax({
-                //请求方式
-                type : "POST",
-                //请求的媒体类型
-                contentType: "application/json;charset=UTF-8",
-                //请求地址
-                url : "admin/deleteLabel",
-                //数据，json字符串
-                data : JSON.stringify(data),
-                success: function (result) {
-                    if (result.result) {
-                        alert("删除成功");
-                    }
-                    else {
-                        console.log(result.message+"--"+result.result);
-                        alert("删除失败");
-                    }
-                },
-                error: function () {
-                    alert("操作失败");
-                }
-
-            })
+        var r = confirm("亲，您确定删除"+labelName+"吗？")
+        if(r ==false){
+            return false;
         }
+
+        var data = {"labelId":labelId,"page":page};
+        console.log(data);
+        $.ajax({
+            //请求方式
+            type : "POST",
+            //请求的媒体类型
+            contentType: "application/json;charset=UTF-8",
+            //请求地址
+            url : "deleteLabel",
+            //数据，json字符串
+            data : JSON.stringify(data),
+            success: function (result) {
+                if (result.result) {
+                    alert("删除成功");
+                }
+                else {
+                    console.log(result.message+"--"+result.result);
+                    alert("删除失败");
+                }
+            },
+            error: function () {
+                alert("操作失败");
+            }
+
+        })
+        window.location.href="/bookmanager/toLabelList?page="+page;
+
     }
 	</script>
 </body>

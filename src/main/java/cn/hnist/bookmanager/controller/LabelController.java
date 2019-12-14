@@ -3,6 +3,7 @@ package cn.hnist.bookmanager.controller;
 import cn.hnist.bookmanager.model.Label;
 import cn.hnist.bookmanager.service.LabelService;
 import cn.hnist.bookmanager.utils.APIResult;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -80,16 +81,12 @@ public class LabelController {
     }
 
     @RequestMapping("/deleteLabel")
-    public void deleteLabel(@RequestParam("labelId") int labelId,
-                              @RequestParam(value = "page",defaultValue = "0") int page,
+    @ResponseBody
+    public APIResult deleteLabel(@RequestBody JSONObject jsonParam,
                               HttpServletResponse response){
 
-        Boolean aBoolean = labelService.deleteLabel(labelId);
-        try {
-            response.sendRedirect("toLabelList");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Boolean aBoolean = labelService.deleteLabel((Integer) jsonParam.get("labelId"));
+        return new APIResult(aBoolean,200);
 
     }
 

@@ -89,8 +89,9 @@
 		<td th:if="${a.isDelete} eq '1'">已启用</td>
             <td th:if="${a.isDelete} eq '0'">已删除</td>
         <td><a th:href="@{/inUpdate(announcementId=${a.announcementId},page=${pageInfo.pageNum})}" class="tablelink">修改</a>
-            <a th:href="@{/deleteAnnouncement(announcementId=${a.announcementId},page=${pageInfo.pageNum})}" class="tablelink" th:if="${a.isDelete} eq '1'"> 删除</a>
+            <a th:onclick="deleteAnnouncement([[${a.announcementId}]],[[${a.announcementName}]],[[${pageInfo.pageNum}]])"  class="tablelink" th:if="${a.isDelete} eq '1'"> 删除</a>
             <a th:href="@{/recoveryAnnouncement(announcementId=${a.announcementId},page=${pageInfo.pageNum})}" class="tablelink" th:if="${a.isDelete} eq '0'"> 启用</a>
+
         </td>
         </tr>
         
@@ -136,7 +137,22 @@
 	</script>
 
     <script type="text/javascript">
+function deleteAnnouncement(id,name,page) {
 
+    var r = confirm("亲，您确定删除"+name+"吗？")
+
+    if (r == true) {
+
+        alert("开始")
+        window.location.href="/bookmanager/deleteAnnouncement?announcementId="+id+"&page="+page;
+
+    } else {
+        return false;
+
+    }
+
+
+}
 
 
     </script>

@@ -45,10 +45,7 @@ public class BoorrowdetailController {
     @RequestMapping("/userBorrowdetail")
     public ModelAndView usesrBorrowDetail(@RequestParam(value = "userName",defaultValue = "") String userName,@RequestParam(value = "page",defaultValue = "1") int page){
         ModelAndView modelAndView ;
-        System.out.println(
-
-                userName
-        );
+        System.out.println(userName);
         if(userName!=null&&!"".equals(userName)){
             modelAndView= new ModelAndView("/admin/borrowdetail");
             System.out.println(userName);
@@ -62,7 +59,8 @@ public class BoorrowdetailController {
 
 
         }else {
-            modelAndView = new ModelAndView("/error/404.html");
+            System.out.println("开始");
+            modelAndView = borrowDetailList(1,0,"");
         }
 
         return modelAndView;
