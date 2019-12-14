@@ -33,7 +33,7 @@
     <div class="formtitle"><span>书架编辑</span></div>
     
 	<form>
-		<ul class="forminfo" th:each="bookshelf:${pageInfo.getList()}">
+		<ul class="forminfo" >
             <li><label>书架编号</label><input name="" id = "bookshelfId" type="text" class="dfinput" th:value="${bookshelf.getBookshelfId()}" readonly/></li>
             <li><label>书架名</label><input name="" id = "bookshelfName" type="text" class="dfinput" th:value="${bookshelf.getBookshelfName()}"/></li>
             <li><label>书架位置</label><input name="" id = "bookshelfPosition" type="text" class="dfinput" th:value="${bookshelf.getBookshelfPosition()}"/></li>

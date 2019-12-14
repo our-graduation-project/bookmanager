@@ -68,6 +68,17 @@ public class BookshelfServiceImpl implements BookshelfService {
     }
 
     /**
+     * 根据Id查询用户
+     * @param bookshelfId
+     * @return
+     */
+    @Override
+    public Bookshelf searchBookshelfById(int bookshelfId) {
+        Bookshelf bookshelf = mapper.selectByPrimaryKey(bookshelfId);
+        return bookshelf;
+    }
+
+    /**
      * 查询所有书架
      * @return
      */

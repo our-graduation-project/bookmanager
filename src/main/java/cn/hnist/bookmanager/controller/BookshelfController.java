@@ -83,16 +83,28 @@ public class BookshelfController {
      * @param bookshelfName
      * @return
      */
-    @RequestMapping("/toEditshelf")
+    @RequestMapping("/searchshelfByName")
     public ModelAndView searchBookshelfByName(@RequestParam(value = "page",defaultValue = "0") int page,
                                @RequestParam(value = "pageSize",defaultValue = "3") int pageSize,
             @RequestParam("bookshelfName") String bookshelfName){
         PageInfo<Bookshelf> pageInfo = bookshelfService.searchBookshelfByName(page, pageSize, bookshelfName);
-        ModelAndView modelAndView = new ModelAndView("admin/bookshelfedit");
+        ModelAndView modelAndView = new ModelAndView("admin/bookshelflist");
         modelAndView.addObject("pageInfo",pageInfo);
         return modelAndView;
     }
 
+    /**
+     * 跳入修改页面
+     * @param bookshelfId
+     * @return
+     */
+    @RequestMapping("/toEditshelf")
+    public ModelAndView searchBookshelfById(@RequestParam("bookshelfId") int bookshelfId){
+        Bookshelf bookshelf = bookshelfService.searchBookshelfById(bookshelfId);
+        ModelAndView model=new ModelAndView("admin/bookshelfedit");
+        model.addObject("bookshelf",bookshelf);
+        return model;
+    }
     /**
      * 修改书架
      * @param bookshelf

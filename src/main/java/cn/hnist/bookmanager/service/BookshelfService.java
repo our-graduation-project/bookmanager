@@ -37,6 +37,13 @@ public interface BookshelfService {
     PageInfo<Bookshelf> searchBookshelfByName(int page, int pageSize,String bookshelfName);
 
     /**
+     * 根据用户ID查询用户
+     * @param bookshelfId
+     * @return
+     */
+    Bookshelf searchBookshelfById(int bookshelfId);
+
+    /**
      * 查询所有书架
      * @return
      */

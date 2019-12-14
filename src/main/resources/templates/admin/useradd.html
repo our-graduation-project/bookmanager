@@ -35,7 +35,11 @@
 				<li><label>邮箱</label>&nbsp;<input name="" id = "addMailBox" type="text" class="dfinput" /></li>
 				<li><label>密码</label>&nbsp;<input name="" id = "addUserPwd" type="text" class="dfinput" /></li>
 				<li><label>电话</label>&nbsp;<input name="" id = "addPhone" type="text" class="dfinput" /></li>
-				<li><label>性别</label>&nbsp;<input name="" id = "addSex" type="text" class="dfinput" /></li>
+				<li><label for="sex" class="col-sm-2 control-label">性别</label>
+					<div id="sex" class="col-sm-8">
+						    <label><input name="sex" type="radio" value="0" /> 男</label>
+						    <label><input name="sex" type="radio" value="1"/> 女</label>
+					</div></li>
 				<li><label>年龄</label>&nbsp;<input name="" id = "addAge" type="text" class="dfinput" /></li>
 				<li><a onclick="addUser()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;增加</a>
 					<label>&nbsp;</label><a onclick="aaa()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;重置</a></li>
@@ -52,7 +56,7 @@
 			var mailbox=$("#addMailBox").val();
 			var userPwd=$("#addUserPwd").val();
 			var phone=$("#addPhone").val();
-			var sex=$("#addSex").val();
+			var sex = $('input:radio[name="sex"]:checked').val();
 			var age=$("#addAge").val();
 			console.log(userName+"--"+mailbox+"---"+userPwd+"--"+phone+"--"+sex+"--"+age);
 			if(userName == null || userName == "" || userName == undefined||

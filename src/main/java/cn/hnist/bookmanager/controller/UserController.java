@@ -47,17 +47,12 @@ public class UserController{
 
     /**
      * 跳入增加页面
-     * @param userId
      * @return
      */
-    @RequestMapping("/toEdituser")
-    public ModelAndView searchUserById(@RequestParam("userId") Integer userId){
-        User user = userService.searchUserById(userId);
-        ModelAndView model=new ModelAndView("admin/useradd");
-        model.addObject("user",user);
-        return model;
+    @RequestMapping("/touseradd")
+    public String toaddUser(){
+        return "admin/useradd";
     }
-
     /**
      * 增加用户
      * @param user
@@ -74,7 +69,6 @@ public class UserController{
         boolean b = userService.addUser(user);
         return new APIResult(b,200);
     }
-
 
     /**
      * 根据ID删除用户
@@ -99,22 +93,36 @@ public class UserController{
 
 
     /**
-     * 跳入修改页面
+     * 根据name查询用户
      * @param page
      * @param pageSize
      * @param userName
      * @return
      */
 
-    @RequestMapping("/toEdituserByName")
+    @RequestMapping("/tosearchuserByName")
     public ModelAndView searchUserByName(@RequestParam(value = "page",defaultValue = "0") int page,
                                          @RequestParam(value = "pageSize",defaultValue = "6") int pageSize,
                                          @RequestParam("userName") String userName){
         PageInfo<User> pageInfo = userService.searchUserByName(page, pageSize, userName);
-        ModelAndView model=new ModelAndView("admin/useredit");
+        ModelAndView model=new ModelAndView("admin/userlist");
         model.addObject("pageInfo",pageInfo);
         return model;
     }
+
+    /**
+     * 跳入修改页面
+     * @param userId
+     * @return
+     */
+    @RequestMapping("/toEdituser")
+    public ModelAndView searchUserById(@RequestParam("userId") Integer userId){
+        User user = userService.searchUserById(userId);
+        ModelAndView model=new ModelAndView("admin/useredit");
+        model.addObject("user",user);
+        return model;
+    }
+
 
     /**
      * 修改用户

@@ -30,7 +30,7 @@
         <div class="formbody">
         <div class="formtitle"><span>用户编辑</span></div>
         <form action="" method="post">
-            <ul class="forminfo" th:each="user:${pageInfo.getList()}">
+            <ul class="forminfo">
                 <li><label>用户编号</label><input name="" th:value="${user.getUserId()}" type="text" class="dfinput" id="userId" readonly/></li>
                 <li><label>用户名</label><input name="" th:value="${user.getUserName()}" type="text" class="dfinput" id="userName"/></li>
                 <li><label>密码</label><input name="" th:value="${user.getUserPwd()}" type="text" class="dfinput" id="userPwd"/></li>
