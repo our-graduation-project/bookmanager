@@ -80,4 +80,12 @@ public interface ManagerService {
      */
     Manager searchByManagerNickname(String managerNickname);
 
+    /**
+     * 通过邮箱查询管理员
+     * @param
+     * @param manager
+     * @return
+     */
+    int updatePasswordByMailbox(Manager manager);
+
 }

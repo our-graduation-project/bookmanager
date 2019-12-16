@@ -149,4 +149,11 @@ public class ManagerServieImpl implements ManagerService {
         return null;
     }
 
+    @Override
+    public int updatePasswordByMailbox(Manager manager){
+        ManagerExample managerExample = new ManagerExample();
+        managerExample.or().andMailboxEqualTo(manager.getMailbox());
+        return  managerMapper.updateByExampleSelective(manager, managerExample);
+    }
+
 }

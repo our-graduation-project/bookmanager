@@ -4,7 +4,9 @@ import cn.hnist.bookmanager.model.Manager;
 import cn.hnist.bookmanager.service.ManagerService;
 import cn.hnist.bookmanager.utils.APIResult;
 import cn.hnist.bookmanager.utils.LogUtils;
+import cn.hnist.bookmanager.utils.RegisterUtil;
 import cn.hnist.bookmanager.utils.TokenUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,10 @@ public class ManagerController {
 
     @Autowired
     private ManagerService managerService;
+
+
+    @Autowired
+    private RegisterUtil registerUtil;
 
 
     /**
@@ -165,5 +171,55 @@ public class ManagerController {
         return new APIResult(flg,200);
     }
 
+
+    /**
+     * 到添加manager记录页面
+     * @param
+     * @return
+     */
+    @RequestMapping("/toforgetpassword")
+    public String toForgetPassword(){
+        return "admin/forgetpassword";
+    }
+
+
+    @RequestMapping("/admin/forgetpassword")
+    @ResponseBody
+    public APIResult forgetPassword(@RequestBody Manager manager){
+        registerUtil.sendCodeToEmail(manager.getMailbox());
+        APIResult apiResult = new APIResult(true,200);
+        apiResult.setMessage("5分钟内验证码有效");
+        return apiResult;
+    }
+
+    @RequestMapping("/admin/updatepassword")
+    @ResponseBody
+    public APIResult updatepassword(@RequestBody JSONObject jsonObject){
+        String verificationCode = (String) jsonObject.get("verificationCode");
+        String mailbox = (String) jsonObject.get("mailbox");
+        String password = (String) jsonObject.get("password");
+        String codeByEmail = registerUtil.getCodeByEmail(mailbox);
+        if(codeByEmail == null){
+            APIResult apiResult = new APIResult(false,200);
+            apiResult.setMessage("验证码不正确");
+            return apiResult;
+        }
+
+        if(!codeByEmail.equals(verificationCode)){
+            APIResult apiResult = new APIResult(false,200);
+            apiResult.setMessage("验证码不正确");
+            return apiResult;
+        }
+        Manager manager = new Manager();
+        manager.setMailbox(mailbox);
+        manager.setManagerPwd(password);
+        int i = managerService.updatePasswordByMailbox(manager);
+        boolean flg = false;
+        if(i > 0){
+            flg = true;
+        }
+        APIResult apiResult = new APIResult(flg,200);
+        return apiResult;
+    }
 
 }
