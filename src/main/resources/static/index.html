@@ -15,80 +15,11 @@
 <!-- //Custom Theme files -->
 <!-- js -->
 <script src="dist/js/jquery-2.2.3.min.js"></script>
-
 <!-- //js -->
 <!-- web-fonts -->
 <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<!-- //web-fonts -->
-
-	<script type="text/javascript">
-
-		window.onload= announcementList(1);
-		function announcementList(page) {
-			var data = {"page": page};
-			$.ajax({
-				//请求方式
-				type : "POST",
-				//请求的媒体类型
-				contentType: "application/json;charset=UTF-8",
-				//请求地址
-				url : "indexAnnouncementList",
-				//数据，json字符串
-				data : JSON.stringify(data),
-				success: function (result) {
-					console.log(result.message+"--"+result.result);
-					if (result.result) {
-						// console.log(result.data.get('list'));
-						var data = result.data.list;
-						var next = result.data.nextPage;
-						var pre = result.data.prePage;
-						var str = '<ul>\n' ;
-
-						for (var i = 0; i < data.length; i++) {
-							str +=
-									'\t\t\t\t\t\t\t\t\t\t\t<li ><a href="#" data-toggle="modal" data-target="#announcement'+i+'">'+data[i].announcementName+'</a></li>';
-
-						}
-						str += '<li ><a href="#" onclick="announcementList('+next+')" data-toggle="modal" >......--></a></li>'
-						str += '<li ><a href="#" onclick="announcementList('+pre+')" data-toggle="modal" ><--......</a></li>'
-						str += '</ul>';
-						 $("#announcement").empty();
-						$("#announcement").append(str);
-						$("#announcementData").empty();
-
-						for (var i = 0; i < data.length; i++) {
-							var dataStr ="<div class=\"modal bnr-modal fade\" id=\"announcement"+i+"\" tabindex=\"-1\" role=\"dialog\">\n" +
-									"\t\t<div class=\"modal-dialog\" role=\"document\">\n" +
-									"\t\t\t<div class=\"modal-content\">\n" +
-									"\t\t\t\t<div class=\"modal-header\">\n" +
-									"\t\t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n" +
-									"\t\t\t\t</div>\n" +
-									"\t\t\t\t<div class=\"modal-body modal-spa\">\n" +
-									"\t\t\t\t\t<img class=\"img-responsive\" src=\"dist/images/g1.jpg\" alt=\"\">\n" +
-									"\t\t\t\t\t<h2>"+data[i].announcementName+"</h2>\n" +
-									"\t\t\t\t\t<p>"+data[i].publishDateStr+"</p>\n" +
-							"\t\t\t\t\t<p>"+data[i].announcementContent+"</p>\n" +
-							"\t\t\t\t</div>\n" +
-							"\t\t\t</div>\n" +
-							"\t\t</div>";
-							$("#announcementData").append(dataStr);
-						}
-
-
-
-
-					}
-
-				},
-				error: function () {
-					console.log(result.message+"--"+result.result);
-				}
-
-
-			})
-		}
-	</script>
+<!-- //web-fonts --> 
 </head>
 <body>
 	<!-- header -->
@@ -105,20 +36,33 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
+
 				<div class="header-right wthree">
 					<div class="top-nav-text">
 						<div id="sb-search" class="sb-search">
-							<form action="#" method="post">
-								<input type="search" class="sb-search-input" name="Search" placeholder="搜索..." id="search" required="">
-								<input class="sb-search-submit" type="submit" value="">
+							<form action="searchresult.html" method="get">
+								<input type="search" class="sb-search-input" name="Search" placeholder="输入书名或者书名或者标签名进行搜索书" id="search" required="">
+								<button class="sb-search-submit" onclick="searchbooks" value=""></button>
 								<span class="sb-icon-search"> </span>
 							</form>
+
 							<div class="clearfix"> </div>
 							<!-- search-scripts -->
 							<script src="dist/js/classie.js"></script>
 							<script src="dist/js/uisearch.js"></script>
 							<script>
 								new UISearch( document.getElementById( 'sb-search' ) );
+
+								function searchbooks(){
+									var keyword = $("#search").val();
+									// if(keyword == "" || keyword == null){
+									// 	alert("请输入书名或者作者名关键字进行搜索!");
+									// }
+									window.location.href = './searchresult.html?keyword='+keyword;
+								}
+								// var search = $("#search").val();
+								// console.log(search);
+								// var data = {"search" : search};
 							</script>
 							<!-- //search-scripts -->
 						</div>
@@ -178,25 +122,20 @@
 		</div>
 	</div>
 	<!-- modal-sign -->
-<div id="announcementData">
-
-	<div class="modal bnr-modal fade" id="announcementName" tabindex="-1" role="dialog">
+	<div class="modal bnr-modal fade" id="myModal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				</div>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+				</div> 
 				<div class="modal-body modal-spa">
 					<img class="img-responsive" src="dist/images/g1.jpg" alt="">
-					<h2>闭馆通知</h2>
-					<p>本图书馆将与12-22号关闭</p>
-				</div>
+					<h2>公告标题</h2>
+					<p>公告内容。。。</p>
+				</div> 
 			</div>
 		</div>
 	</div>
-
-</div>
-
 	<!-- //modal-sign -->
 	<div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >建站模板</a></div>    
 	<!-- //banner -->
@@ -220,12 +159,15 @@
 							<div class="clearfix"> </div>
 							<div id="myTabContent" class="tab-content">
 								<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab" style="border: #03A9F4,1px,solid;">
-									<div class="tabcontent-grids" id="announcement">
+									<div class="tabcontent-grids">
 										<ul>
-
-
-											<li ><a href="#" data-toggle="modal" data-target="#announcementName">开始</a></li>
+											<li><a href="#" data-toggle="modal" data-target="#myModal"> 国庆闭馆7天</a></li>
+											<li><a href="#" data-toggle="modal" data-target="#myModal"> 国庆闭馆7天</a></li>
+											<li><a href="#" data-toggle="modal" data-target="#myModal">国庆闭馆7天</a></li>
+											<li><a href="#" data-toggle="modal" data-target="#myModal"> 国庆闭馆7天</a></li>
+											<li><a href="#" data-toggle="modal" data-target="#myModal"> 国庆闭馆7天</a></li>
 										</ul>
+										
 									</div>
 								</div>
 								<div class="clearfix"> </div>
@@ -383,7 +325,7 @@
 			  $('.events').append("<li>after event fired.</li>");
 			}
 		  });
-	
+
 		});
 	</script>
 	
