@@ -3,6 +3,7 @@ package cn.hnist.bookmanager.controller;
 import cn.hnist.bookmanager.model.Announcement;
 import cn.hnist.bookmanager.service.impl.AnnouncementServiceImpl;
 import cn.hnist.bookmanager.utils.APIResult;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * @author 向清润
@@ -28,7 +30,7 @@ public class AnnouncementController {
     AnnouncementServiceImpl announcementService;
 
     @RequestMapping("/announcementList")
-    //error代表错误,0代表正常，1代表删除失败，2代表启用失败，3代表添加失败，4代表修改失败
+
     public ModelAndView announcementList(@RequestParam(value = "page" ,defaultValue = "1") int page,@RequestParam(value = "pageSize" ,defaultValue = "10") int pageSize){
         if("1".equals(page)||page <= 0){
             page = 1;
@@ -42,6 +44,24 @@ public class AnnouncementController {
         modelAndView.addObject("pageInfo",pageInfo);
         //modelAndView.addObject("error",error);
         return modelAndView;
+
+    }
+
+    @RequestMapping("/indexAnnouncementList")
+@ResponseBody
+    public APIResult indexAnnouncementList(@RequestBody Map map){
+        int page = (int) map.get("page");
+
+        if("1".equals(page)||page <= 0){
+            page = 1;
+        }
+        int pageSize = 5;
+
+        PageInfo<Announcement> pageInfo = announcementService.searchAnnouncement(page, pageSize,1);
+
+        String jsonObject = JSONObject.toJSONString(pageInfo);
+
+        return new APIResult("没错",true,200,pageInfo);
 
     }
 
