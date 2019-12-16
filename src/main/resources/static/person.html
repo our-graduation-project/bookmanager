@@ -13,11 +13,76 @@
 <!-- //Custom Theme files -->
 <!-- js -->
 <script src="dist/js/jquery-2.2.3.min.js"></script>
+
+
 <!-- //js -->
 <!-- web-fonts -->
 <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<!-- //web-fonts --> 
+<!-- //web-fonts -->
+	<script type="text/javascript">
+
+		window.onload=boorrowdList(1);
+				function boorrowdList() {
+                    var data = {"page": page};
+                    $.ajax({
+                        //请求方式
+                        type : "POST",
+                        //请求的媒体类型
+                        contentType: "application/json;charset=UTF-8",
+                        //请求地址
+                        url : "indexAnnouncementList",
+                        //数据，json字符串
+                        data : JSON.stringify(data),
+                        success: function (result) {
+                            if(!result){
+                                var errorStr="<div class=\"tabcontent-grids\">\n" +
+                                    "没有相关信息"+
+                                    "\t\t\t\t\t\t\t\t\t\t<table class=\"tablelist\">\n" +
+                                    "\t\t\t\t\t\t\t\t\t\t</table>\n" +
+                                    "\t\t\t\t\t\t\t\t\t\t\n" +
+                                    "\t\t\t\t\t\t\t\t\t</div>";
+                                $("#borrow").empty();
+                                $("#borrow").append(errorStr);
+                            }else {
+
+                            }
+                        },
+                        error: function () {
+                            var errorStr="<div class=\"tabcontent-grids\">\n" +
+                                "没有相关信息"+
+                                "\t\t\t\t\t\t\t\t\t\t<table class=\"tablelist\">\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t\t<thead bgcolor=\"#A6E1EC\">\t\t\t\t\t\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    <th>书名</th>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t\t<th>图片</th>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    <th>借阅日期</th>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    <th>应还日期</th>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t\t<th>状态</th>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    </thead>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    <tbody>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t\t\t\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    <tr>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    <td>三国演义</td>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t\t<td class=\"imgtd\"><img src=\"dist/images/2.png\"/></td>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    <td>2019/12/09</td>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    <td>2020/1/09</td>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t\t<td>未还</td>\n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    </tr> \n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    \n" +
+                                // "\t\t\t\t\t\t\t\t\t\t    </tbody>\n" +
+                                "\t\t\t\t\t\t\t\t\t\t</table>\n" +
+                                "\t\t\t\t\t\t\t\t\t\t\n" +
+                                "\t\t\t\t\t\t\t\t\t</div>";
+                            $("#borrow").empty();
+                            $("#borrow").append(errorStr);
+                        }
+
+
+                    });
+				}
+
+	</script>
 </head>
 <body>
 	<!-- header -->
@@ -148,30 +213,30 @@
 							<div class="clearfix"> </div>
 							<div id="myTabContent" class="tab-content">
 								<div role="tabpanel" class="tab-pane fade in active" id="borrow" aria-labelledby="home-tab">
-									<div class="tabcontent-grids">
-										<table class="tablelist">
-											<thead bgcolor="#A6E1EC">					
-										    <th>书名</th>
-											<th>图片</th>
-										    <th>借阅日期</th>
-										    <th>应还日期</th>
-											<th>状态</th>
-										    </thead>
-											
-										    <tbody>
-												
-										    <tr>
-										    <td>三国演义</td>
-											<td class="imgtd"><img src="dist/images/2.png"/></td>
-										    <td>2019/12/09</td>
-										    <td>2020/1/09</td>
-											<td>未还</td>
-										    </tr> 
-										    
-										    </tbody>
-										</table>
-										
-									</div>
+                                    <div class="tabcontent-grids">
+                                        <table class="tablelist">
+                                            <thead bgcolor="#A6E1EC">
+                                            <th>书名</th>
+                                            <th>图片</th>
+                                            <th>借阅日期</th>
+                                            <th>应还日期</th>
+                                            <th>状态</th>
+                                            </thead>
+
+                                            <tbody>
+
+                                            <tr>
+                                                <td>三国演义</td>
+                                                <td class="imgtd"><img src="dist/images/2.png"/></td>
+                                                <td>2019/12/09</td>
+                                                <td>2020/1/09</td>
+                                                <td>未还</td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
 								</div>
 								<div role="tabpanel" class="tab-pane fade" id="rserve" aria-labelledby="carl-tab">
 									<div class="tabcontent-grids">

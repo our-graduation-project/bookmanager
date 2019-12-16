@@ -18,6 +18,13 @@ import java.util.Map;
 public class LoseController {
     @Autowired
     LoseServiceImpl loseService;
+
+
+    /**
+     * 查看遗失信息
+     * @param page 当前页面
+     * @return 数据与页面
+     */
     @RequestMapping("/loseList")
     public ModelAndView loseList(@RequestParam(value = "page",defaultValue = "1") int page){
         ModelAndView modelAndView = new ModelAndView("/admin/loseList");
