@@ -1,10 +1,10 @@
 package cn.hnist.bookmanager.controller;
 
+import cn.hnist.bookmanager.component.RegisterComponent;
 import cn.hnist.bookmanager.model.Manager;
 import cn.hnist.bookmanager.service.ManagerService;
 import cn.hnist.bookmanager.utils.APIResult;
 import cn.hnist.bookmanager.utils.LogUtils;
-import cn.hnist.bookmanager.utils.RegisterUtil;
 import cn.hnist.bookmanager.utils.TokenUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
@@ -32,7 +32,7 @@ public class ManagerController {
 
 
     @Autowired
-    private RegisterUtil registerUtil;
+    private RegisterComponent registerComponent;
 
 
     /**
@@ -186,7 +186,7 @@ public class ManagerController {
     @RequestMapping("/admin/forgetpassword")
     @ResponseBody
     public APIResult forgetPassword(@RequestBody Manager manager){
-        registerUtil.sendCodeToEmail(manager.getMailbox());
+        registerComponent.sendCodeToEmail(manager.getMailbox());
         APIResult apiResult = new APIResult(true,200);
         apiResult.setMessage("5分钟内验证码有效");
         return apiResult;
@@ -198,7 +198,7 @@ public class ManagerController {
         String verificationCode = (String) jsonObject.get("verificationCode");
         String mailbox = (String) jsonObject.get("mailbox");
         String password = (String) jsonObject.get("password");
-        String codeByEmail = registerUtil.getCodeByEmail(mailbox);
+        String codeByEmail = registerComponent.getCodeByEmail(mailbox);
         if(codeByEmail == null){
             APIResult apiResult = new APIResult(false,200);
             apiResult.setMessage("验证码不正确");
