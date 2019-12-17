@@ -42,7 +42,7 @@ public class LoseController {
      */
     @RequestMapping("/loseList")
     public ModelAndView loseList(@RequestParam(value = "page",defaultValue = "1") int page){
-        ModelAndView modelAndView = new ModelAndView("/admin/loseList");
+        ModelAndView modelAndView = new ModelAndView("/admin/loselist");
         PageInfo<Map> pageInfo = loseService.searchLose(page, 10);
         modelAndView.addObject("pageInfo",pageInfo);
         return modelAndView;

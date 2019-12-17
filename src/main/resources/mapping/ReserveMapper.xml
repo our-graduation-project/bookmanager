@@ -193,4 +193,23 @@
       reserve_date = #{reserveDate,jdbcType=TIMESTAMP}
     where reserve_id = #{reserveId,jdbcType=INTEGER}
   </update>
+
+
+  <!--  自己写的连表查询-->
+  <select id="selectReserveList" resultType="java.util.Map">
+select reserve.reserve_id reserveId,reserve.reserve_date reserveDate,
+`user`.user_name username,`book`.book_name
+bookname from reserve,`user`,book
+where reserve.book_id=book.book_id
+and reserve.user_id=`user`.user_id
+  </select>
+
+  <!--  自己写的连表查询-->
+  <select id="selectUserReserve" resultType="java.util.Map">
+select reserve.reserve_id reserveId,reserve.reserve_date reserveDate,
+`user`.user_name username,`book`.book_name
+bookname from reserve,`user`,book
+where reserve.book_id=book.book_id
+and reserve.user_id=`user`.user_id and `user`.user_id=#{userId,jdbcType=INTEGER}
+  </select>
 </mapper>

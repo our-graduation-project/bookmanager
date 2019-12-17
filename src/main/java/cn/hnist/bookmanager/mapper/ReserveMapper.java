@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ReserveMapper {
@@ -31,4 +32,7 @@ public interface ReserveMapper {
 
     int updateByPrimaryKey(Reserve record);
 
+    List<Map> selectReserveList();
+
+    List<Map> selectUserReserve(Integer userId);
 }

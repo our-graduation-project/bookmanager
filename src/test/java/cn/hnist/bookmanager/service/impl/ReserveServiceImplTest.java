@@ -3,6 +3,7 @@ package cn.hnist.bookmanager.service.impl;
 import cn.hnist.bookmanager.BookManagerApplication;
 import cn.hnist.bookmanager.model.Reserve;
 import cn.hnist.bookmanager.service.ReserveService;
+import com.github.pagehelper.PageInfo;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,16 +43,26 @@ class ReserveServiceImplTest {
 
     @Test
     void deleteReserve() {
-        System.out.println(reserveService.deleteReserve(1));
+        System.out.println(reserveService.deleteReserve(1,2));
     }
 
     @Test
     void selectReserveByUserId() {
-        System.out.println(reserveService.selectReserveByUserId(1));
+        PageInfo<Map> mapPageInfo = reserveService.selectReserveByUserId(1, 10, 1);
+        List<Map> list = mapPageInfo.getList();
+        for (Map m :
+                list) {
+            System.out.println(m.toString());
+        }
     }
 
     @Test
     void selectAllReserve() {
-        System.out.println(reserveService.selectAllReserve());
+        PageInfo<Map> pageInfo = reserveService.selectAllReserve(1,3);
+        List<Map> list = pageInfo.getList();
+        for (Map m :
+                list) {
+            System.out.println(m.get("bookname"));
+        }
     }
 }

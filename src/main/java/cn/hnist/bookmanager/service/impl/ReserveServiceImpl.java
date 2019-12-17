@@ -4,10 +4,13 @@ import cn.hnist.bookmanager.mapper.ReserveMapper;
 import cn.hnist.bookmanager.model.Reserve;
 import cn.hnist.bookmanager.model.ReserveExample;
 import cn.hnist.bookmanager.service.ReserveService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author tzf
@@ -34,38 +37,52 @@ public class ReserveServiceImpl implements ReserveService {
     }
 
     /**
-     * 根据预约ID取消预约时删除预约信息
-     * @param reserveId
+     * 根据用户ID和图书ID取消预约
+     * @param userId
+     * @param bookId
      * @return
      */
     @Override
-    public int deleteReserve(int reserveId) {
-        return reserveMapper.deleteByPrimaryKey(reserveId);
+    public int deleteReserve(int userId, int bookId) {
+        ReserveExample reserveExample = new ReserveExample();
+        reserveExample.or().andUserIdEqualTo(userId).andBookIdEqualTo(bookId);
+        int i = reserveMapper.deleteByExample(reserveExample);
+        return i;
     }
 
+
     /**
-     * 根据用户ID查询预约信息
+     * 通过用户id查询预约信息
+     * @param page
+     * @param pageSize
      * @param userid
      * @return
      */
     @Override
-    public List<Reserve> selectReserveByUserId(int userid) {
-        ReserveExample reserveExample = new ReserveExample();
-        reserveExample.or().andUserIdEqualTo(userid);
-        return reserveMapper.selectByExample(reserveExample);
+    public PageInfo<Map> selectReserveByUserId(int page, int pageSize, int userid) {
+        PageHelper.startPage(page,pageSize);
+        List<Map> reserves = reserveMapper.selectUserReserve(userid);
+        PageInfo pageInfo = new PageInfo(reserves,3);
+        return pageInfo;
     }
 
+
     /**
-     * 查询所有预约消息
-     *
+     * 查询所有预约信息
+     * @param page 当前页
+     * @param pageSize 页面大小
      * @return
      */
     @Override
-    public List<Reserve> selectAllReserve() {
+    public PageInfo<Map> selectAllReserve(int page, int pageSize) {
         ReserveExample reserveExample = new ReserveExample();
         reserveExample.or();
-        List<Reserve> reserves = reserveMapper.selectByExample(reserveExample);
-        return reserves;
+        PageHelper.startPage(page,pageSize);
+        List<Map> reserves = reserveMapper.selectReserveList();
+        PageInfo pageInfo = new PageInfo(reserves,3);
+        return pageInfo;
     }
+
+
 }
 
