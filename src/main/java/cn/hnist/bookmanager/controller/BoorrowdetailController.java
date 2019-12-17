@@ -226,4 +226,20 @@ public ModelAndView inAddBoorrowdetail(Book book){
     }
 
 
+    @RequestMapping("/renew")
+    @ResponseBody
+    public APIResult renew(@RequestBody Map map){
+        int borrowId = (int) map.get("borrowId");
+        BorrowDetail borrowDetail = borrowDetailService.searchOneBorrowDetail(borrowId);
+        if(borrowDetail.getStatus() != 1){
+            return new APIResult("已经续借过或因为信誉问题",false,200);
+        }
+        int i = borrowDetailService.renewalBook(borrowId);
+        if(i == 0){
+            return new APIResult("因为不可知原因",false,200);
+        }else {
+            return new APIResult("完成",false,200);
+        }
+    }
+
 }

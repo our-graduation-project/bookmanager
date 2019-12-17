@@ -39,6 +39,7 @@ public class BorrowDetailServiceImpl implements BorrowDetailService {
 
     /**
      * 还书，如果逾期，则修改为3逾期归还状态，未逾期则正常修改为2归还状态
+     * 修改其他状态
      *
      * @param borrowDetail 传入借书单信息，增加实际还书日期，并且修改状态。
      * @return 返回受影响行数
@@ -55,7 +56,7 @@ public class BorrowDetailServiceImpl implements BorrowDetailService {
                 double fine = days*BorrowDetailService.FINE_FLAGE;
                 borrowDetail.setFine(fine);
 
-            }else {
+            }else if(outborrowDetail.getStatus() == BorrowDetailService.NO_RETUEN_FLAG){
                 borrowDetail.setStatus(BorrowDetailService.RETURN_FLAG);
             }
             len = borrowDetailMapper.updateByPrimaryKeySelective(borrowDetail);

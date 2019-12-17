@@ -20,8 +20,10 @@ public interface BorrowDetailService {
     public static final int OVERDUE_RETURN_FLAG = 3;
     //逾期未归还
     public static final int OVERDUE_NO_RETURN_FLAG = 4;
-
+    //续借
     public static final int NO_RENEW_FLAG = 5;
+    //遗失
+    public static final int LOSE_FLAG = 6;
     //罚金每天一块钱
     public static final double FINE_FLAGE = 1.0;
 

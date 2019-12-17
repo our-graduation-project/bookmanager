@@ -1,13 +1,22 @@
 package cn.hnist.bookmanager.controller;
 
+import cn.hnist.bookmanager.model.Book;
+import cn.hnist.bookmanager.model.BorrowDetail;
+import cn.hnist.bookmanager.model.Lose;
+import cn.hnist.bookmanager.service.impl.BookServiceImpl;
+import cn.hnist.bookmanager.service.impl.BorrowDetailServiceImpl;
 import cn.hnist.bookmanager.service.impl.LoseServiceImpl;
+import cn.hnist.bookmanager.utils.APIResult;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -18,6 +27,12 @@ import java.util.Map;
 public class LoseController {
     @Autowired
     LoseServiceImpl loseService;
+
+    @Autowired
+    BookServiceImpl bookService;
+
+    @Autowired
+    BorrowDetailServiceImpl borrowDetailService;
 
 
     /**
@@ -31,5 +46,27 @@ public class LoseController {
         PageInfo<Map> pageInfo = loseService.searchLose(page, 10);
         modelAndView.addObject("pageInfo",pageInfo);
         return modelAndView;
+    }
+
+    @RequestMapping("/addLose")
+    @ResponseBody
+    public APIResult addLose(@RequestBody Map map){
+        int borrowId = (int) map.get("borrowId");
+        BorrowDetail borrowDetail = borrowDetailService.searchOneBorrowDetail(borrowId);
+        borrowDetail.setStatus(6);
+        borrowDetailService.returnBook(borrowDetail);
+        Book book = bookService.findBookById(borrowDetail.getBookId());
+        Double price = book.getPrice()+borrowDetail.getFine();
+        Lose lose = new Lose();
+        lose.setLoseDate(new Date());
+        lose.setUserId(borrowDetail.getUserId());
+        lose.setBookId(borrowDetail.getBookId());
+        lose.setFine(price);
+        int i = loseService.addLose(lose);
+        if(i==0){
+            return new APIResult("失败",false,200);
+        }else {
+            return new APIResult("成功",true,200);
+        }
     }
 }
