@@ -1,7 +1,10 @@
 package cn.hnist.bookmanager.controller;
 
+import cn.hnist.bookmanager.model.Book;
 import cn.hnist.bookmanager.model.BorrowDetail;
 import cn.hnist.bookmanager.model.User;
+import cn.hnist.bookmanager.service.BookService;
+import cn.hnist.bookmanager.service.impl.AnnouncementServiceImpl;
 import cn.hnist.bookmanager.service.impl.BorrowDetailServiceImpl;
 import cn.hnist.bookmanager.service.impl.UserServiceImpl;
 import cn.hnist.bookmanager.utils.APIResult;
@@ -17,6 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
@@ -155,6 +160,70 @@ public ModelAndView returnBook(@RequestParam(value = "status",defaultValue = "1"
     return modelAndView;
 }
 
+    /**
+     * 进入图书预订界面
+     * @param book 图书基本信息
+     * @return 页面与数据
+     */
+    @RequestMapping("/inAddBoorrowdetail")
+public ModelAndView inAddBoorrowdetail(Book book){
+
+        ModelAndView  modelAndView = new ModelAndView("/admin/borrow");
+        modelAndView.addObject("bookId",book.getBookId());
+        modelAndView.addObject("bookName",book.getBookName());
+       return modelAndView;
+
+}
+
+    /**
+     * 增加订单信息
+     * @param map 传入进来的数据
+     * @return 数据与页面
+     */
+    @RequestMapping("/addBoorrowdetail")
+    @ResponseBody
+    public APIResult addBoorrowdetail(@RequestBody Map map){
+        String userName = (String) map.get("username");
+        int bookId = (int) map.get("bookId");
+        String datestr = (String) map.get("date");
+        int index = datestr.indexOf(".");
+        datestr = datestr.substring(0, index);
+        datestr = datestr.replace("T"," ");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = null;
+        try {
+            date = formatter.parse(datestr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if(date == null ||date.getTime() <borrowDetailService.addDate(new Date(),5).getTime()){
+            return new APIResult("借阅时间必须大于5天",false,200);
+        }
+        PageInfo<User> pageInfo = userService.searchUserByName(1, 1, userName);
+        if(pageInfo.getList().size() <= 0){
+            return new APIResult("该用户不存在",false,200);
+        }
+        User user = pageInfo.getList().get(0);
+
+
+        Integer userId = user.getUserId();
+        BorrowDetail borrowDetail = new BorrowDetail();
+        borrowDetail.setBookId(bookId);
+        borrowDetail.setUserId(userId);
+        borrowDetail.setStatus(1);
+        borrowDetail.setShouldReturnDate(date);
+        borrowDetail.setBorrowDate(new Date());
+        int i = borrowDetailService.addBrrowDetail(borrowDetail);
+        if(i == 0){
+            return new APIResult("请重试",false,200);
+        }else {
+            return new APIResult("请重试",true,200);
+        }
+
+
+
+    }
 
 
 }

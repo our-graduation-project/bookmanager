@@ -114,7 +114,7 @@ public class BorrowDetailServiceImpl implements BorrowDetailService {
      * @param day 增加的天数
      * @return 新的时间
      */
-    private Date addDate(Date outDate,int day){
+    public Date addDate(Date outDate,int day){
         Calendar calendar=Calendar.getInstance();
         calendar.setTime(outDate);
         //long time = borrowDetail.getShouldReturnDate().getTime()+30*24*60*60*1000;

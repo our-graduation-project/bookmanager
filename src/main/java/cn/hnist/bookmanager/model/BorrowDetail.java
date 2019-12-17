@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Getter
@@ -29,7 +30,7 @@ public class BorrowDetail implements Serializable {
     @ApiModelProperty(value = "罚金")
     private Double fine;
 
-    @ApiModelProperty(value = "状态(1.借出未还 2.期限内还 3.逾期还 4.逾期未还）")
+    @ApiModelProperty(value = "状态(1.借出未还 2.期限内还 3.逾期还 4.逾期未还 5.续借，无法再次续借 6.遗失）")
     private Integer status;
 
     private static final long serialVersionUID = 1L;
@@ -62,12 +63,27 @@ public class BorrowDetail implements Serializable {
         return borrowDate;
     }
 
+    public String getBorrowDateStr() {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateString = formatter.format(borrowDate);
+        return dateString;
+    }
+
     public void setBorrowDate(Date borrowDate) {
         this.borrowDate = borrowDate;
     }
 
+
+
     public Date getShouldReturnDate() {
         return shouldReturnDate;
+    }
+    public String getShouldReturnDateStr() {
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateString = formatter.format(shouldReturnDate);
+        return dateString;
     }
 
     public void setShouldReturnDate(Date shouldReturnDate) {
@@ -77,6 +93,8 @@ public class BorrowDetail implements Serializable {
     public Date getRealReturnDate() {
         return realReturnDate;
     }
+
+
 
     public void setRealReturnDate(Date realReturnDate) {
         this.realReturnDate = realReturnDate;
