@@ -48,15 +48,30 @@ public class LoseController {
         return modelAndView;
     }
 
+
+
+    /**
+     * 遗失信息登记
+     * @param map 传入进来的信息
+     * @return 返回数据
+     */
     @RequestMapping("/addLose")
     @ResponseBody
     public APIResult addLose(@RequestBody Map map){
         int borrowId = (int) map.get("borrowId");
+        int state = (int) map.get("state");
+        if(state!=1&&state!=4&&state!=5){
+            return new APIResult("改状态无法遗失登记",false,200);
+        }
         BorrowDetail borrowDetail = borrowDetailService.searchOneBorrowDetail(borrowId);
         borrowDetail.setStatus(6);
         borrowDetailService.returnBook(borrowDetail);
         Book book = bookService.findBookById(borrowDetail.getBookId());
-        Double price = book.getPrice()+borrowDetail.getFine();
+        double fine = 0.0;
+        if(borrowDetail.getFine() != null){
+            fine=borrowDetail.getFine();
+        }
+        Double price = book.getPrice()+fine;
         Lose lose = new Lose();
         lose.setLoseDate(new Date());
         lose.setUserId(borrowDetail.getUserId());
@@ -64,7 +79,7 @@ public class LoseController {
         lose.setFine(price);
         int i = loseService.addLose(lose);
         if(i==0){
-            return new APIResult("失败",false,200);
+            return new APIResult("更改状态失败",false,200);
         }else {
             return new APIResult("成功",true,200);
         }

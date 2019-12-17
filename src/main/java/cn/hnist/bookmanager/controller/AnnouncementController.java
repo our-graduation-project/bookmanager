@@ -70,7 +70,6 @@ public class AnnouncementController {
         int pageSize = 5;
 
         PageInfo<Announcement> pageInfo = announcementService.searchAnnouncement(page, pageSize,1);
-
         String jsonObject = JSONObject.toJSONString(pageInfo);
 
         return new APIResult("没错",true,200,pageInfo);

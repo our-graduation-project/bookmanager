@@ -59,6 +59,7 @@ public class UserController{
             map.put("right","user");
             String  s= TokenUtil.becomeToken(map);
             Cookie token = new Cookie("token",s);
+            token.setMaxAge(360*24*7);
             response.addCookie(token);
             log1.info("getBussinessLogger===用户登录");
             LogUtils.getControllerLogger().info("getControllerLogger===用户登录");

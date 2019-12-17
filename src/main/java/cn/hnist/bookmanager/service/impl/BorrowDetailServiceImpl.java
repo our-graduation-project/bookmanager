@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -201,6 +202,12 @@ public class BorrowDetailServiceImpl implements BorrowDetailService {
         List<Map> borrowDetails = borrowDetailMapper.selectUserBorrowDetal(map);
         for ( Map m:
                 borrowDetails) {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String borrowDateStr = formatter.format(m.get("borrowDate"));
+            m.put("borrowDateStr",borrowDateStr);
+            m.put("userId",userId);
+            String shouldReturnDateStr = formatter.format(m.get("shouldReturnDate"));
+            m.put("shouldReturnDateStr",shouldReturnDateStr);
             if(m.get("realReturnDate") == null){
                 m.put("realReturnDate","未归还");
             }

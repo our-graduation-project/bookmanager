@@ -9,6 +9,7 @@ import cn.hnist.bookmanager.service.impl.BorrowDetailServiceImpl;
 import cn.hnist.bookmanager.service.impl.UserServiceImpl;
 import cn.hnist.bookmanager.utils.APIResult;
 import cn.hnist.bookmanager.utils.TokenUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -69,25 +70,28 @@ public class BoorrowdetailController {
     @ResponseBody
     public APIResult borrowDetailList(@RequestBody Map map, HttpServletRequest request){
         int page = (int) map.get("page");
-        int userId = 0;
-        Cookie[] cookies = request.getCookies();
-        boolean flag = true;
-        for (int i = 0; i < cookies.length; i++) {
-            if(cookies[i].getName().equals("token")){
-                userId = (int) TokenUtil.getTokenValue(cookies[i].getValue(),"userId");
-                flag = false;
-                break;
-            }
-        }
-        if(flag){
-            return new APIResult("没错",false,200);
-        }
+        int userId = (int) map.get("userId");
+        System.out.println("userid:"+userId);
+//        Cookie[] cookies = request.getCookies();
+//        boolean flag = true;
+//        for (Cookie c:cookies) {
+//            if(c.getName().equals("token")){
+//                userId = (int) TokenUtil.getTokenValue(c.getValue(),"userId");
+//                flag = false;
+//                break;
+//            }
+//        }
+
+//        if(flag){
+//            return new APIResult("没错",false,200);
+//        }
         PageInfo<Map> pageInfo = borrowDetailService.searchBorrowDetailByUser(page, 10,userId);
 
+        String pageInfoStr = JSONObject.toJSONString(pageInfo);
             if(pageInfo.getList().size() > 0){
                 return new APIResult("没错",true,200,pageInfo);
             }else {
-                return new APIResult("没错",false,200);
+                return new APIResult("返回失败",false,200);
             }
 
 
@@ -116,7 +120,6 @@ public class BoorrowdetailController {
 
 
         }else {
-            System.out.println("开始");
             modelAndView = borrowDetailList(1,0,"");
         }
 
@@ -135,7 +138,14 @@ public ModelAndView returnBook(@RequestParam(value = "status",defaultValue = "1"
     ModelAndView modelAndView ;
     int len = 0;
 
-    if((status==1||status==4||status==5)&&borrowId!=0){
+    if(borrowId!=0){
+        if(status == 1 || status == 5){
+            status = 2;
+        }
+        if(status == 4){
+            status =3;
+        }
+
         BorrowDetail borrowDetail = borrowDetailService.searchOneBorrowDetail(borrowId);
         borrowDetail.setStatus(status);
         borrowDetail.setBorrowId(borrowId);
@@ -159,6 +169,8 @@ public ModelAndView returnBook(@RequestParam(value = "status",defaultValue = "1"
     }
     return modelAndView;
 }
+
+
 
     /**
      * 进入图书预订界面

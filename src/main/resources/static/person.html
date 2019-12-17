@@ -20,69 +20,7 @@
 <link href="dist/css/css1.css" rel="stylesheet">
 <link href="dist/css/css.css" rel="stylesheet">
 <!-- //web-fonts -->
-	<script type="text/javascript">
 
-		window.onload=boorrowdList(1);
-				function boorrowdList() {
-                    var data = {"page": page};
-                    $.ajax({
-                        //请求方式
-                        type : "POST",
-                        //请求的媒体类型
-                        contentType: "application/json;charset=UTF-8",
-                        //请求地址
-                        url : "indexAnnouncementList",
-                        //数据，json字符串
-                        data : JSON.stringify(data),
-                        success: function (result) {
-                            if(!result){
-                                var errorStr="<div class=\"tabcontent-grids\">\n" +
-                                    "没有相关信息"+
-                                    "\t\t\t\t\t\t\t\t\t\t<table class=\"tablelist\">\n" +
-                                    "\t\t\t\t\t\t\t\t\t\t</table>\n" +
-                                    "\t\t\t\t\t\t\t\t\t\t\n" +
-                                    "\t\t\t\t\t\t\t\t\t</div>";
-                                $("#borrow").empty();
-                                $("#borrow").append(errorStr);
-                            }else {
-
-                            }
-                        },
-                        error: function () {
-                            var errorStr="<div class=\"tabcontent-grids\">\n" +
-                                "没有相关信息"+
-                                "\t\t\t\t\t\t\t\t\t\t<table class=\"tablelist\">\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t\t<thead bgcolor=\"#A6E1EC\">\t\t\t\t\t\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    <th>书名</th>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t\t<th>图片</th>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    <th>借阅日期</th>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    <th>应还日期</th>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t\t<th>状态</th>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    </thead>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    <tbody>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t\t\t\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    <tr>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    <td>三国演义</td>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t\t<td class=\"imgtd\"><img src=\"dist/images/2.png\"/></td>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    <td>2019/12/09</td>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    <td>2020/1/09</td>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t\t<td>未还</td>\n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    </tr> \n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    \n" +
-                                // "\t\t\t\t\t\t\t\t\t\t    </tbody>\n" +
-                                "\t\t\t\t\t\t\t\t\t\t</table>\n" +
-                                "\t\t\t\t\t\t\t\t\t\t\n" +
-                                "\t\t\t\t\t\t\t\t\t</div>";
-                            $("#borrow").empty();
-                            $("#borrow").append(errorStr);
-                        }
-
-
-                    });
-				}
-
-	</script>
 </head>
 <body>
 	<!-- header -->
@@ -283,8 +221,187 @@
 	<!-- //footer -->    
 	
     <script src="dist/js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+        // $(document).ready(boorrowdList(1));
+        //window.onload=boorrowdList(1);
+        function boorrowdList(page,userId) {
+
+            var data = {"page": page,"userId":userId};
+            $.ajax({
+                //请求方式
+                type : "POST",
+                //请求的媒体类型
+                contentType: "application/json;charset=UTF-8",
+                //请求地址
+                url : "personBorrowDetailList",
+                //数据，json字符串
+                data : JSON.stringify(data),
+                success: function (result) {
+                    if(!result){
+                        var errorStr="<div class=\"tabcontent-grids\">\n" +
+                            "没有相关信息"+
+                            "\t\t\t\t\t\t\t\t\t\t<table class=\"tablelist\">\n" +
+                            "\t\t\t\t\t\t\t\t\t\t</table>\n" +
+                            "\t\t\t\t\t\t\t\t\t\t\n" +
+                            "\t\t\t\t\t\t\t\t\t</div>";
+                        $("#borrow").empty();
+                        $("#borrow").append(errorStr);
+                    }else {
+                        var data = result.data.list;
+                        var next = result.data.nextPage;
+                        var pre = result.data.prePage;
+
+                        $("#borrow").empty();
+                        var str = "<div class=\"tabcontent-grids\">\n" +
+                            "                                        <table class=\"tablelist\">\n" +
+                            "                                            <thead bgcolor=\"#A6E1EC\">\n" +
+                            "                                            <th>书名</th>\n" +
+
+                            "                                            <th>借阅日期</th>\n" +
+                            "                                            <th>应还日期</th>\n" +
+                            "                                            <th>状态</th>\n" +
+                            "                                            <th>操作</th>\n" +
+                            "                                            </thead>\n" +
+                            "\n" +
+                            "                                            <tbody>"
+                        console.log(data);
+                        for (var i = 0; i < data.length; i++) {
+                            var bookname = data[i]["bookname"];
+                            var borrowDateStr = data[i]["borrowDateStr"];
+                            var shouldReturnDateStr = data[i]["shouldReturnDateStr"];
+                            var status = data[i]["status"];
+
+                            var borrowId = data[i]["borrowId"];
+                            console.log("kais"+status);
+                            var state = "借出未还";
+
+                           if(status == 2){
+                                state = "已还";
+                            }
+                            if(status == 3){
+                                state = "逾期已还";
+                            }
+                            if(status == 4){
+                                state = "逾期";
+                            }
+                            if(status == 5){
+                                state = "续借";
+                            }
+                            if(status == 6){
+                                state = "遗失";
+                            }
+                            str+="<tbody>\n" +
+                                "\n" +
+                                "                                            <tr>\n" +
+                                "                                                <td>"+bookname+"</td>\n" +
+                                "                                                <td>"+borrowDateStr+"</td>\n" +
+                                "                                                <td>"+shouldReturnDateStr+"</td>\n" +
+                                "                                                <td>"+state+"</td>\n" +
+                                "                                                <td><a onclick='isLose("+borrowId+","+status+","+userid+")'>确认遗失</a></td>\n" +
+                                "                                            </tr>\n" +
+                                "\n" +
+                                "                                            </tbody>"
+                        }
+                        str+="</table>\n" +
+                            "<div onclick='boorrowdList("+pre+","+userId+")' style='height: 40px;width: 120px;background-color: #0f86bb'>上一页</div>" +
+                            "<div onclick='boorrowdList("+next+","+userId+")' style='height: 40px;width: 120px;background-color: #0f86bb;margin-top: 10px'>下一页</div>" +
+
+
+
+                            "                                    </div>";
+
+                        $("#borrow").empty();
+                        $("#borrow").append(str);
+
+
+
+                    }
+                },
+                error: function () {
+                    var errorStr="<div class=\"tabcontent-grids\">\n" +
+                        "没有相关信息"+
+                        "\t\t\t\t\t\t\t\t\t\t<table class=\"tablelist\">\n" +
+
+                        "\t\t\t\t\t\t\t\t\t\t</table>\n" +
+                        "\t\t\t\t\t\t\t\t\t\t\n" +
+                        "\t\t\t\t\t\t\t\t\t</div>";
+                    $("#borrow").empty();
+                    $("#borrow").append(errorStr);
+                }
+
+
+            });
+        }
+
+        function isLose(borrowId,state,userId) {
+            var data = {"borrowId": borrowId,"state":state};
+            $.ajax({
+                //请求方式
+                type : "POST",
+                //请求的媒体类型
+                contentType: "application/json;charset=UTF-8",
+                //请求地址
+                url : "addLose",
+                //数据，json字符串
+                data : JSON.stringify(data),
+                success: function (result) {
+                    console.log(result.message+"--"+result.result);
+                    if (result.result) {
+                        alert("操作完成");
+                        boorrowdList(1,userId);
+                    }
+                    else {
+
+                        alert("请重新提交"+result.message);
+                    }
+                },
+                error: function () {
+                    alert("请重新提交");
+                }
+
+
+            })
+
+        }
+
+
+        function renew(borrowId) {
+            var data = {"borrowId": borrowId};
+            $.ajax({
+                //请求方式
+                type : "POST",
+                //请求的媒体类型
+                contentType: "application/json;charset=UTF-8",
+                //请求地址
+                url : "renew",
+                //数据，json字符串
+                data : JSON.stringify(data),
+                success: function (result) {
+                    console.log(result.message+"--"+result.result);
+                    if (result.result) {
+                        alert("续借完成完成");
+                        boorrowdList(1);
+                    }
+                    else {
+
+                        alert("续借失败"+result.message);
+                    }
+                },
+                error: function () {
+                    alert("续借"+result.message);
+                }
+
+
+            })
+        }
+
+    </script>
+
+
 	<script type="text/javascript">
-		window.onload = function loadBookData() {
+        $(document).ready(loadBookData());
+            function loadBookData() {
 
 			$.post(
 					"http://localhost:8080/bookmanager/user/searchUserByUserId",
@@ -302,7 +419,7 @@
                         }
 						// for (var i = 0; i < data.data.length; i++) {
 							var li_item = "<ul>" +
-									" <li> <label>用户编号：</label><span>" + data.data.userId + "</span></li>" +
+									" <li> <label>用户编号：</label><span id='userid'>" + data.data.userId + "</span></li>" +
 									" <li> <label>用户名：</label><span>" + data.data.userName+ "</span></li>" +
 									" <li> <label>邮箱：</label><span>" + data.data.mailbox + "</span></li>" +
 									" <li> <label>电话：</label><span>" + data.data.phone + "</span></li>" +
@@ -313,10 +430,13 @@
 							var sex = " <li> <label>性别：</label><span>" + (data.data.sex === 0)+(data.data.sex === 1)+"</span></li> "
 						ul_item.append(li_item);
 						// }
+                        boorrowdList(1,data.data.userId);
 					}
 			);
 		}
 
 	</script>
+
+
 </body>
 </html>
