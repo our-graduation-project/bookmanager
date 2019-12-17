@@ -237,7 +237,11 @@ public ModelAndView inAddBoorrowdetail(Book book){
 
     }
 
-
+    /**
+     * 续借
+     * @param map 传过来的数据
+     * @return 失败与成功
+     */
     @RequestMapping("/renew")
     @ResponseBody
     public APIResult renew(@RequestBody Map map){
@@ -250,7 +254,7 @@ public ModelAndView inAddBoorrowdetail(Book book){
         if(i == 0){
             return new APIResult("因为不可知原因",false,200);
         }else {
-            return new APIResult("完成",false,200);
+            return new APIResult("完成",true,200);
         }
     }
 

@@ -105,8 +105,12 @@ $(document).ready(function(){
             <td th:if="${a.status} eq '5'">续借</td>
 
 
-            <td th:if="${a.status} eq '1' or ${a.status} eq '4' or ${a.status} eq '5'" ><a class="tablelink"  th:href="@{/returnBook(status = ${a.status},borrowId = ${a.borrowId})}">归还</a></td>
-        </tr>
+            <td  >
+                <a class="tablelink" th:if="${a.status} eq '1' or ${a.status} eq '4' or ${a.status} eq '5'"  th:href="@{/returnBook(status = ${a.status},borrowId = ${a.borrowId})}">归还</a>
+                <a class="tablelink" th:if="${a.status} eq '1'"  th:onclick="renewBook([[${a.borrowId}]],[[${a.username}]],[[${a.bookname}]],[[${pageInfo.pageNum}]])" >续借</a>
+
+            </td>
+           </tr>
         
         </tbody>
     </table>
@@ -147,6 +151,45 @@ $(document).ready(function(){
     
     </div>
 </div>
+<script type="text/javascript">
+    function renewBook(borrowId,usesrname,bookname,page) {
+        var r = confirm("亲，您确定续借"+usesrname+"的书记《"+bookname+"》吗？");
+
+        if (r == true) {
+
+            var data = {"borrowId": borrowId};
+            $.ajax({
+                //请求方式
+                type : "POST",
+                //请求的媒体类型
+                contentType: "application/json;charset=UTF-8",
+                //请求地址
+                url : "renew",
+                //数据，json字符串
+                data : JSON.stringify(data),
+                success: function (result) {
+                    console.log(result.message+"--"+result.result);
+                    if (result.result) {
+                        alert("续借完成");
+
+                    }
+                    else {
+
+                        alert("续借失败"+result.message);
+                    }
+                },
+                error: function () {
+                    alert("续借"+result.message);
+                }
+
+            });
+            window.location.href="/bookmanager/borrowDetailList?page="+page;
+        } else {
+            return false;
+
+        }
+    }
+</script>
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
 	</script>
