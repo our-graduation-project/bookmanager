@@ -115,4 +115,22 @@ public class BookTypeController {
         }
         return new APIResult(flg,200);
     }
+
+    /**
+     * 根据name查询图书类型
+     * @param page
+     * @param pageSize
+     * @param typeName
+     * @return
+     */
+
+    @RequestMapping("/tosearchbooktypeByName")
+    public ModelAndView searchUserByName(@RequestParam(value = "page",defaultValue = "0") int page,
+                                         @RequestParam(value = "pageSize",defaultValue = "6") int pageSize,
+                                         @RequestParam("typeName") String typeName){
+        PageInfo<Booktype> pageInfo = bookTypeService.searchBookTypeByName(page, pageSize, typeName);
+        ModelAndView model=new ModelAndView("admin/booktypelist");
+        model.addObject("pageInfo",pageInfo);
+        return model;
+    }
 }

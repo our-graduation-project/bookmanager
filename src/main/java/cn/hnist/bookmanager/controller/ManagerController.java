@@ -222,4 +222,22 @@ public class ManagerController {
         return apiResult;
     }
 
+    /**
+     * 根据name查询管理员
+     * @param page
+     * @param pageSize
+     * @param managerName
+     * @return
+     */
+
+    @RequestMapping("/tosearchmanagerByName")
+    public ModelAndView searchManagerByName(@RequestParam(value = "page",defaultValue = "0") int page,
+                                         @RequestParam(value = "pageSize",defaultValue = "6") int pageSize,
+                                         @RequestParam("managerName") String managerName){
+        PageInfo<Manager> pageInfo = managerService.searchManagerByName(page, pageSize, managerName);
+        ModelAndView model=new ModelAndView("admin/managerlist");
+        model.addObject("pageInfo",pageInfo);
+        return model;
+    }
+
 }

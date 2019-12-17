@@ -1,24 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>用户修改</title>
-<link href="../../static/mydist/css/style.css" rel="stylesheet" th:href="@{mydist/css/style.css}" type="text/css" />
-    <script type="application/json" th:src="@{plugins/jquery/jquery.js}"></script>
-    <script type="application/json" src="../../static/mydist/js/public.js" th:src="@{mydist/js/public.js}"></script>
-    <style type="text/css">
-
-    </style>
+<link href="mydist/css/style.css" rel="stylesheet" type="text/css" />
+<!-- js -->
+<script src="dist/js/jquery-2.2.3.min.js"></script>
 </head>
 
 <body>
-    <div style="width: 100%; display: table" >
-        <th:block th:include="common/top::nav"/>
-    </div>
-    <div style="float: left; ">
-        <th:block th:include="common/left::nav"/>
-    </div>
-    <div class="mainindex">
+
         <div class="place">
             <span>位置：</span>
             <ul class="placeul">
@@ -29,24 +20,42 @@
 
         <div class="formbody">
         <div class="formtitle"><span>用户编辑</span></div>
-        <form action="" method="post">
+        <div id="userList" >
             <ul class="forminfo">
-                <li><label>用户编号</label><input name="" th:value="${user.getUserId()}" type="text" class="dfinput" id="userId" readonly/></li>
-                <li><label>用户名</label><input name="" th:value="${user.getUserName()}" type="text" class="dfinput" id="userName"/></li>
-                <li><label>密码</label><input name="" th:value="${user.getUserPwd()}" type="text" class="dfinput" id="userPwd"/></li>
-                <li><label>邮箱</label><input name="" th:value="${user.getMailbox()}" type="text" class="dfinput" id="mailbox"/></li>
-                <li><label>电话</label><input name="" th:value="${user.getPhone()}" type="text" class="dfinput" id="phone"/></li>
-                <li><label>性别</label><input name="sex" value="0" th:checked="${user.getSex()==0}"  type="radio" class="" id="sex"/>男
-                    &nbsp;<input name="sex" value="1" th:checked="${user.getSex()==1}" type="radio" class="" />女</li>
-                <li><label>年龄</label><input name="" th:value="${user.getAge()}" type="text" class="dfinput" id="age"/></li>
+                <li><label>用户编号</label><input name="userId" type="text" class="dfinput" id="userId" readonly/></li>
+                <li><label>用户名</label><input name="userName"  type="text" class="dfinput" id="userName"/></li>
+                <li><label>密码</label><input name="userPwd"  type="text" class="dfinput" id="userPwd"/></li>
+                <li><label>邮箱</label><input name="mailbox"  type="text" class="dfinput" id="mailbox"/></li>
+                <li><label>电话</label><input name="phone"  type="text" class="dfinput" id="phone"/></li>
+                <li><label>性别</label><input name="sex" value="0"   type="radio" class="" id="sex"/>男
+                    &nbsp;<input name="sex" value="1"  type="radio" class="" />女</li>
+                <li><label>年龄</label><input name="age" type="text" class="dfinput" id="age"/></li>
                 <li><a onclick="edituser()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;修改</a>
-                    <label>&nbsp;</label><a onclick="aaa()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;重置</a></li>
+                    <label>&nbsp;</label><a type="reset" class="mybtn" style="display: inline-block">&nbsp;&nbsp;重置</a></li>
                 <li><label id="error" style="display: none">错误信息</label></li>
             </ul>
-        </form>
         </div>
     </div>
     <script type="application/javascript">
+
+        window.onload = function loadUserData() {
+
+            $.post(
+                "http://localhost:8080/bookmanager/user/searchUserByUserId",
+                {},
+                function (data) {
+                    console.log(data);
+                    $("#userId").val(data.data.userId);
+                    $("#userName").val(data.data.userName);
+                    $("#userPwd").val(data.data.userPwd);
+                    $("#mailbox").val(data.data.mailbox);
+                    $("input[name='sex'][value="+data.data.sex+"]").attr("checked",true);
+                    $("#phone").val(data.data.phone);
+                    $("#age").val(data.data.age);
+                }
+            );
+        }
+
 
         function edituser(){
             console.log("进入");
@@ -104,7 +113,7 @@
                 success: function (result) {
                     if (result.result) {
                         alert("修改成功");
-                        window.location.href="loadUsers";
+                        window.location.href="person.html";
 
                     }
                     else {

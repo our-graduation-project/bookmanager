@@ -52,10 +52,15 @@ $(document).ready(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-        <li class="click"><a href="manageradd.html"><img src="../../static/mydist/images/t01.png" th:src="@{mydist/images/t01.png}" />添加</a></li>
-        <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{mydist/images/t02.png}" /></span>修改</li>
-        <li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{mydist/images/t03.png}" /></span>删除</li>
-        <li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{mydist/images/t04.png}" /></span>统计</li>
+
+            <form th:action="@{tosearchmanagerByName}" method="post">
+                <li><label>管理员名</label><input  th:value="${managerName}" name="managerName" placeholder="输入管理员名称" type="text" class="dfinput" /></li>
+                <li><input name="" type="submit" class="btn" value="搜索"/></li>
+            </form>
+<!--        <li class="click"><a href="manageradd.html"><img src="../../static/mydist/images/t01.png" th:src="@{mydist/images/t01.png}" />添加</a></li>-->
+<!--        <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{mydist/images/t02.png}" /></span>修改</li>-->
+<!--        <li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{mydist/images/t03.png}" /></span>删除</li>-->
+<!--        <li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{mydist/images/t04.png}" /></span>统计</li>-->
         </ul>
         
         

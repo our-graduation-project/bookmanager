@@ -52,7 +52,7 @@ $(document).ready(function(){
 
             <ul class="toolbar">
 
-               <form th:action="@{/tosearchuserByName}" method="post">
+               <form th:action="@{tosearchuserByName}" method="post">
                    <li><label>用户名</label><input  th:value="${userName}" name="userName" placeholder="输入用户名称" type="text" class="dfinput" /></li>
                    <li><input name="" type="submit" class="btn" value="搜索"/></li>
                </form>
@@ -61,7 +61,7 @@ $(document).ready(function(){
                <!--<li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{/mydist/images/t04.png}"/></span>统计</li>-->
             </ul>
             <ul class="toolbar1">
-                <li class="click"><a th:href="@{/touseradd}"><img src="../../static/mydist/images/t01.png" th:src="@{/mydist/images/t01.png}"/>添加</a></li>
+                <li class="click"><a th:href="@{touseradd}"><img src="../../static/mydist/images/t01.png" th:src="@{/mydist/images/t01.png}"/>添加</a></li>
                 <li><span><img src="../../static/mydist/images/t05.png" th:src="@{/mydist/images/t05.png}"/></span>设置</li>
             </ul>
         </div>
@@ -101,13 +101,13 @@ $(document).ready(function(){
         <div class="pagin">
             <div class="message">共<i class="blue" th:text="${pageInfo.getTotal()}"></i>条记录，当前显示第&nbsp;<i class="blue" th:text="${pageInfo.getPageNum()}">2</i>页</div>
             <ul class="paginList">
-                <li class="paginItem"><a th:href="@{/loadUsers(page=${pageInfo.prePage})}"><span class="pagepre"></span></a></li>
-                <li class="paginItem"><a href="javascript:;" th:href="@{/loadUsers(page=${pageInfo.getFirstPage()},pageSize=${pageInfo.getPageSize()})}">首页</a></li>
-                <li class="paginItem current"><a  th:each="num : ${pageInfo.getNavigatepageNums()}" th:text="${num}" th:href="@{/loadUsers(page=${num},pageSize=${pageInfo.getPageSize()})}">2</a></li>
+                <li class="paginItem"><a th:href="@{loadUsers(page=${pageInfo.prePage})}"><span class="pagepre"></span></a></li>
+                <li class="paginItem"><a href="javascript:;" th:href="@{loadUsers(page=${pageInfo.getFirstPage()},pageSize=${pageInfo.getPageSize()})}">首页</a></li>
+                <li class="paginItem current"><a  th:each="num : ${pageInfo.getNavigatepageNums()}" th:text="${num}" th:href="@{loadUsers(page=${num},pageSize=${pageInfo.getPageSize()})}">2</a></li>
 
                 <!--            <li class="paginItem more"><a href="javascript:;">...</a></li>-->
-                <li class="paginItem"><a href="javascript:;" th:href="@{/loadUsers(page=${pageInfo.getLastPage()},pageSize=${pageInfo.getPageSize()})}">尾页</a></li>
-                <li class="paginItem"><a th:href="@{/loadUsers(page=${pageInfo.getNextPage()})}"><span class="pagenxt"></span></a></li>
+                <li class="paginItem"><a href="javascript:;" th:href="@{loadUsers(page=${pageInfo.getLastPage()},pageSize=${pageInfo.getPageSize()})}">尾页</a></li>
+                <li class="paginItem"><a th:href="@{loadUsers(page=${pageInfo.getNextPage()})}"><span class="pagenxt"></span></a></li>
             </ul>
         </div>
 
