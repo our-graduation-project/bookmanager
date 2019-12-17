@@ -53,10 +53,14 @@ $(document).ready(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-        <li class="click"><a href="booktypeadd.html"><img src="../../static/mydist/images/t01.png" th:src="@{mydist/images/t01.png}" />添加</a></li>
-        <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{mydist/images/t02.png}" /></span>修改</li>
-        <li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{mydist/images/t03.png}" /></span>删除</li>
-        <li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{mydist/images/t04.png}" /></span>统计</li>
+            <form th:action="@{tosearchbooktypeByName}" method="post">
+                <li><label>图书类型名</label><input  th:value="${typeName}" name="typeName" placeholder="输入图书类型名称" type="text" class="dfinput" /></li>
+                <li><input name="" type="submit" class="btn" value="搜索"/></li>
+            </form>
+<!--        <li class="click"><a href="booktypeadd.html"><img src="../../static/mydist/images/t01.png" th:src="@{mydist/images/t01.png}" />添加</a></li>-->
+<!--        <li class="click"><span><img src="../../static/mydist/images/t02.png" th:src="@{mydist/images/t02.png}" /></span>修改</li>-->
+<!--        <li class="click"><span><img src="../../static/mydist/images/t03.png" th:src="@{mydist/images/t03.png}" /></span>删除</li>-->
+<!--        <li class="click"><span><img src="../../static/mydist/images/t04.png" th:src="@{mydist/images/t04.png}" /></span>统计</li>-->
         </ul>
         
         
