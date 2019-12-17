@@ -5,7 +5,9 @@
 <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
 <link href="../../static/mydist/css/style.css" rel="stylesheet" th:href="@{mydist/css/style.css}" type="text/css" />
 <script type="text/javascript" src="../../static/mydist/js/jquery.js" th:src="@{mydist/js/jquery.js}"></script>
-
+    <script type="text/javascript" src="../../static/plugins/ajaxupload/ajaxupload.js" th:src="@{plugins/ajaxupload/ajaxupload.js}"></script>
+<link href="../../static/plugins/bootstrap/css/bootstrap.min.css" th:src="@{plugins/bootstrap/css/bootstrap.min.css}"/>
+    <script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   $(".click").click(function(){
@@ -115,7 +117,22 @@ $(document).ready(function(){
                 <label id="error" style="display: none">错误信息</label>
             </div>
 
-        </div>
+              <div class="tipinfo">
+                  <br/>文件上传
+                  <div>
+                      <input type="hidden" id="picturePath" value="">
+                      <div class="form-group">
+                          <div class="col-sm-10">
+                              <img id="img" src="/upload/111.jpg">
+                          </div>
+                      </div>
+                      <div class="col-sm-10">
+                          <a class="btn btn-info" id="upload" onclick="uploadFile()"><i
+                                  class="fa fa-picture-o"></i>&nbsp;上传文件</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
         <div class="tipbtn" >
             <a onclick="addLabel()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;确定</a>
@@ -127,6 +144,35 @@ $(document).ready(function(){
     </div>
     </div>
     <script type="text/javascript">
+    $(function () {
+        new AjaxUpload("#upload",{
+            action: "images",
+            name: 'file',
+            autoSubmit: true,
+            responseType: "json",
+            onSubmit: function (file, extension) {
+                if (!(extension && /^(jpg|jpeg|png|gif)$/.test(extension.toLowerCase()))) {
+                    alert('只支持jpg、png、gif格式的图片！', {
+                        icon: "error",
+                    });
+                    return false;
+                }
+            },
+            onComplete: function (file, r) {
+                if (r.result) {
+                    alert("上传成功");
+                    //$("#img").attr('src',r.date);
+                    $("#picturePath").val(r.data);
+                    $("#img").attr("src", r.data);
+                    $("#img").attr("style", "width: 100px;height: 100px;display:block;");
+                    return false;
+                } else {
+                    alert(r.message);
+                }
+            }
+        });
+    })
+
 	$('.tablelist tbody tr:odd').addClass('odd');
 
 	function addLabel() {
