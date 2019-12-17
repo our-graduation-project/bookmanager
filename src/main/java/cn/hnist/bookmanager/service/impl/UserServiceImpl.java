@@ -109,4 +109,32 @@ public class UserServiceImpl implements UserService {
         PageInfo pageInfo=new PageInfo(users,3);
         return pageInfo;
     }
+
+    /**
+     * 根据邮箱查询用户
+     * @param mailbox
+     * @return
+     */
+    @Override
+    public User searchUserBymailbox(String mailbox) {
+        UserExample example = new UserExample();
+        example.or().andMailboxEqualTo(mailbox);
+        List<User> users = mapper.selectByExample(example);
+        if(users == null ||users.size() == 1){
+            return users.get(0);
+        }
+        return null;
+    }
+
+    /**
+     * 根据邮箱修改密码
+     * @param user
+     * @return
+     */
+    @Override
+    public int updatePasswordByMailbox(User user) {
+        UserExample userExample = new UserExample();
+        userExample.or().andMailboxEqualTo(user.getMailbox());
+        return  mapper.updateByExampleSelective(user, userExample);
+    }
 }

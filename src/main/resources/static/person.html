@@ -283,5 +283,40 @@
 	<!-- //footer -->    
 	
     <script src="dist/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		window.onload = function loadBookData() {
+
+			$.post(
+					"http://localhost:8080/bookmanager/user/searchUserByUserId",
+					{},
+					function (data) {
+						console.log(data);
+						var ul_item = $("#userList");
+						ul_item.empty();
+
+						var sex ;
+						if(data.data.sex === 0){
+						    sex = "男"
+                        }else if(data.data.sex === 1){
+						    sex = "女"
+                        }
+						// for (var i = 0; i < data.data.length; i++) {
+							var li_item = "<ul>" +
+									" <li> <label>用户编号：</label><span>" + data.data.userId + "</span></li>" +
+									" <li> <label>用户名：</label><span>" + data.data.userName+ "</span></li>" +
+									" <li> <label>邮箱：</label><span>" + data.data.mailbox + "</span></li>" +
+									" <li> <label>电话：</label><span>" + data.data.phone + "</span></li>" +
+									" <li> <label>性别：</label><span>" + sex +"</span></li> " +
+									" <li> <label>年龄：</label><span>" + data.data.age + "</span></li> " +
+									" <li> <a href='userEdit.html' >修改</a></li>"+
+									"</ul>";
+							var sex = " <li> <label>性别：</label><span>" + (data.data.sex === 0)+(data.data.sex === 1)+"</span></li> "
+						ul_item.append(li_item);
+						// }
+					}
+			);
+		}
+
+	</script>
 </body>
 </html>

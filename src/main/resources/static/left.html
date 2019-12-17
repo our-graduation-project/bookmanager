@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="nav">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../../static/mydist/css/style.css" rel="stylesheet" type="text/css" th:href="@{mydist/css/style.css}" />
+<script language="JavaScript" src="../../static/mydist/js/jquery.js" th:src="@{mydist/js/jquery.js}"></script>
+
+<script type="text/javascript">
+$(function(){	
+	//导航切换
+	$(".menuson li").click(function(){
+		$(".menuson li.active").removeClass("active");
+		$(this).addClass("active");
+	});
+	
+	$('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('ul').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('ul').slideUp();
+		}else{
+			$(this).next('ul').slideDown();
+		}
+	});
+})	
+</script>
+
+
+</head>
+
+<body style="background:#f0f9fd;">
+	<div class="lefttop"><span></span>通讯录</div>
+    
+    <dl class="leftmenu">
+        
+    <dd>
+    <div class="title">
+    <span><img src="../../static/mydist/images/leftico01.png" th:src="@{mydist/images/leftico01.png}"  /></span>管理员管理
+    </div>
+    	<ul class="menuson">
+        <li class="active"><cite></cite><a href="../admin/index.html" target="rightFrame">首页模版</a><i></i></li>
+        <li><cite></cite><a href="../admin/managerlist.html" target="rightFrame">管理员列表</a><i></i></li>
+        <li><cite></cite><a href="../admin/managerlist.html" target="rightFrame">增加管理员</a><i></i></li>
+<!--        <li><cite></cite><a href="../admin/imglist.html" target="rightFrame">图片列表</a><i></i></li>-->
+<!--        <li><cite></cite><a href="../admin/imglist1.html" target="rightFrame">自定义</a><i></i></li>-->
+<!--        <li><cite></cite><a href="../admin/tab.html" target="rightFrame">Tab页</a><i></i></li>-->
+<!--        <li><cite></cite><a href="../admin/error.html" target="rightFrame">404页面</a><i></i></li>-->
+        </ul>    
+    </dd>
+        
+    
+    <dd>
+    <div class="title">
+    <span><img src="../../static/mydist/images/leftico02.png" th:src="@{mydist/images/leftico02.png}" /></span>读者管理
+    </div>
+    <ul class="menuson">
+        <li class="active"><cite></cite><a href="../admin/userlist.html" target="rightFrame">读者列表</a><i></i></li>
+    </ul>
+    </dd> 
+    
+    
+    <dd><div class="title"><span><img src="../../static/mydist/images/leftico03.png" th:src="@{mydist/images/leftico03.png}" /></span>书架管理</div>
+    <ul class="menuson">
+        <li class="active"><cite></cite><a href="../admin/bookshelflist.html" target="rightFrame">书架列表</a><i></i></li>
+        <li ><cite></cite><a href="../admin/bookshelflist.html" target="rightFrame">增加书架</a><i></i></li>
+    </ul>
+    </dd>  
+    
+    
+    <dd><div class="title"><span><img src="../../static/mydist/images/leftico04.png" th:src="@{mydist/images/leftico04.png}" /></span>图书管理</div>
+    <ul class="menuson">
+<!--        <li ><cite></cite><a href="../admin/booklist.html" target="rightFrame">图书列表</a><i></i></li>-->
+		<li ><cite></cite><a href="../admin/booktypelist.html" target="rightFrame">图书类别</a><i></i></li>
+        <li ><cite></cite><a href="../admin/booktypelist.html" target="rightFrame">标签列表</a><i></i></li>
+        <li ><cite></cite><a href="../admin/booktypelist.html" target="rightFrame">增加标签</a><i></i></li>
+    </ul>
+    </dd> 
+	  
+	  <dd><div class="title"><span><img src="../../static/mydist/images/leftico03.png" th:src="@{mydist/images/leftico03.png}" /></span>借还信息管理</div>
+	  <ul class="menuson">
+          <li class="active"><cite></cite><a href="../admin/borrowdetail.html" target="rightFrame">借阅列表</a><i></i></li>
+		  <li ><cite></cite><a href="../admin/reservelist.html" target="rightFrame">预约列表</a><i></i></li>
+		  <li ><cite></cite><a href="../admin/loselist.html" target="rightFrame">丢失列表</a><i></i></li>
+	  </ul>    
+	  </dd>  
+    
+	<dd><div class="title"><span><img src="../../static/mydist/images/leftico03.png" th:src="@{mydist/images/leftico03.png}"  /></span>公告管理</div>
+	<ul class="menuson">
+	   <li class="active"><cite></cite><a href="../admin/noticelist.html" target="rightFrame">公告列表</a><i></i></li>
+	   <li ><cite></cite><a href="../admin/noticelist.html" target="rightFrame">增加公告</a><i></i></li>
+	</ul>
+	</dd>  
+    </dl>
+</body>
+</th:block>
+</html>

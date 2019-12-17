@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户修改</title>
+<link href="mydist/css/style.css" rel="stylesheet" type="text/css" />
+<!-- js -->
+<script src="dist/js/jquery-2.2.3.min.js"></script>
+</head>
+
+<body>
+
+        <div class="place">
+            <span>位置：</span>
+            <ul class="placeul">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">用户编辑</a></li>
+            </ul>
+        </div>
+
+        <div class="formbody">
+        <div class="formtitle"><span>用户编辑</span></div>
+        <div id="userList" >
+            <ul class="forminfo">
+                <li><label>用户编号</label><input name="userId" type="text" class="dfinput" id="userId" readonly/></li>
+                <li><label>用户名</label><input name="userName"  type="text" class="dfinput" id="userName"/></li>
+                <li><label>密码</label><input name="userPwd"  type="text" class="dfinput" id="userPwd"/></li>
+                <li><label>邮箱</label><input name="mailbox"  type="text" class="dfinput" id="mailbox"/></li>
+                <li><label>电话</label><input name="phone"  type="text" class="dfinput" id="phone"/></li>
+                <li><label>性别</label><input name="sex" value="0"   type="radio" class="" id="sex"/>男
+                    &nbsp;<input name="sex" value="1"  type="radio" class="" />女</li>
+                <li><label>年龄</label><input name="age" type="text" class="dfinput" id="age"/></li>
+                <li><a onclick="edituser()" class="mybtn" style="display: inline-block">&nbsp;&nbsp;修改</a>
+                    <label>&nbsp;</label><a type="reset" class="mybtn" style="display: inline-block">&nbsp;&nbsp;重置</a></li>
+                <li><label id="error" style="display: none">错误信息</label></li>
+            </ul>
+        </div>
+    </div>
+    <script type="application/javascript">
+
+        window.onload = function loadUserData() {
+
+            $.post(
+                "http://localhost:8080/bookmanager/user/searchUserByUserId",
+                {},
+                function (data) {
+                    console.log(data);
+                    $("#userId").val(data.data.userId);
+                    $("#userName").val(data.data.userName);
+                    $("#userPwd").val(data.data.userPwd);
+                    $("#mailbox").val(data.data.mailbox);
+                    $("input[name='sex'][value="+data.data.sex+"]").attr("checked",true);
+                    $("#phone").val(data.data.phone);
+                    $("#age").val(data.data.age);
+                }
+            );
+        }
+
+
+        function edituser(){
+            console.log("进入");
+            var userId = $("#userId").val();
+            var userName = $("#userName").val();
+            var userPwd = $("#userPwd").val();
+            var mailbox = $("#mailbox").val();
+            var phone = $("#phone").val();
+            var sex = $('input:radio[name="sex"]:checked').val();
+            var age = $("#age").val();
+            console.log(userId + "--" + userName+ "--"
+                +userPwd+"--"+mailbox + "--" +phone+ "--" +sex+"--"+age);
+            if (userName == null || userName == undefined || userName.trim() == "") {
+                $("#error").css("display","block");
+                $("#error").html("用户名称不能为空");
+                return false;
+            }
+            if (userPwd == null || userPwd == undefined || userPwd.trim() == "") {
+                $("#error").css("display","block");
+                $("#error").html("密码不能为空");
+                return false;
+            }
+
+            if (mailbox == null || mailbox == undefined || mailbox.trim() == "") {
+                $("#error").css("display","block");
+                $("#error").html("邮箱不能为空");
+                return false;
+            }
+            if (phone == null || phone == undefined || phone.trim() == "") {
+                $("#error").css("display","block");
+                $("#error").html("电话不能为空");
+                return false;
+            }
+            if (age == null || age== undefined || age.trim() == "") {
+                $("#error").css("display","block");
+                $("#error").html("年龄不能为空");
+                return false;
+            }
+            if (sex == null || sex == undefined || sex.trim() == "") {
+                $("#error").css("display","block");
+                $("#error").html("性别不能为空");
+                return false;
+            }
+            var data = {"userId" : userId,"userName" : userName,"mailbox" : mailbox,"userPwd" : userPwd,
+                "phone" : phone,"sex" : sex,"age" : age};
+            $.ajax({
+                //请求方式
+                type : "POST",
+                //请求的媒体类型
+                contentType: "application/json;charset=UTF-8",
+                //请求地址
+                url : "user/admin/edituser",
+                //数据，json字符串
+                data : JSON.stringify(data),
+                success: function (result) {
+                    if (result.result) {
+                        alert("修改成功");
+                        window.location.href="person.html";
+
+                    }
+                    else {
+                        console.log(result.message+"--"+result.result);
+                        alert("保存失败");
+                    }
+                },
+                error: function () {
+                    alert("操作失败");
+                }
+
+            })
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

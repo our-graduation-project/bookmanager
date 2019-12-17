@@ -55,4 +55,19 @@ public interface UserService {
      */
     PageInfo<User> searchUsers(int page, int pageSize);
 
+    /**
+     * 根据邮箱查询用户
+     * @param mailbox
+     * @return
+     */
+    User searchUserBymailbox(String mailbox);
+
+
+    /**
+     * 通过邮箱查询用户
+     * @param
+     * @param user
+     * @return
+     */
+    int updatePasswordByMailbox(User user);
 }
